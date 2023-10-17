@@ -6,13 +6,12 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:30:39 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/17 12:46:11 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/10/17 12:58:49 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include <locale> 
+
 using namespace std;
 
 int	main(int ac, char **av)
@@ -22,16 +21,16 @@ int	main(int ac, char **av)
 		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *"  << endl;
 	if (ac > 1)
 	{
-		for(int i = 1; i != ac; i++)
+		for(int row = 1; row != ac; row++)
 		{
-			for (int j = 0; av[i][j]; j++)
+			for (int i = 0; av[row][i]; i++)
 			{
-				letter = av[i][j];
+				letter = av[row][i];
 				if (letter >= 97 && letter <= 122)
-					letter -= 32;
+					letter = std::toupper(av[row][i]);	
 				std::cout << letter;
 			}
-			std::cout << ' ';
+
 		}	
 	}
 	std::cout << std::endl;
