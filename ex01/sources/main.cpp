@@ -1,14 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 13:06:47 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/23 14:34:21 by lciullo          ###   ########.fr       */
+/*   Created: 2023/10/23 14:28:41 by lciullo           #+#    #+#             */
+/*   Updated: 2023/10/23 15:05:19 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
+int	main(void)
+{
+	Contact contact;
+	
+	contact.one = 42;
+	return (0);
+}

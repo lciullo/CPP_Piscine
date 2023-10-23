@@ -6,11 +6,11 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 12:59:38 by lciullo           #+#    #+#              #
-#    Updated: 2023/10/17 13:23:47 by lciullo          ###   ########.fr        #
+#    Updated: 2023/10/23 14:37:37 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# --- Variables ---
+# ====================== VARIABLES ====================== #
 
 NAME		=	phonebook
 
@@ -25,35 +25,36 @@ DIR_INC		=	includes/
 DIR_OBJS	=	.objs/
 
 
-# --- Paths ---
+# ====================== PATHS ====================== #
 
-SRCS		=	${DIR_SRCS}PhoneBook.cpp
+SRCS		=	${DIR_SRCS}main.cpp \
+				${DIR_SRCS}Contact.cpp \
+				${DIR_SRCS}PhoneBook.cpp
 
-INC			=	${DIR_INC}PhoneBook.hpp
+INC			=	${DIR_INC}PhoneBook.hpp \
+				${DIR_INC}Contact.hpp
 
 OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
 
-# --- Flags ---
+# ====================== FLAGS ====================== #
 
 CPP			=	c++ -std=c++98
 
 CFLAGS		=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
 
-# --- Rules ---
-
-.PHONY :		all clean fclean re watermark
+# ====================== RULES ====================== #
 
 all :	 		${NAME}
 
 %.o: %.cpp		
-				$(CPP) $(CFLAGS) -c $< -o $@
+				${CPP} ${CFLAGS} -c $< -o $@
 
 ${DIR_OBJS}%.o: %.cpp
 				@mkdir -p ${shell dirname $@}
 				${CPP} ${CFLAGS} -c $< -o $@
 
 ${NAME}:		${OBJS}
-				$(CPP) $(CFLAGS) $(OBJS) -o $(NAME)
+				${CPP} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 				${RM} ${OBJS} ${DIR_OBJS}
@@ -62,3 +63,5 @@ fclean:			clean
 				${RM} ${NAME}
 
 re:				fclean all
+
+.PHONY :		all clean fclean re

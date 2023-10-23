@@ -6,19 +6,17 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:30:39 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/17 12:58:49 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/10/19 14:37:29 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-using namespace std;
-
 int	main(int ac, char **av)
 {
 	char	letter;
 	if (ac == 1)
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *"  << endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	if (ac > 1)
 	{
 		for(int row = 1; row != ac; row++)
@@ -30,7 +28,6 @@ int	main(int ac, char **av)
 					letter = std::toupper(av[row][i]);	
 				std::cout << letter;
 			}
-
 		}	
 	}
 	std::cout << std::endl;
