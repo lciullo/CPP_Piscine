@@ -6,16 +6,18 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:28:41 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/23 15:05:19 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/10/25 11:03:52 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "../includes/Contact.hpp"
+#include "../includes/PhoneBook.hpp"
 
 int	main(void)
 {
-	Contact contact;
+	Contact 	contact;
+	PhoneBook	PhoneBook;
 	
-	contact.one = 42;
+	
 	return (0);
 }
