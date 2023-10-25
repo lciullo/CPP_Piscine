@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:23:52 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/25 14:41:11 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/10/25 20:44:15 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ Contact::~Contact(void)
 
 Contact Contact::CreatContact(void)
 {
-	std::cout << "Firstname : " ;
-	std::cin >> FirstName;
-	std::cout << "Lastname : " ;
-	std::cin >> LastName;
-	std::cout << "NickName : " ;
-	std::cin >> NickName;
-	std::cout << "DarkestSecret : " ;
-	std::cin >> DarkestSecret;
-	std::cout << "PhoneNumber :" ;
-	std::cin >> PhoneNumber;
+	std::cout << "Firstname : ";
+	std::getline(std::cin, FirstName);
+	std::cout << "Lastname : ";
+	std::getline(std::cin, LastName);
+	std::cout << "NickName : ";
+	std::getline(std::cin, NickName);
+	std::cout << "DarkestSecret : ";
+	std::getline(std::cin, DarkestSecret);
+	std::cout << "PhoneNumber : "m;
+	std::getline(std::cin, PhoneNumber);
 	return (*this);
 }
 
