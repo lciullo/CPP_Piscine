@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:23:52 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/26 15:34:25 by lisa             ###   ########.fr       */
+/*   Updated: 2023/10/26 16:17:58 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ std::string	Contact::ParseContact(std::string input, int (*function)(int))
 			std::cout << "Darkest secret : ";
 		}
 	}
+	if (res.length() >= 10)
+		res = (res.substr(0, 9) + '.');
 	return (res);
 }
 
