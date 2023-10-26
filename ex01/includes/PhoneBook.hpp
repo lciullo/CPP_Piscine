@@ -6,16 +6,16 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:07:46 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/25 20:40:03 by lisa             ###   ########.fr       */
+/*   Updated: 2023/10/26 16:07:53 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-
+#include <cctype>
+#include <iomanip>
 #include "Contact.hpp"
-
 class PhoneBook
 {
 	private:
