@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:06:47 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/31 11:58:00 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/10/31 12:46:36 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ void PhoneBook::SearchContact(void)
 		std::cout << std::endl;
 		if (std::cin.eof())
 			break ;
-		if ((index[0] >= '1' && index[0] <= '7') && index.length() == 1)
+		if ((index[0] >= '1' && index[0] <= '8') && index.length() == 1)
 		{
 			if (_ContactArray[(index[0] - 1) - 48].GetFirstName().length() == 0)
-				std::cout << "The contact choosen isn't register" << std::endl;
+				std::cout << "The contact chosen isn't register" << std::endl;
 			else
 				DisplayContact(index);
 			break ;
