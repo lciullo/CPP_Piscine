@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:23:52 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/26 16:17:58 by lisa             ###   ########.fr       */
+/*   Updated: 2023/10/31 11:56:13 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,31 @@ Contact::~Contact(void)
 
 Contact Contact::SetContact(void)
 {
-	std::string input;
-
-	std::cout << "First name : ";
-	_FirstName = ParseContact("First name", &isalpha);
-	std::cout << "Last name : ";
-	_LastName = ParseContact("Last name", &isalpha);
-	std::cout << "Nick name : ";
-	_NickName = ParseContact("Nick name", &isalpha);
-	std::cout << "Phone number : ";
-	_PhoneNumber = ParseContact("Phone number", &isdigit);
-	std::cout << "Darkest secret : ";
-	_DarkestSecret = ParseContact("Darkest secret", &isprint);
+	if (std::cin)
+	{
+		std::cout << "First name : ";
+		_FirstName = ParseContact("First name", &isalpha);
+	}
+	if (std::cin)
+	{
+		std::cout << "Last name : ";
+		_LastName = ParseContact("Last name", &isalpha);
+	}
+	if (std::cin)
+	{
+		std::cout << "Nick name : ";
+		_NickName = ParseContact("Nick name", &isalpha);
+	}
+	if (std::cin)
+	{
+		std::cout << "Phone number : ";
+		_PhoneNumber = ParseContact("Phone number", &isdigit);
+	}
+	if (std::cin)
+	{
+		std::cout << "Darkest secret : ";
+		_DarkestSecret = ParseContact("Darkest secret", &isprint);
+	}
 	return (*this);
 }
 
@@ -65,6 +78,11 @@ std::string	Contact::ParseContact(std::string input, int (*function)(int))
 			std::cout << "Error : only alpha characters" << std::endl;
 			std::cout << "Last name : ";
 		}
+		else if (input == "Nick name")
+		{
+			std::cout << "Error : only alpha characters" << std::endl;
+			std::cout << "Nick name : ";
+		}
 		else if (input == "Phone number")
 		{	
 			std::cout << "Error : only digit characters" << std::endl;
@@ -76,8 +94,6 @@ std::string	Contact::ParseContact(std::string input, int (*function)(int))
 			std::cout << "Darkest secret : ";
 		}
 	}
-	if (res.length() >= 10)
-		res = (res.substr(0, 9) + '.');
 	return (res);
 }
 

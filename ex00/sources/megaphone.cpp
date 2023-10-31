@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 09:30:39 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/26 15:27:12 by lisa             ###   ########.fr       */
+/*   Updated: 2023/10/31 09:27:58 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	main(int ac, char **av)
 			for (int i = 0; av[row][i]; i++)
 			{
 				letter = av[row][i];
-				if (letter >= 97 && letter <= 122)
-					letter = std::toupper(av[row][i]);	
+				letter = std::toupper(av[row][i]);	
 				std::cout << letter;
 			}
 		}	

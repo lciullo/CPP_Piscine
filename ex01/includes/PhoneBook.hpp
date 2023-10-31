@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:07:46 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/26 16:11:03 by lisa             ###   ########.fr       */
+/*   Updated: 2023/10/31 09:54:52 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 #include <iostream>
 #include <cctype>
 #include <iomanip>
 #include "Contact.hpp"
+
 class PhoneBook
 {
 	private:
@@ -32,3 +33,5 @@ class PhoneBook
 		void DisplayAllPhoneBook(void);
 		void DisplayContact(std::string index);
 };
+
+#endif 

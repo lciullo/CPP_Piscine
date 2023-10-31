@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:06:47 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/26 16:06:57 by lisa             ###   ########.fr       */
+/*   Updated: 2023/10/31 11:58:00 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ void PhoneBook::AddContact(void)
 
 void PhoneBook::DisplayAllPhoneBook(void)
 {
+	std::string FirstName;
+	std::string LastName;
+	std::string NickName;
 	std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << 
 	"First name" << "|" << std::setw(10) << "Last name" << "|" << std::setw(10) 
-	<< "_NickName" << "|";
+	<< "NickName" << "|";
 	std::cout << std::endl;
 	for (int i = 0; i <= 43; i++)
 			std::cout << "-";
@@ -56,9 +59,18 @@ void PhoneBook::DisplayAllPhoneBook(void)
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << std::setw(10) << (i + 1) << "|";
-		std::cout << std::setw(10) << _ContactArray[i].GetFirstName() << "|";
-		std::cout << std::setw(10) << _ContactArray[i].GetLastName() << "|";
-		std::cout << std::setw(10) << _ContactArray[i].GetNickName() << "|";
+		FirstName = _ContactArray[i].GetFirstName();
+		if (FirstName.length() >= 10)
+			FirstName = (FirstName.substr(0, 9) + '.');
+		LastName = _ContactArray[i].GetLastName();
+		if (LastName.length() >= 10)
+			LastName = (LastName.substr(0, 9) + '.');
+		NickName = _ContactArray[i].GetNickName();
+		if (NickName.length() >= 10)
+			NickName = (NickName.substr(0, 9) + '.');
+		std::cout << std::setw(10) << FirstName << "|";
+		std::cout << std::setw(10) << LastName << "|";
+		std::cout << std::setw(10) << NickName << "|";
 		std::cout << std::endl; 
 	}
 }
@@ -70,7 +82,7 @@ void PhoneBook::DisplayContact(std::string index)
 	std::cout << std::setw(10) << "Nick name : " << _ContactArray[(index[0] - 1) - 48].GetNickName() << std::endl;
 	std::cout << std::setw(10) << "Phone number : " << _ContactArray[(index[0] - 1) - 48].GetPhoneNumber() << std::endl;
 	std::cout << std::setw(10) << "Darkest secret : " << _ContactArray[(index[0] - 1) - 48].GetDarkestSecret() << std::endl;
-	std::cout << std::endl; 	
+	std::cout << std::endl;
 }
 
 void PhoneBook::SearchContact(void)
@@ -90,9 +102,13 @@ void PhoneBook::SearchContact(void)
 			if (_ContactArray[(index[0] - 1) - 48].GetFirstName().length() == 0)
 				std::cout << "The contact choosen isn't register" << std::endl;
 			else
-				DisplayContact(index);	
+				DisplayContact(index);
+			break ;
 		}
 		else
+		{
 			std::cout << "Index is a digit between 1 from 8" << std::endl;
+			break ;
+		}
 	}
 }
