@@ -6,20 +6,11 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:43:01 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 23:23:52 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/02 23:26:43 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
-
-/*std::ifstream ifs("file");
-		unsigned int dst;
-		ifs >> dst;
-		std::cout << dst << " " << std::endl;
-		ifs.close();
-		std::ofstream ofs("test.out");
-		ofs << "test number two" << std::endl;
-		ofs.close();*/
 
 void SearchAndReplace(const char *filename, std::string to_find, std::string replace)
 {
