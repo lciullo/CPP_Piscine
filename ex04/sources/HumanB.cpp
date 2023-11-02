@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:07:58 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 15:32:37 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/02 15:12:56 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ HumanB::~HumanB(void)
 {
 	return ;
 }
-void	HumanB::setWeapon(Weapon &set_weapon)
+void	HumanB::setWeapon(Weapon set_weapon)
 {
 	this->_weapon = &set_weapon;
 }

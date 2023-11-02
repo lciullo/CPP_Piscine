@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:07:25 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 15:32:45 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/02 15:04:50 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanB
 			HumanB(std::string name);
 			~HumanB(void);
 			void attack(void);
-			void setWeapon(Weapon &set_weapon);    
+			void setWeapon(Weapon set_weapon);    
 };
 
 #endif 

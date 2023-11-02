@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:07:22 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 15:06:53 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/02 15:19:11 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Weapon
 			Weapon(std::string type);
 			~Weapon(void);
 			std::string const & getType(void);
-			void setType(std::string const & new_type);     
+			void setType(std::string const &_type);     
 };
 
 #endif 

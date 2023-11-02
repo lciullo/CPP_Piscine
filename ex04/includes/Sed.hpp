@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 13:07:25 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 15:32:45 by lciullo          ###   ########.fr       */
+/*   Created: 2023/11/02 13:07:22 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/02 15:25:00 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#ifndef SED_HPP
+#define SED_HPP
 
-#include "Weapon.hpp"
+#include <iostream>
 
-class Weapon;
+#include "HumanB.hpp"
 
-class HumanB
+#include "HumanA.hpp"
+
+class Weapon
 {
 	private:
-			std::string _name;
-			Weapon		*_weapon;
+			std::string _type;
 	public:
-			HumanB(std::string name);
-			~HumanB(void);
-			void attack(void);
-			void setWeapon(Weapon &set_weapon);    
+			Weapon(std::string type);
+			~Weapon(void);
+			std::string const & getType(void);
+			void setType(std::string const &_type);     
 };
 
 #endif 
