@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:43:01 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 17:57:08 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/02 23:23:52 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,33 @@
 		ofs << "test number two" << std::endl;
 		ofs.close();*/
 
-void SearchAndReplace(const char *filename, std::string s1, std::string s2)
+void SearchAndReplace(const char *filename, std::string to_find, std::string replace)
 {
 	std::ifstream	ifs;
 	std::ofstream	ofs;
-	unsigned int input = 0;
-	unsigned int output = 0;
-	std::string buffer;
-	(void)s1;
-	(void)s2;
-	(void)output;
+	std::string		line;
+	std::string		outfile = filename;
+	(void)to_find;
+	(void)replace;
 	ifs.open(filename, std::ifstream::in);
-	ifs >> input;
 	if (ifs.is_open() == false)
 	{
 		std::cout << filename << " could not be opened" << std::endl;
 		return ;
 	}
-	ofs.open
-	/*while (getline(input, buffer))
+	ofs.open((outfile.substr(0, outfile.find_last_of('.')) += ".replace").c_str(), std::ifstream::out);
+	if (ofs.is_open() == false)
 	{
-		std::cout << "line = " << buffer << std::endl;
-	}*/
+		std::cout <<  " Outfile could not be opened" << std::endl;
+		return ;
+	}
+	while (getline(ifs, line))
+	{
+		if (!std::cin.eof())
+			ofs << line << std::endl;
+	}
+	ifs.close();
+	ofs.close();
 }
 
 int main(int ac, char **av)
@@ -50,8 +55,7 @@ int main(int ac, char **av)
 	if (ac != 4)
 		std::cout << "Wrong number of arguments" << std::endl;
 	else
-	{	
-		const char *filename = av[1];
+	{
 		std::string check = av[1];
 		std::string s1 = av[2];
 		std::string s2 = av[3];
@@ -60,7 +64,7 @@ int main(int ac, char **av)
 			std::cout << "Error don't pu empty argument" << std::endl; 
 			return (2);
 		}
-		SearchAndReplace(filename, s1, s2);
+		SearchAndReplace(av[1], s1, s2);
 	}
 	 
 	return (0);
