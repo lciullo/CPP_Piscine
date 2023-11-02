@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:07:22 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 22:43:14 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/03 00:02:22 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <fstream>
 
 #include <string>
+
+#include <iomanip>
 
 void SearchAndReplace(const char *filename, std::string s1, std::string s2);
 

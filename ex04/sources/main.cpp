@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:43:01 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 23:28:18 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/03 00:03:27 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void SearchAndReplace(const char *filename, std::string to_find, std::string rep
 	std::ofstream	ofs;
 	std::string		line;
 	std::string		outfile = filename;
-	(void)to_find;
-	(void)replace;
+	size_t			pos = 0;
 	ifs.open(filename, std::ifstream::in);
 	if (ifs.is_open() == false)
 	{
@@ -32,10 +31,13 @@ void SearchAndReplace(const char *filename, std::string to_find, std::string rep
 		std::cout << outfile <<  " : could not be opened" << std::endl;
 		return ;
 	}
-	while (getline(ifs, line))
+	while (true)
 	{
-		if (!std::cin.eof())
-			ofs << line << std::endl;
+		std::getline(ifs, line);
+		while (true)
+		{
+			
+		}
 	}
 	ifs.close();
 	ofs.close();
