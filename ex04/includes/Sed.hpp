@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:07:22 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 15:25:00 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/02 17:48:54 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,10 @@
 
 #include <iostream>
 
-#include "HumanB.hpp"
+#include <fstream>
 
-#include "HumanA.hpp"
+#include <string>
 
-class Weapon
-{
-	private:
-			std::string _type;
-	public:
-			Weapon(std::string type);
-			~Weapon(void);
-			std::string const & getType(void);
-			void setType(std::string const &_type);     
-};
+void SearchAndReplace(const char *filename, std::string s1, std::string s2);
 
 #endif 

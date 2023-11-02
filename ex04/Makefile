@@ -6,13 +6,13 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 12:41:46 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/02 12:41:49 by lciullo          ###   ########.fr        #
+#    Updated: 2023/11/02 15:39:32 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ====================== VARIABLES ====================== #
 
-NAME		=	human
+NAME		=	sed
 
 RM			=	rm -rf
 
@@ -26,14 +26,9 @@ DIR_OBJS	=	.objs/
 
 # ====================== PATHS ====================== #
 
-SRCS		=	${DIR_SRCS}main.cpp \
-				${DIR_SRCS}Weapon.cpp \
-				${DIR_SRCS}HumanA.cpp \
-				${DIR_SRCS}HumanB.cpp 
+SRCS		=	${DIR_SRCS}main.cpp 
 
-INC			=	${DIR_INC}Weapon.hpp \
-				${DIR_INC}HumanA.hpp \
-				${DIR_INC}HumanB.hpp 
+INC			=	${DIR_INC}Sed.hpp 
 
 OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
 
