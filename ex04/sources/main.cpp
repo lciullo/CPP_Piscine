@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:43:01 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/03 00:03:27 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/03 12:34:39 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-void SearchAndReplace(const char *filename, std::string to_find, std::string replace)
+void SearchAndReplace(const char *filename, std::string to_find, std::string to_replace)
 {
 	std::ifstream	ifs;
 	std::ofstream	ofs;
-	std::string		line;
 	std::string		outfile = filename;
+	std::string		line;
+	std::string 	start;
+	std::string		end;
 	size_t			pos = 0;
 	ifs.open(filename, std::ifstream::in);
 	if (ifs.is_open() == false)
@@ -36,8 +38,23 @@ void SearchAndReplace(const char *filename, std::string to_find, std::string rep
 		std::getline(ifs, line);
 		while (true)
 		{
-			
+			pos = line.find(to_find);
+			if (pos != std::string::npos)
+			{
+				start = line.substr(0, pos);
+				end = line.substr(pos + to_find.length(), line.length() - (pos + to_find.length()));
+				line = end;
+				ofs << start + to_replace;
+			}
+			else
+			{
+				ofs << line;
+				break ;
+			}
 		}
+		ofs << std::endl;
+		if (ifs.eof())
+			break ;
 	}
 	ifs.close();
 	ofs.close();
