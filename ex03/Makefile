@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
+#    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 12:41:46 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/02 12:41:49 by lciullo          ###   ########.fr        #
+#    Updated: 2023/11/04 21:28:07 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,10 +47,7 @@ CFLAGS		=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
 
 all :	 		${NAME}
 
-%.o: %.cpp		
-				${CPP} ${CFLAGS} -c $< -o $@
-
-${DIR_OBJS}%.o: %.cpp
+${DIR_OBJS}%.o: %.cpp ${INC}
 				@mkdir -p ${shell dirname $@}
 				${CPP} ${CFLAGS} -c $< -o $@
 

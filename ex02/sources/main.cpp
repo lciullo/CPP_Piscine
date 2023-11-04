@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:57:47 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 13:45:05 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/04 23:18:37 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	std::string Zombie = "Molly";
+	std::string Zombie = "HI THIS IS BRAIN";
 	std::string* stringPTR = &Zombie;
 	std::string& stringREF = Zombie;
 	std::cout << std::endl;
