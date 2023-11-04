@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:26:38 by lciullo           #+#    #+#             */
-/*   Updated: 2023/10/31 15:01:42 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/04 13:00:14 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Zombie
 			void SetName(std::string name);           
 };
 
-Zombie* newZombie( std::string name);
+Zombie* newZombie(std::string name);
 
-void randomChump( std::string name);
+void randomChump(std::string name);
 
 #endif 

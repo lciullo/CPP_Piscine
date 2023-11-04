@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:26:38 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/02 11:41:15 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/04 13:10:51 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 #include <iostream>
 
-class Zombie
-{
+class Zombie {
 	private:
 			std::string _name;
 	public:
@@ -26,6 +25,6 @@ class Zombie
 			void SetName(std::string name);           
 };
 
-Zombie* zombieHorde( int N, std::string name );
+Zombie* zombieHorde(int N, std::string name );
 
 #endif 
