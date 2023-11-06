@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 09:48:57 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/06 13:23:15 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/06 21:39:30 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed::Fixed(void)
 {
-	this->_StockFloat = 0;
+	this->_FixedPoint = 0;
 	std::cout << "Default constructor called" << std::endl;
 	return ;
 }
@@ -29,4 +29,23 @@ Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 	return ;
+}
+
+void Fixed::setRawBits(int const raw)
+{
+	this->_FixedPoint = raw;
+	return ;
+}
+
+Fixed &Fixed::operator=(const Fixed &Object)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->setRawBits(Object.getRawBits());
+	return (*this);
+}
+
+int Fixed::getRawBits(void) const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->_FixedPoint);
 }
