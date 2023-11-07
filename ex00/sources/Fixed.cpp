@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 09:48:57 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/06 21:39:30 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/07 21:43:47 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ Fixed::Fixed(void)
 	return ;
 }
 
-Fixed::Fixed(const Fixed&)
+Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
 	return ;
 }
 

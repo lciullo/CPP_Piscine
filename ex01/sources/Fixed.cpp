@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:52:46 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/07 15:34:08 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/07 21:48:55 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,24 @@ Fixed::Fixed(void)
 	return ;
 }
 
-Fixed::Fixed(const Fixed&)
+Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
 	return ;
 }
 
 Fixed::Fixed(const int Nb)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_FixedPoint = Nb;
+	this->_FixedPoint = Nb << this->_NbBits;
 	
 }
 
 Fixed::Fixed(const float Nb)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_FixedPoint = Nb;
+	this->_FixedPoint = roundf(Nb * (1 << this->_NbBits));
 	
 }
 
@@ -58,7 +59,7 @@ int Fixed::getRawBits(void) const
 
 float Fixed::toFloat(void) const
 {
-	return (static_cast<float>(this->getRawBits()) / (1 << this->_NbBits));
+	return ((float)(this->getRawBits()) / (1 << this->_NbBits));
 }
 
 int Fixed::toInt(void) const
