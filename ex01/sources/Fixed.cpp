@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:52:46 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/07 14:57:54 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:26:40 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,22 @@ void Fixed::setRawBits(int const raw)
 	return ;
 }
 
+int Fixed::getRawBits(void) const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->_FixedPoint);
+}
+
+float Fixed::toFloat(void) const
+{
+	return (static_cast<float>(this->getRawBits()) / (1 << this->_NbBits));
+}
+
+int Fixed::toInt(void) const
+{
+	return (this->getRawBits() >> this->_NbBits);
+}
+
 Fixed &Fixed::operator=(const Fixed &Object)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -58,8 +74,8 @@ Fixed &Fixed::operator=(const Fixed &Object)
 	return (*this);
 }
 
-int Fixed::getRawBits(void) const
+std::ostream &operator<<(std::ostream &out, const Fixed &Object)
 {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_FixedPoint);
+	out << Object.toFloat();
+	return (out);
 }

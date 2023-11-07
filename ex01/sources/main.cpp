@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:59:28 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/07 14:59:37 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:07:22 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,8 @@ int main(void)
 	Fixed		a;
 	Fixed		b(10);
 	Fixed const c(42.42f);
+	Fixed const d(b);
+	
+	a = Fixed(1234.4321f);
 	return (0);
 }
