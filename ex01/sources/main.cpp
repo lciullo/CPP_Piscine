@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:59:28 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/07 09:00:23 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/07 14:59:37 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main(void)
 {
-	std::cout << "on compile" << std::endl; 
+	Fixed		a;
+	Fixed		b(10);
+	Fixed const c(42.42f);
 	return (0);
 }
