@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:52:46 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/07 21:48:55 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/08 17:38:52 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ Fixed::Fixed(const Fixed &other)
 Fixed::Fixed(const int Nb)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_FixedPoint = Nb << this->_NbBits;
+	this->_FixedPoint = Nb << this->_FractionalBits;
 	
 }
 
 Fixed::Fixed(const float Nb)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_FixedPoint = roundf(Nb * (1 << this->_NbBits));
+	this->_FixedPoint = roundf(Nb * (1 << this->_FractionalBits));
 	
 }
 
@@ -59,12 +59,12 @@ int Fixed::getRawBits(void) const
 
 float Fixed::toFloat(void) const
 {
-	return ((float)(this->getRawBits()) / (1 << this->_NbBits));
+	return ((float)(this->getRawBits()) / (1 << this->_FractionalBits));
 }
-
+ 
 int Fixed::toInt(void) const
 {
-	return (this->getRawBits() >> this->_NbBits);
+	return (this->getRawBits() >> this->_FractionalBits);
 }
 
 Fixed &Fixed::operator=(const Fixed &Object)

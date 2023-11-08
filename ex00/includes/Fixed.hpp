@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 09:23:14 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/07 21:44:02 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/08 10:56:02 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Fixed
 			Fixed &operator=(const Fixed &Object);
 	private:
 			int 			_FixedPoint;
-			int const static _NbBits;
+			int const static _FractionalBits;
 			     
 };
 

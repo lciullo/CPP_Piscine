@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:58:29 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/07 21:42:32 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/08 10:56:02 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Fixed
 			void setRawBits(int const raw);				
 	private:
 			int 			_FixedPoint;
-			int const static _NbBits = 8;
+			int const static _FractionalBits = 8;
 			     
 };
 
