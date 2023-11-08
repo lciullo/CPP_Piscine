@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:52:46 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/08 17:23:54 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/08 17:44:38 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ Fixed::Fixed(const Fixed &other)
 	*this = other;
 	return ;
 }
-//convert int to fixed point
+
 Fixed::Fixed(const int Nb)
 {
 	this->_FixedPoint = Nb << this->_FractionalBits;
 }
-//convert float to fixed point
+
 Fixed::Fixed(const float Nb)
 {
 	this->_FixedPoint = roundf(Nb * (1 << this->_FractionalBits));
@@ -50,13 +50,11 @@ int Fixed::getRawBits(void) const
 	return (this->_FixedPoint);
 }
 
-//convert fixed point to float
 float Fixed::toFloat(void) const
 {
 	return ((float)(this->getRawBits()) / (1 << this->_FractionalBits));
 }
 
-//convert fixed point to int 
 int Fixed::toInt(void) const
 {
 	return (this->getRawBits() >> this->_FractionalBits);
