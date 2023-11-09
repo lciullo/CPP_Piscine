@@ -6,27 +6,25 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 08:52:46 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/08 18:07:41 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/09 09:20:42 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed(): _FixedPoint(0)
 {
-	this->_FixedPoint = 0;
 	return ;
+}
+Fixed::Fixed(const int Nb)
+{
+	this->_FixedPoint = Nb << this->_FractionalBits;
 }
 
 Fixed::Fixed(const Fixed &other)
 {
 	*this = other;
 	return ;
-}
-
-Fixed::Fixed(const int Nb)
-{
-	this->_FixedPoint = Nb << this->_FractionalBits;
 }
 
 Fixed::Fixed(const float Nb)
@@ -66,6 +64,36 @@ Fixed &Fixed::operator=(const Fixed &Object)
 	return (*this);
 }
 
+bool Fixed::operator>(const Fixed &Object)
+{
+	return (this->toFloat() > Object.toFloat());
+}
+
+bool Fixed::operator<(const Fixed &Object)
+{
+	return (this->toFloat() < Object.toFloat());
+}
+
+bool Fixed::operator>=(const Fixed &Object)
+{
+	return (this->toFloat() >= Object.toFloat());
+}
+
+bool Fixed::operator<=(const Fixed &Object)
+{
+	return (this->toFloat() <= Object.toFloat());
+}
+
+bool Fixed::operator==(const Fixed &Object)
+{
+	return (this->toFloat() == Object.toFloat());
+}
+
+bool Fixed::operator!=(const Fixed &Object)
+{
+	return (this->toFloat() != Object.toFloat());
+}
+
 std::ostream &operator<<(std::ostream &out, const Fixed &Object)
 {
 	out << Object.toFloat();
@@ -98,36 +126,6 @@ const Fixed &Fixed::max(const Fixed &f1, const Fixed &f2)
 	if (f1.toFloat() >= f2.toFloat())
 		return (f1);
 	return (f2);
-}
-
-bool Fixed::operator>(const Fixed &Object)
-{
-	return (this->toFloat() > Object.toFloat());
-}
-
-bool Fixed::operator<(const Fixed &Object)
-{
-	return (this->toFloat() < Object.toFloat());
-}
-
-bool Fixed::operator>=(const Fixed &Object)
-{
-	return (this->toFloat() >= Object.toFloat());
-}
-
-bool Fixed::operator<=(const Fixed &Object)
-{
-	return (this->toFloat() <= Object.toFloat());
-}
-
-bool Fixed::operator==(const Fixed &Object)
-{
-	return (this->toFloat() == Object.toFloat());
-}
-
-bool Fixed::operator!=(const Fixed &Object)
-{
-	return (this->toFloat() != Object.toFloat());
 }
 
 Fixed Fixed::operator+(const Fixed &Object)
