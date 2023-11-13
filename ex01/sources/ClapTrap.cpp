@@ -3,26 +3,26 @@
 
 ClapTrap::ClapTrap(void): _Name(std::string("Name")), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap : default constructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap(const std::string Name): _Name(Name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
-	std::cout << "String Name constructor called" << std::endl;
+	std::cout << "ClapTrap : string Name constructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap : copy constructor called" << std::endl;
 	*this = other;
 	return ;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap : destructor called" << std::endl;
 	return ;
 }
 
