@@ -3,6 +3,7 @@
 int main(void)
 {
 	
-	ClapTrap a("Test");
+	ClapTrap Clap("Tom");
+	ClapTrap Trap("Jerry");
 	return (0);
 }
