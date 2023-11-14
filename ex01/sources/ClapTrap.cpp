@@ -1,13 +1,21 @@
 #include "ScavTrap.hpp"
 
-ClapTrap::ClapTrap(void): _Name(std::string("Name")), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+ClapTrap::ClapTrap(void)
 {
+	this->_Name = "Name";
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10;
+	this->_AttackDamage = 0;
 	std::cout << "ClapTrap : default constructor called" << std::endl;
 	return ;
 }
 
-ClapTrap::ClapTrap(const std::string Name): _Name(Name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
-{
+ClapTrap::ClapTrap(const std::string Name)
+{	
+	this->_Name = Name;
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10; 
+	this->_AttackDamage = 0;
 	std::cout << "ClapTrap : string Name constructor called" << std::endl;
 	return ;
 }
