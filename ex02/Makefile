@@ -1,6 +1,6 @@
 # ====================== VARIABLES ====================== #
 
-NAME		=	ScavTrap
+NAME		=	FragTrap
 
 RM			=	rm -rf
 
@@ -16,10 +16,12 @@ DIR_OBJS	=	.objs/
 
 SRCS		=	${DIR_SRCS}main.cpp \
 				${DIR_SRCS}ScavTrap.cpp \
-				${DIR_SRCS}ClapTrap.cpp
+				${DIR_SRCS}ClapTrap.cpp \
+				${DIR_SRCS}FragTrap.cpp 
 
 INC			=	${DIR_INC}ClapTrap.hpp \
-				${DIR_INC}ScavTrap.hpp 
+				${DIR_INC}ScavTrap.hpp \
+				${DIR_INC}FragTrap.hpp 
 
 OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
 
