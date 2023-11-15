@@ -46,7 +46,19 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 	return (*this);
 }
 
-void highFivesGuys(void)
+void FragTrap::attack(const std::string &target)
+{
+	if ((this->_HitPoints <= 0) || (this->_EnergyPoints <= 0))
+	{
+		std::cout << "ClapTrap " << this->_Name << " can't attack." << std::endl;
+		return ;
+	}
+	std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " << this->_AttackDamage << " points of damage ! "<< std::endl;
+	this->_EnergyPoints--;
+	return ;
+}
+
+void FragTrap::highFivesGuys(void)
 {
 	std::cout << "FragTrap : highFivesGuys !" << std::endl; 
 	return ;

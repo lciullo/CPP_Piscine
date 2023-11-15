@@ -1,14 +1,22 @@
 #include "ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap(void): _Name(std::string("Name")), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+ClapTrap::ClapTrap(void)
 {
+	this->_Name = "Name";
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10;
+	this->_AttackDamage = 0;
 	std::cout << "Default constructor called" << std::endl;
 	return ;
 }
 
-ClapTrap::ClapTrap(const std::string Name): _Name(Name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+ClapTrap::ClapTrap(const std::string Name)
 {
+	this->_Name = Name;
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10;
+	this->_AttackDamage = 0;
 	std::cout << "String Name constructor called" << std::endl;
 	return ;
 }
@@ -65,7 +73,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if ((this->_HitPoints <= 0) || (this->_EnergyPoints <= 0))
+	if ((this->_HitPoints <= 0))
+	{
+		std::cout << "ClapTrap " << this->_Name << " can't be treat" << std::endl;
+		return ;
+	}
+	else if (this->_EnergyPoints <= 0)
 	{
 		std::cout << "ClapTrap " << this->_Name << " can't be treat" << std::endl;
 		return ;
