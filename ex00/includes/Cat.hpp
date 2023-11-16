@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 14:45:26 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/16 15:28:31 by lciullo          ###   ########.fr       */
+/*   Created: 2023/11/16 15:24:09 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/16 15:29:17 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include <iostream>
+#include "Animal.hpp"
 
-#include "Cat.hpp"
-class Animal 
+class Cat: public Animal
 {
-	protected	: 
-					std::string _Type;
-
 	public		:
-					Animal(void);
-					Animal(const Animal &other);
-					Animal &operator=(const Animal &other);
-					~Animal(void);
+					Cat(void);
+					Cat(const Cat &other);
+					Cat &operator=(const Cat &other);
+					~Cat(void);
 };
 
 #endif 

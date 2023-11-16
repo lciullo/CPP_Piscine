@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 10:59:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/16 15:15:48 by lciullo          ###   ########.fr        #
+#    Updated: 2023/11/16 15:22:15 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,13 @@ DIR_OBJS	=	.objs/
 # ====================== PATHS ====================== #
 
 SRCS		=	${DIR_SRCS}main.cpp \
-				${DIR_SRCS}Animal.cpp
+				${DIR_SRCS}Animal.cpp \
+				${DIR_SRCS}Cat.cpp \
+				${DIR_SRCS}Dog.cpp
 
-INC			=	${DIR_INC}Animal.hpp 
+INC			=	${DIR_INC}Animal.hpp \
+				${DIR_INC}Cat.hpp \
+				${DIR_INC}Dog.hpp
 
 OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
 
