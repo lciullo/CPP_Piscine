@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:00:33 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/16 11:37:45 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/16 12:15:50 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
-	std::cout << "ClapTrap assignment operator called" << std::endl;
+	std::cout << "ClapTrap : assignment operator called" << std::endl;
 	if (this != &other)
 	{
 		this->_Name = other._Name;

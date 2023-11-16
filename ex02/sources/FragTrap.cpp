@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/16 11:01:39 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/16 11:43:21 by lciullo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(void): ClapTrap()
@@ -50,10 +62,11 @@ void FragTrap::attack(const std::string &target)
 {
 	if ((this->_HitPoints <= 0) || (this->_EnergyPoints <= 0))
 	{
-		std::cout << "ClapTrap " << this->_Name << " can't attack." << std::endl;
+		std::cout << "FragTrap " << this->_Name << " can't attack." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " << this->_AttackDamage << " points of damage ! "<< std::endl;
+	std::cout << "FragTrap " << this->_Name << " attacks " \
+		<< target << " causing " << this->_AttackDamage << " points of damage ! "<< std::endl;
 	this->_EnergyPoints--;
 	return ;
 }
