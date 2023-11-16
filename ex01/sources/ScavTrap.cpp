@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/16 11:00:57 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/16 11:39:02 by lciullo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void): ClapTrap()
@@ -46,7 +58,8 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 void	ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap : " << this->_Name << " that ScavTrap is now in Gate Keeper mode " << std::endl;
+	std::cout << "ScavTrap : " << this->_Name \
+		<< " that ScavTrap is now in Gate Keeper mode " << std::endl;
 	return ;
 }
 
@@ -54,10 +67,11 @@ void ScavTrap::attack(const std::string &target)
 {
 	if ((this->_HitPoints <= 0) || (this->_EnergyPoints <= 0))
 	{
-		std::cout << "ClapTrap " << this->_Name << " can't attack." << std::endl;
+		std::cout << "ScavTrap " << this->_Name << " can't attack." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " << this->_AttackDamage << " points of damage ! "<< std::endl;
+	std::cout << "ScavTrap " << this->_Name << " attacks " << target << " causing " \
+		<< this->_AttackDamage << " points of damage ! "<< std::endl;
 	this->_EnergyPoints--;
 	return ;
 }

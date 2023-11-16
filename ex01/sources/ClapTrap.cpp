@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/16 11:00:33 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/16 11:37:45 by lciullo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 ClapTrap::ClapTrap(void)
@@ -53,7 +65,8 @@ void ClapTrap::attack(const std::string &target)
 		std::cout << "ClapTrap " << this->_Name << " can't attack." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " << this->_AttackDamage << " points of damage ! "<< std::endl;
+	std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " \
+		<< this->_AttackDamage << " points of damage ! "<< std::endl;
 	this->_EnergyPoints--;
 	return ;
 }
@@ -65,7 +78,18 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "ClapTrap " << this->_Name << " is K.O." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_Name << " takes " << amount << " points of damage!" << std::endl;
+	std::cout << "ClapTrap " << this->_Name << " takes " \
+		<< amount << " points of damage!" << std::endl;
+	if (amount > this->_HitPoints)
+	{
+		this->_HitPoints = 0;
+		return ;
+	}
+	else if (this->_HitPoints > std::numeric_limits<unsigned int>::max() - amount)
+	{
+		std::cerr << "ClapTrap : Error HitPoints has overflow " << std::endl;
+		return ;
+	}
 	this->_HitPoints -= amount;
 	return ;
 }
@@ -77,7 +101,13 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->_Name << " can't be treat" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_Name << " be repaired with " << amount << " new points of life!" << std::endl;
+	else if (this->_HitPoints > std::numeric_limits<unsigned int>::max() - amount)
+	{
+		std::cerr << "ClapTrap : Error HitPoints has overflow " << std::endl;
+		return ;
+	}
+	std::cout << "ClapTrap " << this->_Name << " be repaired with " \
+		<< amount << " new points of life!" << std::endl;
 	this->_HitPoints += amount;
 	this->_EnergyPoints--;
 	return ;
