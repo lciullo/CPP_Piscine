@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:22:26 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 10:25:31 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/17 12:34:27 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+
+# define GREEN "\033[32m"
 
 class Dog : public Animal 
 {

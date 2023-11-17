@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:22:22 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 10:40:49 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/17 11:22:09 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ Dog &Dog::operator=(const Dog &other)
 
 void	Dog::makeSound(void) const
 {
-	std::cout << GREEN << this->_Type << " Sound  : Woooooooooff..." << std::endl;
+	std::cout << GREEN << this->_Type << " makes : Woooooooooff..." << std::endl;
 }

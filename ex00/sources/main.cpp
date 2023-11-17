@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:43:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 10:30:45 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/17 11:03:44 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 
 int	main(void)
 {
-	Animal Test;
-	Cat Miaou;
-	Dog Woof;
-	Miaou.makeSound();
-	Woof.makeSound();
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	j->makeSound();
+	meta->makeSound();
 	return (0);
 }

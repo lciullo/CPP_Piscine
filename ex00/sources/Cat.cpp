@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:22:19 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 10:33:10 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/17 11:21:54 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ Cat &Cat::operator=(const Cat &other)
 
 void	Cat::makeSound(void) const
 {
-	std::cout << CYAN << "Sound  : Miaaaaoouuuu..." << std::endl;
+	std::cout << CYAN << this->_Type << " makes  : Miaaaaoouuuu..." << std::endl;
 }

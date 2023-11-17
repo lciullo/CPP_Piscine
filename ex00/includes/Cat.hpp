@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:24:09 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 10:25:39 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/17 12:47:00 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+
+# define CYAN "\033[36m"
 
 class Cat : public Animal 
 {
