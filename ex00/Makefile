@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 10:59:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/17 11:22:50 by lciullo          ###   ########.fr        #
+#    Updated: 2023/11/17 14:39:49 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,12 +30,14 @@ SRCS		=	${DIR_SRCS}main.cpp \
 				${DIR_SRCS}Animal.cpp \
 				${DIR_SRCS}Cat.cpp \
 				${DIR_SRCS}Dog.cpp \
-				${DIR_SRCS}WrongAnimal.cpp 
+				${DIR_SRCS}WrongAnimal.cpp \
+				${DIR_SRCS}WrongCat.cpp
 
 INC			=	${DIR_INC}Animal.hpp \
 				${DIR_INC}Cat.hpp \
 				${DIR_INC}Dog.hpp \
-				${DIR_INC}WrongAnimal.hpp 
+				${DIR_INC}WrongAnimal.hpp \
+				${DIR_INC}WrongCat.hpp
 
 OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
 

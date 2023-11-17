@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:04:59 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 12:58:03 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/17 14:40:29 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ std::string	Animal::getType(void) const
 
 void Animal::makeSound(void) const
 {
-	std::cout << MAGENTA << this->_Type << " makes right soung" << std::endl;
+	std::cout << MAGENTA << this->_Type << " makes right sound" << std::endl;
 	return ;
 }
