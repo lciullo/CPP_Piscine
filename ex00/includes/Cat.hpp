@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:24:09 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 12:47:00 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/21 12:35:26 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat : public Animal
 					Cat(void);
 					Cat(const Cat &other);
 					Cat &operator=(const Cat &other);
-					~Cat(void);
+					virtual ~Cat(void);
 					void makeSound(void) const;
 };
 

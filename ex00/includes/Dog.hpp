@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:22:26 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 12:34:27 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/21 12:35:35 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Dog : public Animal
 					Dog(void);
 					Dog(const Dog &other);
 					Dog &operator=(const Dog &other);
-					~Dog(void);
+					virtual ~Dog(void);
 					void makeSound(void) const;
 };
 
