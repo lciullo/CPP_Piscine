@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:43:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 14:38:53 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/21 13:06:59 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,28 @@ int	main(void)
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	//Wrong Class 
-	const WrongAnimal* beta = new WrongAnimal();
-	const WrongAnimal* Wrong = new WrongCat();
-	const WrongAnimal* WCat = new WrongCat();
+
+	std::cout << "==================" << std::endl;
+	std::cout << "  Subject tests   " << std::endl;
+	std::cout << "==================" << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
+	std::cout << meta->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
-	Wrong->getType();
-	WCat->getType();
-	Wrong->makeSound();
-	WCat->makeSound();
-	beta->makeSound();
+	delete i;
+	delete j;
+	delete meta;
+	std::cout << "==================" << std::endl;
+	std::cout << "     My tests     " << std::endl;
+	std::cout << "==================" << std::endl;
+	Animal *Array[8];
+	for (int i = 0; i < 4; i++)
+		Array[i] = new Cat();
+	for (int i = 4; i < 8; i++)
+		Array[i] = new Dog();
+	for (int i = 0; i < 8; i++)
+		delete Array[i];
 	return (0);
 }

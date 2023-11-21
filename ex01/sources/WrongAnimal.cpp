@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:13:55 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 15:25:03 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/21 12:01:08 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ std::string	WrongAnimal::getType(void) const
 
 void WrongAnimal::makeSound(void) const
 {
-	std::cout << RED << this->_Type << " makes weird sound" << std::endl;
+	std::cout << RED << this->_Type << "makes weird sound" << std::endl;
 	return ;
 }
