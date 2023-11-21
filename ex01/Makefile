@@ -6,25 +6,34 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 10:59:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/21 09:36:24 by lciullo          ###   ########.fr        #
+#    Updated: 2023/11/21 16:38:50 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# ====================== VARIABLES ====================== #
-
 NAME		=	Ideas
 
-RM			=	rm -rf
+# ====================== VARIABLES ====================== #
+
+# --- Executable ---
+
+NAME			=	Ideas
+
+# --- Command ---
+
+RM				=	rm -rf
 
 # --- Directories ---
 
-DIR_SRCS	=	sources/
+DIR_DEP			=	.dep/
 
-DIR_INC		=	includes/
+DIR_SRCS 		=	sources/
 
-DIR_OBJS	=	.objs/
+DIR_INC			=	includes/
+
 
 # ====================== PATHS ====================== #
+
+# --- List ---
 
 SRCS		=	${DIR_SRCS}main.cpp \
 				${DIR_SRCS}Animal.cpp \
@@ -41,31 +50,40 @@ INC			=	${DIR_INC}Animal.hpp \
 				${DIR_INC}WrongCat.hpp \
 				${DIR_INC}Brain.hpp 
 
-OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
+# --- Paths ---
+
+OBJ				=	${patsubst %.cpp, ${DIR_DEP}%.o, ${SRCS}}
+
+DEP				=	${patsubst %.cpp, ${DIR_DEP}%.d, ${SRCS}}
 
 # ====================== FLAGS ====================== #
 
-CPP			=	c++ -std=c++98
+FLAGS			=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
 
-CFLAGS		=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
+CPP				=	c++ -std=c++98
+
+DEP_FLAGS		=	-MMD -MP
 
 # ====================== RULES ====================== #
 
-all :	 		${NAME}
+all:			${NAME}
 
-${DIR_OBJS}%.o: %.cpp ${INC}
-				@mkdir -p ${shell dirname $@}
-				${CPP} ${CFLAGS} -c $< -o $@
+${NAME}:		${OBJ}
+				${CPP} ${FLAGS} -o ${NAME} ${OBJ}
 
-${NAME}:		${OBJS}
-				${CPP} ${CFLAGS} ${OBJS} -o ${NAME}
+-include ${DEP}
+
+${DIR_DEP}%.o: %.cpp
+				mkdir -p $(shell dirname $@)
+				${CPP} ${FLAGS} ${DEP_FLAGS} -I ${DIR_INC} -c $< -o $@
 
 clean:
-				${RM} ${OBJS} ${DIR_OBJS}
+				${RM} ${DIR_DEP}
 
-fclean:			clean
+fclean: clean
 				${RM} ${NAME}
 
-re:				fclean all
+re:				fclean
+				${MAKE} all
 
 .PHONY :		all clean fclean re
