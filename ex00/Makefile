@@ -5,65 +5,77 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/16 10:59:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/17 14:39:49 by lciullo          ###   ########.fr        #
+#    Created: 2023/11/21 16:05:28 by lciullo           #+#    #+#              #
+#    Updated: 2023/11/21 16:34:00 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ====================== VARIABLES ====================== #
 
-NAME		=	Animal
+# --- Executable ---
 
-RM			=	rm -rf
+NAME			=	Animal
+
+# --- Command ---
+
+RM				=	rm -rf
 
 # --- Directories ---
 
-DIR_SRCS	=	sources/
+DIR_DEP			=	.dep/
 
-DIR_INC		=	includes/
+DIR_SRCS 		=	sources/
 
-DIR_OBJS	=	.objs/
+DIR_INC			=	includes/
 
 # ====================== PATHS ====================== #
 
-SRCS		=	${DIR_SRCS}main.cpp \
-				${DIR_SRCS}Animal.cpp \
-				${DIR_SRCS}Cat.cpp \
-				${DIR_SRCS}Dog.cpp \
-				${DIR_SRCS}WrongAnimal.cpp \
-				${DIR_SRCS}WrongCat.cpp
 
-INC			=	${DIR_INC}Animal.hpp \
-				${DIR_INC}Cat.hpp \
-				${DIR_INC}Dog.hpp \
-				${DIR_INC}WrongAnimal.hpp \
-				${DIR_INC}WrongCat.hpp
+SRCS			=	${DIR_SRCS}main.cpp \
+					${DIR_SRCS}Animal.cpp \
+					${DIR_SRCS}Cat.cpp \
+					${DIR_SRCS}Dog.cpp \
+					${DIR_SRCS}WrongAnimal.cpp \
+					${DIR_SRCS}WrongCat.cpp
+					
+INC				=	${DIR_INC}Animal.hpp \
+					${DIR_INC}Cat.hpp \
+					${DIR_INC}Dog.hpp \
+					${DIR_INC}WrongAnimal.hpp \
+					${DIR_INC}WrongCat.hpp
 
-OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
+OBJ				=	${patsubst %.cpp, ${DIR_DEP}%.o, ${SRCS}}
+
+DEP				=	${patsubst %.cpp, ${DIR_DEP}%.d, ${SRCS}}
 
 # ====================== FLAGS ====================== #
 
-CPP			=	c++ -std=c++98
+FLAGS			=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
 
-CFLAGS		=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
+CPP				=	c++ -std=c++98
+
+DEP_FLAGS		=	-MMD -MP
 
 # ====================== RULES ====================== #
 
-all :	 		${NAME}
+all:			${NAME}
 
-${DIR_OBJS}%.o: %.cpp ${INC}
-				@mkdir -p ${shell dirname $@}
-				${CPP} ${CFLAGS} -c $< -o $@
+${NAME}:		${OBJ}
+				${CPP} ${FLAGS} -o ${NAME} ${OBJ}
 
-${NAME}:		${OBJS}
-				${CPP} ${CFLAGS} ${OBJS} -o ${NAME}
+-include ${DEP}
+
+${DIR_DEP}%.o: %.cpp
+				mkdir -p $(shell dirname $@)
+				${CPP} ${FLAGS} ${DEP_FLAGS} -I ${DIR_INC} -c $< -o $@
 
 clean:
-				${RM} ${OBJS} ${DIR_OBJS}
+				${RM} ${DIR_DEP}
 
-fclean:			clean
+fclean: clean
 				${RM} ${NAME}
 
-re:				fclean all
+re:				fclean
+				${MAKE} all
 
 .PHONY :		all clean fclean re
