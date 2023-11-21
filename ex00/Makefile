@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 16:05:28 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/21 16:34:00 by lciullo          ###   ########.fr        #
+#    Updated: 2023/11/21 16:36:05 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ DIR_INC			=	includes/
 # ====================== PATHS ====================== #
 
 
+# --- List ---
+
 SRCS			=	${DIR_SRCS}main.cpp \
 					${DIR_SRCS}Animal.cpp \
 					${DIR_SRCS}Cat.cpp \
@@ -43,6 +45,8 @@ INC				=	${DIR_INC}Animal.hpp \
 					${DIR_INC}Dog.hpp \
 					${DIR_INC}WrongAnimal.hpp \
 					${DIR_INC}WrongCat.hpp
+					
+# --- Paths ---
 
 OBJ				=	${patsubst %.cpp, ${DIR_DEP}%.o, ${SRCS}}
 
