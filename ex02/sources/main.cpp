@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:43:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 16:47:26 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:52:58 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,12 @@ int	main(void)
 		Array[i] = new Dog();
 	for (int i = 0; i < 8; i++)
 		delete Array[i];
+	std::cout << "---- MILOU --------" << std::endl;
+	Dog	milou;
+	milou.makeSound();
+	std::cout << "---- GARFIELD -----"  << std::endl;
+	Cat	garfield;
+	garfield.makeSound();
+	std::cout << "---- DESTRUCTORS --" << std::endl;
 	return (0);
 }
