@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:13:55 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 12:01:08 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:31:45 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ WrongAnimal::~WrongAnimal(void)
 std::string	WrongAnimal::getType(void) const
 {
 	return (this->_Type);
+}
+
+void WrongAnimal::SetType(const std::string &Type) 
+{
+	this->_Type = Type;
 }
 
 void WrongAnimal::makeSound(void) const

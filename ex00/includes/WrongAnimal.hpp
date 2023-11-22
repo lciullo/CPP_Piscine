@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:14:49 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 15:24:47 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:04:09 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class WrongAnimal
 				WrongAnimal &operator=(const WrongAnimal &other);
 				~WrongAnimal(void);
 				std::string	getType(void) const;
+				void SetType(const std::string & );
 				void makeSound(void) const;
 	protected : 
 				std::string _Type;

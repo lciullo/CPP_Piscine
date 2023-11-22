@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 10:59:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/21 16:49:06 by lciullo          ###   ########.fr        #
+#    Updated: 2023/11/22 10:41:17 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,20 +33,20 @@ DIR_INC			=	includes/
 # --- List ---
 
 SRCS			=	${DIR_SRCS}main.cpp \
-					${DIR_SRCS}Basic/Animal.cpp \
-					${DIR_SRCS}Basic/Cat.cpp \
-					${DIR_SRCS}Basic/Dog.cpp \
-					${DIR_SRCS}Basic/Brain.cpp \
-					${DIR_SRCS}Wrong/WrongAnimal.cpp \
-					${DIR_SRCS}Wrong/WrongCat.cpp
+					${DIR_SRCS}Animal.cpp \
+					${DIR_SRCS}Cat.cpp \
+					${DIR_SRCS}Dog.cpp \
+					${DIR_SRCS}Brain.cpp \
+					${DIR_SRCS}WrongAnimal.cpp \
+					${DIR_SRCS}WrongCat.cpp
 				
 
-INC				=	${DIR_INC}Basic/Animal.hpp \
-					${DIR_INC}Basic/Cat.hpp \
-					${DIR_INC}Basic/Dog.hpp \
-					${DIR_INC}Basic/Brain.hpp \
-					${DIR_INC}Wrong/WrongAnimal.hpp \
-					${DIR_INC}Wrong/WrongCat.hpp 
+INC				=	${DIR_INC}Animal.hpp \
+					${DIR_INC}Cat.hpp \
+					${DIR_INC}Dog.hpp \
+					${DIR_INC}Brain.hpp \
+					${DIR_INC}WrongAnimal.hpp \
+					${DIR_INC}WrongCat.hpp 
 				
 # --- Paths ---
 
@@ -56,7 +56,7 @@ DEP				=	${patsubst %.cpp, ${DIR_DEP}%.d, ${SRCS}}
 				 
 # ====================== FLAGS ====================== #
 
-FLAGS			=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}Basic -I ${DIR_INC}Wrong
+FLAGS			=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
 
 CPP				=	c++ -std=c++98
 

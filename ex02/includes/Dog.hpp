@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 15:24:09 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 11:11:38 by lciullo          ###   ########.fr       */
+/*   Created: 2023/11/16 15:22:26 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/22 10:28:31 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-# define CYAN "\033[36m"
+# define GREEN "\033[32m"
 
-class Cat : public Animal 
+class Dog : public Animal 
 {
 	public		:
-					Cat(void);
-					Cat(const Cat &other);
-					Cat &operator=(const Cat &other);
-					~Cat(void);
+					Dog(void);
+					Dog(const Dog &other);
+					Dog &operator=(const Dog &other);
+					~Dog(void);
+					std::string	getType(void) const;
+					void SetType(const std::string & );
+					Brain *GetBrain(void) const ;
+					void SetBrain(Brain *);
 					void makeSound(void) const;
 	private 	:
 					Brain* _Brain;

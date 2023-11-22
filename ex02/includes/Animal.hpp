@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 09:27:30 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 10:54:26 by lciullo          ###   ########.fr       */
+/*   Created: 2023/11/16 14:45:26 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/22 10:29:12 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
-#include <string>
+# define MAGENTA "\033[35m"
 
-class Brain
+class Animal
 {
 	public	:
-				Brain(void);
-				Brain(const Brain &other);
-				Brain &operator=(const Brain &other);
-				~Brain(void);
-	private	:
-				std::string _ideas[100];
+				Animal(void);
+				Animal(std::string Type);
+				Animal(const Animal &other);
+				Animal &operator=(const Animal &other);
+				virtual ~Animal(void) = 0;
+				std::string	getType(void) const;
+				void SetType(const std::string & );
+				virtual void makeSound(void) const;
+	protected : 
+				std::string _Type;
 
 	
 };

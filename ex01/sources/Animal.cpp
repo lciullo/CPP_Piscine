@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:04:59 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 12:00:50 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:07:59 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ Animal::~Animal(void)
 {
 	std::cout << MAGENTA << "Animal : destructor called" << std::endl;
 	return ;
+}
+
+void Animal::SetType(const std::string &Type) 
+{
+	this->_Type = Type;
 }
 
 std::string	Animal::getType(void) const

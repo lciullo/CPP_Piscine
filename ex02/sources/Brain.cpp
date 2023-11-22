@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:27:27 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 11:08:13 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:42:04 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Brain::Brain(void)
 {
 	std::cout << "Brain : default constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = "Think";
 	return ;
 }
 
@@ -36,6 +38,22 @@ Brain &Brain::operator=(const Brain &other)
 		
 	}
 	return (*this);
+}
+
+std::string const Brain::GetIdeas(const int i) 
+{
+	if (i < 0 || i >= 100)
+		return ("Wrong index");
+	return (this->_ideas[i]);
+}
+
+void	Brain::SetIdeas(std::string const &ideas, const int i) 
+{
+	if (i < 0 || i >= 100)
+		std::cout << "Wrong index" << std::endl;
+	else 
+		this->_ideas[i] = ideas;
+	return ;
 }
 
 Brain::~Brain(void)

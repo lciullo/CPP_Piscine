@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:22:19 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 11:21:54 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:02:01 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,17 @@ Cat &Cat::operator=(const Cat &other)
 	return (*this);
 }
 
+void Cat::SetType(const std::string &Type) 
+{
+	this->_Type = Type;
+}
+
+std::string	Cat::getType(void) const
+{
+	return (this->_Type);
+}
+
 void	Cat::makeSound(void) const
 {
-	std::cout << CYAN << this->_Type << " makes  : Miaaaaoouuuu..." << std::endl;
+	std::cout << CYAN << " makes  : Miaaaaoouuuu..." << std::endl;
 }

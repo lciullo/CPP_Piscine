@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:04:59 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 12:00:50 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:29:47 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ Animal &Animal::operator=(const Animal &other)
 {
 	std::cout << MAGENTA << "Animal : assignment operator called" << std::endl;
 	if (this != &other)
-	{
 		this->_Type = other._Type;
-	}
 	return (*this);
 }
 
@@ -47,6 +45,12 @@ Animal::~Animal(void)
 	return ;
 }
 
+void Animal::SetType(const std::string &Type) 
+{
+	this->_Type = Type;
+}
+
+
 std::string	Animal::getType(void) const
 {
 	return (this->_Type);
@@ -54,6 +58,6 @@ std::string	Animal::getType(void) const
 
 void Animal::makeSound(void) const
 {
-	std::cout << MAGENTA << this->_Type << "makes right sound" << std::endl;
+	std::cout << MAGENTA << "makes right sound" << std::endl;
 	return ;
 }

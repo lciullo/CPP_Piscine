@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 15:22:26 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 11:11:34 by lciullo          ###   ########.fr       */
+/*   Created: 2023/11/17 12:51:03 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/22 10:33:03 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "WrongAnimal.hpp"
 
-# define GREEN "\033[32m"
+# define YELLOW	"\033[33m"
 
-class Dog : public Animal 
+class WrongCat : public WrongAnimal 
 {
 	public		:
-					Dog(void);
-					Dog(const Dog &other);
-					Dog &operator=(const Dog &other);
-					~Dog(void);
+					WrongCat(void);
+					WrongCat(const WrongCat &other);
+					WrongCat &operator=(const WrongCat &other);
+					~WrongCat(void);
+					std::string	getType(void) const;
+					void SetType(const std::string & );
 					void makeSound(void) const;
-	private 	:
-					Brain* _Brain;
 };
 
 #endif 

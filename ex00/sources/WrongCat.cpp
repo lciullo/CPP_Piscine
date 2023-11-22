@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:55:42 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 12:57:29 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:09:17 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,22 @@ WrongCat &WrongCat::operator=(const WrongCat &other)
 {
 	std::cout << YELLOW << "WrongCat    : assignment operator called" << std::endl;
 	if (this != &other)
-	{
 		this->_Type = other._Type;
-	}
 	return (*this);
 }
 
+std::string	WrongCat::getType(void) const
+{
+	return (this->_Type);
+}
+
+void WrongCat::SetType(const std::string &Type) 
+{
+	this->_Type = Type;
+}
+
+
 void	WrongCat::makeSound(void) const
 {
-	std::cout << YELLOW << this->_Type << " makes  : Grrrrrrrrrrrrrr..." << std::endl;
+	std::cout << YELLOW << " makes  : Grrrrrrrrrrrrrr..." << std::endl;
 }

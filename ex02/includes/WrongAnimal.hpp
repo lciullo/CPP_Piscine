@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 14:45:26 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/21 13:37:07 by lciullo          ###   ########.fr       */
+/*   Created: 2023/11/17 11:14:49 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/22 10:31:11 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
+
+#define RED "\033[31m"
 
 #include <iostream>
 
-# define MAGENTA "\033[35m"
-
-class Animal
+class WrongAnimal
 {
 	public	:
-				Animal(void);
-				Animal(std::string Type);
-				Animal(const Animal &other);
-				Animal &operator=(const Animal &other);
-				virtual ~Animal(void) = 0;
+				WrongAnimal(void);
+				WrongAnimal(std::string Type);
+				WrongAnimal(const WrongAnimal &other);
+				WrongAnimal &operator=(const WrongAnimal &other);
+				~WrongAnimal(void);
 				std::string	getType(void) const;
-				virtual void makeSound(void) const;
+				void SetType(const std::string & );
+				void makeSound(void) const;
 	protected : 
 				std::string _Type;
 

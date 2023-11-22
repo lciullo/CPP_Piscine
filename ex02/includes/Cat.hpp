@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 12:51:03 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/17 12:55:14 by lciullo          ###   ########.fr       */
+/*   Created: 2023/11/16 15:24:09 by lciullo           #+#    #+#             */
+/*   Updated: 2023/11/22 10:28:39 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-# define YELLOW	"\033[33m"
+# define CYAN "\033[36m"
 
-class WrongCat : public WrongAnimal 
+class Cat : public Animal 
 {
 	public		:
-					WrongCat(void);
-					WrongCat(const WrongCat &other);
-					WrongCat &operator=(const WrongCat &other);
-					~WrongCat(void);
+					Cat(void);
+					Cat(const Cat &other);
+					Cat &operator=(const Cat &other);
+					~Cat(void);
+					std::string	getType(void) const;
+					void SetType(const std::string & );
+					Brain *GetBrain(void) const ;
+					void SetBrain(Brain *);
 					void makeSound(void) const;
+	private 	:
+					Brain* _Brain;
 };
 
 #endif 
