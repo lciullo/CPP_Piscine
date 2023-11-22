@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:22:22 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/22 10:28:08 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:00:58 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Dog &Dog::operator=(const Dog &other)
 {
 	std::cout << GREEN << "Dog    : assignment operator called" << std::endl;
 	if (this != &other)
-		Animal::operator=(other);
+		this->_Type = other._Type;
 	return (*this);
 }
 
