@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/28 11:05:22 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/28 11:07:13 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ std::string	Bureaucrat::GetName(void) const
 	return (this->_Name);
 }
 
-void Bureaucrat::SetGrade(unsigned int Grade) 
+void Bureaucrat::SetGrade(int Grade) 
 {
 	this->_Grade = Grade;
 	return ;
 }
 
-unsigned int Bureaucrat::GetGrade(void) const 
+int Bureaucrat::GetGrade(void) const 
 {
 	return  (this->_Grade);
 }
