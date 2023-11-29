@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/29 10:49:38 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/29 16:22:16 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,20 @@
 
 Bureaucrat::Bureaucrat(void): _Name("Name")
 {
-	this->_Grade = 150;
+	this->_Grade = 1;
 	std::cout << MAGENTA << "Bureaucrat : default constructor called" << std::endl;
 	return ;
+}
+
+Bureaucrat::Bureaucrat(std::string Name, int Grade): _Name(Name)
+{
+	std::cout << "grade = " << Grade << std::endl;
+	std::cout << BLUE << "Bureaucrat : default constructor called" << std::endl;
+	if (Grade < 1)
+		throw (Bureaucrat::GradeTooLowException());
+	else if (Grade > 150)
+		throw (Bureaucrat::GradeTooHighException());
+	this->_Grade = Grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
@@ -44,21 +55,19 @@ std::string	Bureaucrat::GetName(void) const
 	return (this->_Name);
 }
 
-void Bureaucrat::SetGrade(int Grade) 
-{
-	this->_Grade = Grade;
-	return ;
-}
-
 int Bureaucrat::GetGrade(void) const 
 {
+	if (this->_Grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	else if (this->_Grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
 	return  (this->_Grade);
 }
 
 void Bureaucrat::IncreaseGrade(void)
 {
-	if (this->_Grade < 150)
-		this->_Grade++;
+	if (this->_Grade - 1 >= 1)
+		this->_Grade--;
 	else
 		throw GradeTooHighException();
 	return ;
@@ -66,17 +75,25 @@ void Bureaucrat::IncreaseGrade(void)
 
 void Bureaucrat::DecreaseGrade(void)
 {
-	if (this->_Grade > 1)
-		this->_Grade--;
+	if (this->_Grade + 1 <= 150) 
+		this->_Grade++;
+	else
+		throw GradeTooLowException();
 	return ;
 }
 
-std::string Bureaucrat::GradeTooHighException(void)
+char const *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
 	return ("Error, grade is too high");
 }
 
-std::string Bureaucrat::GradeTooLowException(void)
+char const *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return ("Error, grade is too low");
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &Object)
+{
+	out << Object.GetName() << ", bureaucrat grade " << Object.GetGrade() << std::endl;
+	return (out);
 }
