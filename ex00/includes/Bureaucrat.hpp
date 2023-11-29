@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:45 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/28 11:07:20 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/29 10:48:57 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class Bureaucrat
 				void SetGrade(int Grade);
 				void IncreaseGrade(void);
 				void DecreaseGrade(void);
+				std::string GradeTooHighException(void);
+				std::string GradeTooLowException(void);
 	private : 
 				const std::string 	_Name;
 				int					_Grade;

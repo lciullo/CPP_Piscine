@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/28 11:07:13 by lisa             ###   ########.fr       */
+/*   Updated: 2023/11/29 10:49:38 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void Bureaucrat::IncreaseGrade(void)
 {
 	if (this->_Grade < 150)
 		this->_Grade++;
+	else
+		throw GradeTooHighException();
 	return ;
 }
 
@@ -67,4 +69,14 @@ void Bureaucrat::DecreaseGrade(void)
 	if (this->_Grade > 1)
 		this->_Grade--;
 	return ;
+}
+
+std::string Bureaucrat::GradeTooHighException(void)
+{
+	return ("Error, grade is too high");
+}
+
+std::string Bureaucrat::GradeTooLowException(void)
+{
+	return ("Error, grade is too low");
 }
