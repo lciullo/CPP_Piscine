@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
+#    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:18:08 by lciullo           #+#    #+#              #
-#    Updated: 2023/11/29 15:48:58 by lciullo          ###   ########.fr        #
+#    Updated: 2023/11/30 13:07:13 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 # --- Executable ---
 
-NAME			=	Bureaucrat
+NAME			=	Form
 
 # --- Command ---
 
@@ -33,10 +33,12 @@ DIR_INC			=	includes/
 # --- List ---
 
 SRCS			=	${DIR_SRCS}main.cpp \
-					${DIR_SRCS}Bureaucrat.cpp
+					${DIR_SRCS}Bureaucrat.cpp \
+					${DIR_SRCS}Form.cpp
 				
 
-INC				=	${DIR_INC}Bureaucrat.hpp 
+INC				=	${DIR_INC}Bureaucrat.hpp \
+					${DIR_INC}Form.hpp
 				
 # --- Paths ---
 

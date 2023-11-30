@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/29 16:22:16 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/11/30 12:45:46 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Bureaucrat::Bureaucrat(void): _Name("Name")
 
 Bureaucrat::Bureaucrat(std::string Name, int Grade): _Name(Name)
 {
-	std::cout << "grade = " << Grade << std::endl;
 	std::cout << BLUE << "Bureaucrat : default constructor called" << std::endl;
 	if (Grade < 1)
 		throw (Bureaucrat::GradeTooLowException());
