@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:10 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 15:35:13 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:00:08 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	public	:
 				//======    Constructors / Destructors    ======
-				Form(void);
-				Form(std::string Name, const int GradeToSign, const int GradeToExec);
-				Form(const Form &other);
-				Form &operator=(const Form &other);
-				virtual ~Form(void);
+				AForm(void);
+				AForm(std::string Name, const int GradeToSign, const int GradeToExec);
+				AForm(const AForm &other);
+				AForm &operator=(const AForm &other);
+				virtual ~AForm(void);
 				//======            Getters                ======
 				std::string	GetName(void) const;
 				int GetSigned(void) const;
@@ -53,6 +53,6 @@ class Form
 
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &Object);
+std::ostream &operator<<(std::ostream &out, const AForm &Object);
 
 #endif 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
+#    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:18:08 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/01 15:34:43 by lciullo          ###   ########.fr        #
+#    Updated: 2023/12/01 20:12:22 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 # --- Executable ---
 
-NAME			=	Form
+NAME			=	Target
 
 # --- Command ---
 

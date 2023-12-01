@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 10:29:20 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:01:33 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &Object)
 	return (out);
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	if (form.GetSigned() == true)
 		std::cout << GREEN << " couldn’t sign " << form.GetName() << "cause is already signed."  << RESET << std::endl;
@@ -108,7 +108,7 @@ void Bureaucrat::signForm(Form &form)
 			form.beSigned(*this);
 			std::cout << GREEN << " is signed " << form.GetName() << RESET << std::endl;
 		}
-		catch (Form::GradeTooLowException& e)
+		catch (AForm::GradeTooLowException& e)
 		{
 			std::cout << GREEN << " couldn’t sign " << form.GetName() << " because its grade is too low." <<  RESET << std::endl;
 		}
