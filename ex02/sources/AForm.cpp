@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:32 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 19:59:32 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 18:58:17 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,11 @@ char const *AForm::GradeTooLowException::what() const throw()
 	return ("Error, grade is too low");
 }
 
+const char *AForm::NotSignedException::what() const throw()
+{
+	return ("Form isn't signed");
+}
+
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.GetGrade() <= this->_GradeToSign)
@@ -111,4 +116,13 @@ std::ostream &operator<<(std::ostream &out, const AForm &Object)
 		out << YELLOW << Object.GetName() << "couldn't sign form because is already signed " << RESET << std::endl;
 	}
 	return (out);
+}
+
+void	AForm::execute(Bureaucrat const & executor) const
+{
+	if (this->GetSigned() == false)
+		throw (AForm::NotSignedException());
+	if (executor.GetGrade() > this->GetGradeToExec())
+		throw (AForm::GradeTooLowException());
+	return ;
 }

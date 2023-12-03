@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:10 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 20:00:08 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 18:42:13 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,20 @@ class AForm
 				//=====	            Exceptions             ====== 
 				class GradeTooHighException : public std::exception
 				{
-					public : virtual const char* what() const throw();
+					public : virtual const char *what() const throw();
 
 				};
 				class GradeTooLowException : public std::exception
 				{
-					public : virtual const char* what() const throw();
+					public : virtual const char *what() const throw();
+				};
+				class NotSignedException : public std::exception 
+				{
+					public : virtual const char *what() const throw();
 				};
 				//=====	            Methods               ====== 
 				void beSigned(Bureaucrat &bureaucrat);
-				virtual void execute(Bureaucrat const & executor) const = 0;
+				virtual void execute(Bureaucrat const &Bureaucrat) const = 0;
 	private : 
 				std::string const	_Name;
 				bool                _Signed;

@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:37 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 17:09:50 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 18:56:10 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,4 @@ std::string	PresidentialPardonForm::GetTarget(void) const
 {
 	return (this->_Target);
 }
+
