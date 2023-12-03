@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 17:11:47 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 20:00:28 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class PresidentialPardonForm: public AForm {
 				//======            Getter                 ======
 				std::string	GetTarget(void) const;
                 //======            Methods                ====== 
-				
+				void execute(const Bureaucrat& executor) const;
 	private : 
 				std::string _Target;
 

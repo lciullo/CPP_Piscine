@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:37 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 18:56:10 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 20:12:28 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,9 @@ std::string	PresidentialPardonForm::GetTarget(void) const
 	return (this->_Target);
 }
 
+void PresidentialPardonForm::execute(const Bureaucrat& executor) const
+{
+	this->execute(executor);
+	std::cout << this->GetTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	return ;
+}

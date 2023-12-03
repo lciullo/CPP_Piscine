@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:40 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 17:20:03 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 20:12:40 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,16 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 std::string	RobotomyRequestForm::GetTarget(void) const
 {
 	return (this->_Target);
+}
+
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const
+{
+	int number = 0;
+	this->execute(executor);
+	number = rand() % 2;
+	if (number % 2 == 0)
+		std::cout << "Drilling noises : brrrrr" << std::endl;
+	else
+		std::cout << "The robotomy failed" << std::endl;
+	return ;
 }
