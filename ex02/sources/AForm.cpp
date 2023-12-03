@@ -6,13 +6,13 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:32 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 23:22:52 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 23:35:36 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(void): _Name("Name"), _Target("Target"), _GradeToSign(150), _GradeToExec(150)
+AForm::AForm(void): _Name("Name"), _GradeToSign(150), _GradeToExec(150)
 {
 	std::cout << YELLOW << "AForm : default constructor called" << RESET << std::endl;
 	this->_Signed = false;

@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:10 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 23:25:30 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 23:35:23 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ class AForm
 				virtual void execute(Bureaucrat const &Bureaucrat) const = 0;
 	private : 
 				const std::string 	_Name;
-				const std::string	_Target;
 				bool                _Signed;
 				const int			_GradeToSign;
 				const int           _GradeToExec;
