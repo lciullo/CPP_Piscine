@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:37 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 20:12:28 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 23:25:52 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ PresidentialPardonForm::PresidentialPardonForm(std::string Target): AForm("Name"
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other): AForm(other)
 {
 	std::cout << BLUE << "PresidentialPardonForm : copy constructor called" << std::endl;
-	*this = other;
+	this->_Target = other.GetTarget();
 	return ;
 }
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
+PresidentialPardonForm PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
 	std::cout << BLUE << "PresidentialPardonForm :assignement operator called" << RESET << std::endl;
 	if (this != &other)
@@ -52,7 +52,7 @@ std::string	PresidentialPardonForm::GetTarget(void) const
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
-	this->execute(executor);
+	this->beExecute(executor);
 	std::cout << this->GetTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	return ;
 }

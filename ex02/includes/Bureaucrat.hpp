@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:45 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 17:03:31 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 22:20:34 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ class Bureaucrat
 				void signForm(AForm &form);
 				void IncreaseGrade(void);
 				void DecreaseGrade(void);
+				void executeForm(AForm const &form);
 	private : 
 				std::string const	_Name;
 				int					_Grade;

@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:10 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 18:42:13 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 23:25:30 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Bureaucrat.hpp"
 #include <iostream>
-
+#include <string>
 class Bureaucrat;
 
 class AForm
@@ -48,9 +48,11 @@ class AForm
 				};
 				//=====	            Methods               ====== 
 				void beSigned(Bureaucrat &bureaucrat);
+				void beExecute(Bureaucrat const &Bureaucrat) const;
 				virtual void execute(Bureaucrat const &Bureaucrat) const = 0;
 	private : 
-				std::string const	_Name;
+				const std::string 	_Name;
+				const std::string	_Target;
 				bool                _Signed;
 				const int			_GradeToSign;
 				const int           _GradeToExec;

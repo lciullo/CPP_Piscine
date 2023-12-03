@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:40 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 20:12:40 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 23:26:01 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ std::string	RobotomyRequestForm::GetTarget(void) const
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
 	int number = 0;
-	this->execute(executor);
+	this->beExecute(executor);
+	srand(time(NULL));
 	number = rand() % 2;
 	if (number % 2 == 0)
 		std::cout << "Drilling noises : brrrrr" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:42 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 19:37:32 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 23:30:38 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ const char *ShrubberyCreationForm::FileNotOpenException::what(void) const throw(
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-	std::ofstream File;
-	this->execute(executor);
-	File.open((this->_Target + "_shrubbery").c_str(), std::ios::trunc);
+	std::fstream File;
+	this->beExecute(executor);
+	File.open(this->GetTarget().append("_shrubbery").c_str() , std::ios::out);
 	if (File.is_open() == false)
 		throw (ShrubberyCreationForm::FileNotOpenException());
 	File << "  X "

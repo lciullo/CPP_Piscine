@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 20:00:28 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 22:53:05 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PresidentialPardonForm: public AForm {
 				PresidentialPardonForm(void);
 				PresidentialPardonForm(const PresidentialPardonForm &other);
 				PresidentialPardonForm(std::string Target);
-				PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+				PresidentialPardonForm	operator=(const PresidentialPardonForm &obj);
 				~PresidentialPardonForm(void);
 				//======            Getter                 ======
 				std::string	GetTarget(void) const;

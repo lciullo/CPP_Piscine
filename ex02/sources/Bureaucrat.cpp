@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 20:01:33 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 22:28:49 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,23 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &Object)
 {
 	out << GREEN << Object.GetName() << ", bureaucrat grade " << Object.GetGrade() << RESET << std::endl;
 	return (out);
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+		try 
+		{
+			form.execute(*this);
+			std::cout << this->GetName() << " executed the form \"" << form.GetName() << "\"" << std::endl;
+		}
+		catch (AForm::GradeTooLowException & e) {
+			std::cout << this->GetName() << " couldn't execute the form \"" << form.GetName() 
+			<< "\" because his grade is too low" << std::endl;
+		}
+		catch (AForm::NotSignedException & e) {
+			std::cout << this->GetName() << " couldn't execute the form \"" << form.GetName() 
+			<< "\" because te form is not signed" << std::endl;
+		}
 }
 
 void Bureaucrat::signForm(AForm &form)

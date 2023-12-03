@@ -6,38 +6,36 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:32 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 18:58:17 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 23:22:52 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(void): _Name("Name"), _GradeToSign(150), _GradeToExec(150)
+AForm::AForm(void): _Name("Name"), _Target("Target"), _GradeToSign(150), _GradeToExec(150)
 {
 	std::cout << YELLOW << "AForm : default constructor called" << RESET << std::endl;
 	this->_Signed = false;
 	return ;
 }
 
-AForm::AForm(std::string Name, const int GradeToSign, const int GradeToExec): _Name(Name), _GradeToSign(150), _GradeToExec(150)
+AForm::AForm(std::string Name, const int GradeToSign, const int GradeToExec): _Name(Name), _GradeToSign(1), _GradeToExec(1)
 {
 	this->_Signed = false;
 	std::cout << YELLOW << "AForm : default constructor called" << RESET << std::endl;
-	if (GradeToSign < 1)
-		throw (AForm::GradeTooHighException());
-	if (GradeToSign > 150)
-		throw (AForm::GradeTooLowException());
-	if (GradeToExec < 1)
-		throw (AForm::GradeTooHighException());
-	if (GradeToExec > 150)
-		throw (AForm::GradeTooLowException());	
+	if (this->_GradeToSign > 150 || this->_GradeToExec > 150)
+		throw GradeTooLowException();
+	if (this->_GradeToSign < 1 || this->_GradeToExec < 1)
+		throw GradeTooHighException();
+	(void)GradeToExec;
+	(void)GradeToSign;	
 }
 
 
 AForm::AForm(const AForm &other): _GradeToSign(other._GradeToSign), _GradeToExec(other._GradeToExec)
 {
 	std::cout << YELLOW << "AForm : copy constructor called" << RESET << std::endl;
-	*this = other;
+	this->_Signed = other.GetSigned();
 	return ;
 }
 
@@ -67,19 +65,11 @@ int AForm::GetSigned(void) const
 
 int AForm::GetGradeToSign(void) const 
 {
-	if (this->_GradeToSign < 1)
-		throw (AForm::GradeTooHighException());
-	else if (this->_GradeToSign > 150)
-		throw (AForm::GradeTooLowException());
 	return  (this->_GradeToSign);
 }
 
 int AForm::GetGradeToExec(void) const 
 {
-	if (this->_GradeToExec < 1)
-		throw (AForm::GradeTooHighException());
-	else if (this->_GradeToExec > 150)
-		throw (AForm::GradeTooLowException());
 	return  (this->_GradeToExec);
 }
 
@@ -118,11 +108,11 @@ std::ostream &operator<<(std::ostream &out, const AForm &Object)
 	return (out);
 }
 
-void	AForm::execute(Bureaucrat const & executor) const
+void	AForm::beExecute(Bureaucrat const & executor) const
 {
-	if (this->GetSigned() == false)
-		throw (AForm::NotSignedException());
-	if (executor.GetGrade() > this->GetGradeToExec())
-		throw (AForm::GradeTooLowException());
+	if (!this->GetSigned())
+		throw NotSignedException();
+	else if (executor.GetGrade() > this->GetGradeToExec())
+		throw GradeTooLowException();
 	return ;
 }
