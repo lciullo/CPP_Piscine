@@ -12,7 +12,7 @@ class Intern
 	public :    
                 //======    Constructors / Destructors    ======
 		        Intern(void);
-		        Intern(const Intern &obj);
+		        Intern(const Intern &other);
 	    	    Intern &	operator=(const Intern &obj);
                 ~Intern(void);
                 //======	           Methods             ======

@@ -2,11 +2,13 @@
 
 Intern::Intern(void)
 {
+    std::cout << MAGENTA << "Intern : default constructor called" << RESET << std::endl;
     return ;
 }
 
 Intern::Intern(const Intern &obj)
 {
+    std::cout << MAGENTA << "Intern : copy constructor called" << std::endl;
     *this = obj;
     return ;    
 }
@@ -16,9 +18,10 @@ Intern::~Intern(void)
     return ;
 }
 
-Intern &	Intern::operator=(const Intern &obj)
+Intern &	Intern::operator=(const Intern &other)
 {
-	(void)obj;
+    std::cout << MAGENTA << "Intern :assignement operator called" << RESET << std::endl;
+	(void)other;
 	return (*this);
 }
 
@@ -35,6 +38,6 @@ AForm *	Intern::makeForm(std::string FormName, std::string TargetName)
 		else 
 			delete Array[i];
 	}
-	std::cout << RED << FormName << " doesn't exist" << RESET << std::endl;
+	std::cout << MAGENTA << FormName << " doesn't exist" << RESET << std::endl;
 	return (NULL);
 }
