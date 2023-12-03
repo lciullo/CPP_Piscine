@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:37 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 20:11:45 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 17:09:50 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &oth
 	return ;
 }
 
-
-
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
 	std::cout << BLUE << "PresidentialPardonForm :assignement operator called" << RESET << std::endl;
@@ -45,4 +43,9 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 {
 	std::cout << BLUE << "PresidentialPardonForm : destructor called"  << RESET << std::endl;
 	return ;
+}
+
+std::string	PresidentialPardonForm::GetTarget(void) const
+{
+	return (this->_Target);
 }

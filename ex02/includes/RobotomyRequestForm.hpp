@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:23 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 16:27:29 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 17:19:02 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ class RobotomyRequestForm: public AForm {
 				RobotomyRequestForm(std::string Target);
 				RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 				~RobotomyRequestForm(void);
+				//======            Getter                 ======
+				std::string	GetTarget(void) const;
+                //======            Methods                ====== 
 	private : 
 				std::string _Target;
 

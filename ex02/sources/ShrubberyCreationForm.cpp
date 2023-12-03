@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:42 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 16:38:20 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 17:18:29 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
 	std::cout << CYAN << "ShrubberyCreationForm : destructor called"  << RESET << std::endl;
 	return ;
+}
+
+/*void ShrubberyCreationForm::CreateTrees(void)
+{
+    
+}*/
+
+std::string	ShrubberyCreationForm::GetTarget(void) const
+{
+	return (this->_Target);
 }

@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:45 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 20:00:39 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 17:03:31 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ class AForm;
 class Bureaucrat
 {
 	public	:
+				//======    Constructors / Destructors    ======
 				Bureaucrat(void);
 				Bureaucrat(const Bureaucrat &other);
 				Bureaucrat(std::string Name, int Grade);
 				Bureaucrat &operator=(const Bureaucrat &other);
 				~Bureaucrat(void);
+				//======            Getters                ======
 				std::string	GetName(void) const;
 				int GetGrade(void) const;
-				void IncreaseGrade(void);
-				void DecreaseGrade(void);
-				void signForm(AForm &form);
+				//======	            Exceptions         ======
 				class GradeTooHighException : public std::exception
 				{
 					public : virtual const char* what() const throw();
@@ -51,6 +51,10 @@ class Bureaucrat
 				{
 					public : virtual const char* what() const throw();
 				};
+				//======	           Methods             ======
+				void signForm(AForm &form);
+				void IncreaseGrade(void);
+				void DecreaseGrade(void);
 	private : 
 				std::string const	_Name;
 				int					_Grade;

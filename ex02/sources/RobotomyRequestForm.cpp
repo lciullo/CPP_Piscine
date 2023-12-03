@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:40 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 16:33:37 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 17:20:03 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 {
 	std::cout << RED << "RobotomyRequestForm : destructor called"  << RESET << std::endl;
 	return ;
+}
+
+std::string	RobotomyRequestForm::GetTarget(void) const
+{
+	return (this->_Target);
 }
