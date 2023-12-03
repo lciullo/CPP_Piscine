@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:42 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 17:18:29 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 19:37:32 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,32 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 	return ;
 }
 
-/*void ShrubberyCreationForm::CreateTrees(void)
-{
-    
-}*/
-
 std::string	ShrubberyCreationForm::GetTarget(void) const
 {
 	return (this->_Target);
+}
+
+const char *ShrubberyCreationForm::FileNotOpenException::what(void) const throw()
+{
+	return ("Error file could not be open");
+}
+
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
+{
+	std::ofstream File;
+	this->execute(executor);
+	File.open((this->_Target + "_shrubbery").c_str(), std::ios::trunc);
+	if (File.is_open() == false)
+		throw (ShrubberyCreationForm::FileNotOpenException());
+	File << "  X "
+			" XXXXX "
+			"XXXXXXX"
+			"  || "
+			"    0 "
+			"  00000 "
+			" 0000000 "
+			" 00000000 "
+			 "   | | " << std::endl;
+	File.close();
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:26 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 17:13:56 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/03 19:30:40 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include <fstream>
-
+#include <string>
 class ShrubberyCreationForm: public AForm {
 
 	public	:
@@ -28,7 +28,14 @@ class ShrubberyCreationForm: public AForm {
 				~ShrubberyCreationForm(void);
                 //======            Getter                  ======
 				std::string	GetTarget(void) const;
-                //======            Methods                ====== 
+				//=====	            Exceptions             ====== 
+				class FileNotOpenException : public std::exception
+				{
+					public : virtual const char *what() const throw();
+
+				};
+                //======            Methods                ======
+				void execute(const Bureaucrat& executor) const;
 	private : 
 				std::string _Target;
 
