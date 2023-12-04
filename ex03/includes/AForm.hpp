@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:10 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 23:35:23 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/04 21:01:28 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 #include <string>
+
 class Bureaucrat;
 
 class AForm

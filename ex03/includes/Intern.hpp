@@ -15,6 +15,11 @@ class Intern
 		        Intern(const Intern &other);
 	    	    Intern &	operator=(const Intern &obj);
                 ~Intern(void);
+				class InvalidNameFormException: public std::exception 
+				{
+					public :
+								virtual const char	*what( void ) const throw();
+				};
                 //======	           Methods             ======
 		        AForm * makeForm(std::string FormName, std::string TargetName);
 };

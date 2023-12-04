@@ -6,7 +6,7 @@
 #    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:18:08 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/03 23:48:34 by lisa             ###   ########.fr        #
+#    Updated: 2023/12/04 20:49:45 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 # --- Executable ---
 
-NAME			=	Intern 
+NAME			=	Target
 
 # --- Command ---
 
@@ -46,7 +46,7 @@ INC				=	${DIR_INC}Bureaucrat.hpp \
 					${DIR_INC}PresidentialPardonForm.hpp \
 					${DIR_INC}RobotomyRequestForm.hpp \
 					${DIR_INC}ShrubberyCreationForm.hpp \
-					${DIR_INC}Intern.hpp
+					${DIR_INC}Intern.hpp 
 				
 # --- Paths ---
 
