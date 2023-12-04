@@ -6,11 +6,13 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/30 17:35:31 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/04 17:53:10 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+//======    Constructors / Destructors    ======
 
 Bureaucrat::Bureaucrat(void): _Name("Name")
 {
@@ -49,6 +51,9 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << MAGENTA << "Bureaucrat : destructor called" << std::endl;
 	return ;
 }
+
+//======            Getters                ======
+
 std::string	Bureaucrat::GetName(void) const
 {
 	return (this->_Name);
@@ -62,6 +67,20 @@ int Bureaucrat::GetGrade(void) const
 		throw (Bureaucrat::GradeTooLowException());
 	return  (this->_Grade);
 }
+
+//======	         Exceptions         ======
+
+char const *Bureaucrat::GradeTooHighException::what(void) const throw()
+{
+	return ("Error, grade is too high");
+}
+
+char const *Bureaucrat::GradeTooLowException::what(void) const throw()
+{
+	return ("Error, grade is too low");
+}
+
+//======	          Methods             ======
 
 void Bureaucrat::IncreaseGrade(void)
 {
@@ -79,16 +98,6 @@ void Bureaucrat::DecreaseGrade(void)
 	else
 		throw GradeTooLowException();
 	return ;
-}
-
-char const *Bureaucrat::GradeTooHighException::what(void) const throw()
-{
-	return ("Error, grade is too high");
-}
-
-char const *Bureaucrat::GradeTooLowException::what(void) const throw()
-{
-	return ("Error, grade is too low");
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &Object)

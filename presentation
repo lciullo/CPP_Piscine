@@ -1,0 +1,6 @@
+//======    Constructors / Destructors    ======
+//======            Getters                ======
+//======	            Exceptions         ======
+//======	           Methods             ======
+
+-fsanitize=address
