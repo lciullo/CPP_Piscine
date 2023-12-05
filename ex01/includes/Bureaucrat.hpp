@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:45 by lciullo           #+#    #+#             */
-/*   Updated: 2023/11/30 17:39:38 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/05 10:24:47 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ class Form;
 class Bureaucrat
 {
 	public	:
+				//======    Constructors / Destructors    ======
 				Bureaucrat(void);
 				Bureaucrat(const Bureaucrat &other);
 				Bureaucrat(std::string Name, int Grade);
 				Bureaucrat &operator=(const Bureaucrat &other);
 				~Bureaucrat(void);
+				//======            Getters                ======
 				std::string	GetName(void) const;
 				int GetGrade(void) const;
-				void IncreaseGrade(void);
-				void DecreaseGrade(void);
-				void signForm(Form &form);
+				//=====	            Exceptions             ====== 
 				class GradeTooHighException : public std::exception
 				{
 					public : virtual const char* what() const throw();
@@ -51,6 +51,10 @@ class Bureaucrat
 				{
 					public : virtual const char* what() const throw();
 				};
+				//=====	            Methods               ====== 
+				void IncreaseGrade(void);
+				void DecreaseGrade(void);
+				void signForm(Form &form);
 	private : 
 				std::string const	_Name;
 				int					_Grade;

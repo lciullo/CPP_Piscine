@@ -6,11 +6,13 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 10:29:20 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/05 10:20:46 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+//======    Constructors / Destructors    ======
 
 Bureaucrat::Bureaucrat(void): _Name("Name")
 {
@@ -49,6 +51,8 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << GREEN << "Bureaucrat : destructor called"  << RESET << std::endl;
 	return ;
 }
+
+//======            Getters                ======
 std::string	Bureaucrat::GetName(void) const
 {
 	return (this->_Name);
@@ -80,6 +84,7 @@ void Bureaucrat::DecreaseGrade(void)
 		throw GradeTooLowException();
 	return ;
 }
+//=====	            Exceptions             ====== 
 
 char const *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
@@ -90,12 +95,7 @@ char const *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return ("Error, grade is too low");
 }
-
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &Object)
-{
-	out << GREEN << Object.GetName() << ", bureaucrat grade " << Object.GetGrade() << RESET << std::endl;
-	return (out);
-}
+//=====	            Methods               ====== 
 
 void Bureaucrat::signForm(Form &form)
 {
@@ -113,4 +113,10 @@ void Bureaucrat::signForm(Form &form)
 			std::cout << GREEN << " couldn’t sign " << form.GetName() << " because its grade is too low." <<  RESET << std::endl;
 		}
 	}
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &Object)
+{
+	out << GREEN << Object.GetName() << ", bureaucrat grade " << Object.GetGrade() << RESET << std::endl;
+	return (out);
 }

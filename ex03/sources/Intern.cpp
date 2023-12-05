@@ -27,7 +27,16 @@ Intern &	Intern::operator=(const Intern &other)
 	return (*this);
 }
 
+
+//======	            Exceptions         ======
+
+const char *Intern::InvalidNameFormException::what(void) const throw()
+{
+	return ("invalid form name");
+}
+
 //======	           Methods             ======
+
 
 AForm *	Intern::makeForm(std::string FormName, std::string TargetName)
 {
@@ -35,25 +44,22 @@ AForm *	Intern::makeForm(std::string FormName, std::string TargetName)
 	AForm	*FormArray[] = {new RobotomyRequestForm(TargetName),
 						new PresidentialPardonForm(TargetName),
 						new ShrubberyCreationForm(TargetName)};
-	int pos = 0;
 	for (int size = 0 ; size < 3; size++)
 	{
 		if (StringArray[size] == FormName)
-			return (FormArray[size]);
-		else
-		{ 
-			pos = size;
-			break ;
-		}
-	}
-	for (int i = 0; i < pos; i++) {
-        		delete[] StringArray[i].c_str();
+		{
+			for (int index = size + 1; index < size; index++)
+			{
+				delete FormArray[index];
+				
 			}
-			throw(Intern::InvalidNameFormException());
+			return (FormArray[size]);
+		}
+		else
+			delete FormArray[size];
+			
+	}
+	throw(Intern::InvalidNameFormException());		
 	return (NULL);
 }
 
-const char *Intern::InvalidNameFormException::what(void) const throw()
-{
-	return ("Invalid form name");
-}

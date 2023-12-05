@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/04 19:31:06 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/05 11:27:15 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int Bureaucrat::GetGrade(void) const
 		throw (Bureaucrat::GradeTooLowException());
 	return  (this->_Grade);
 }
+
 //======	            Exceptions         ======
 
 char const *Bureaucrat::GradeTooHighException::what(void) const throw()

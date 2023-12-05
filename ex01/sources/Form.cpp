@@ -6,12 +6,13 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:36:01 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/01 15:36:02 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/05 10:30:40 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
+//======    Constructors / Destructors    ======
 Form::Form(void): _Name("Name"), _GradeToSign(150), _GradeToExec(150)
 {
 	std::cout << YELLOW << "Form : default constructor called" << RESET << std::endl;
@@ -54,6 +55,7 @@ Form::~Form(void)
 	std::cout << YELLOW << "Form : destructor called" << RESET << std::endl;
 	return ;
 }
+//======            Getters                ======
 
 std::string	Form::GetName(void) const
 {
@@ -83,6 +85,8 @@ int Form::GetGradeToExec(void) const
 	return  (this->_GradeToExec);
 }
 
+//=====	            Exceptions             ====== 
+
 char const *Form::GradeTooHighException::what() const throw()
 {
 	
@@ -93,6 +97,7 @@ char const *Form::GradeTooLowException::what() const throw()
 {
 	return ("Error, grade is too low");
 }
+//=====	            Methods               ====== 
 
 void Form::beSigned(Bureaucrat &bureaucrat)
 {

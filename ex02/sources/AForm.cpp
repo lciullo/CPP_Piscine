@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:32 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 23:35:36 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/05 10:17:35 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+
+//======    Constructors / Destructors    ======
 
 AForm::AForm(void): _Name("Name"), _GradeToSign(150), _GradeToExec(150)
 {
@@ -52,6 +54,7 @@ AForm::~AForm(void)
 	std::cout << YELLOW << "AForm : destructor called" << RESET << std::endl;
 	return ;
 }
+//======            Getters                ======
 
 std::string	AForm::GetName(void) const
 {
@@ -73,6 +76,8 @@ int AForm::GetGradeToExec(void) const
 	return  (this->_GradeToExec);
 }
 
+//=====	            Exceptions             ====== 
+
 char const *AForm::GradeTooHighException::what() const throw()
 {
 	
@@ -88,6 +93,7 @@ const char *AForm::NotSignedException::what() const throw()
 {
 	return ("Form isn't signed");
 }
+//=====	            Methods               ====== 
 
 void AForm::beSigned(Bureaucrat &bureaucrat)
 {
@@ -95,6 +101,15 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 		this->_Signed = true;
 	else 
 		throw (AForm::GradeTooLowException());
+}
+
+void	AForm::beExecute(Bureaucrat const & executor) const
+{
+	if (!this->GetSigned())
+		throw NotSignedException();
+	else if (executor.GetGrade() > this->GetGradeToExec())
+		throw GradeTooLowException();
+	return ;
 }
 
 std::ostream &operator<<(std::ostream &out, const AForm &Object)
@@ -106,13 +121,4 @@ std::ostream &operator<<(std::ostream &out, const AForm &Object)
 		out << YELLOW << Object.GetName() << "couldn't sign form because is already signed " << RESET << std::endl;
 	}
 	return (out);
-}
-
-void	AForm::beExecute(Bureaucrat const & executor) const
-{
-	if (!this->GetSigned())
-		throw NotSignedException();
-	else if (executor.GetGrade() > this->GetGradeToExec())
-		throw GradeTooLowException();
-	return ;
 }
