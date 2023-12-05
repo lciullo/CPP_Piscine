@@ -6,11 +6,13 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:40 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 23:26:01 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/04 19:34:41 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+
+//======    Constructors / Destructors    ======
 
 RobotomyRequestForm::RobotomyRequestForm(void): AForm("Name", 72, 45) 
 {
@@ -45,10 +47,14 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 	return ;
 }
 
+//======            Getters                ======
+
 std::string	RobotomyRequestForm::GetTarget(void) const
 {
 	return (this->_Target);
 }
+
+//======	           Methods             ======
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {

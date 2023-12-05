@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:23 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 22:40:20 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/04 19:19:22 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include <cstdlib>
-class RobotomyRequestForm: public AForm {
+
+class RobotomyRequestForm: public AForm 
+{
 
 	public	:
 				//======    Constructors / Destructors    ======
@@ -27,7 +29,7 @@ class RobotomyRequestForm: public AForm {
 				~RobotomyRequestForm(void);
 				//======            Getter                 ======
 				std::string	GetTarget(void) const;
-                //======            Methods                ======
+                //======            Method                ======
 				void execute(Bureaucrat const &Bureaucrat) const; 
 	private : 
 				std::string _Target;

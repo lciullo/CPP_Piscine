@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:42 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 23:30:38 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/05 14:16:00 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+
+//======    Constructors / Destructors    ======
 
 ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("Name", 145, 137) 
 {
@@ -45,32 +47,38 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 	return ;
 }
 
+//======            Getters                ======
+
 std::string	ShrubberyCreationForm::GetTarget(void) const
 {
 	return (this->_Target);
 }
+
+//======	            Exceptions         ======
 
 const char *ShrubberyCreationForm::FileNotOpenException::what(void) const throw()
 {
 	return ("Error file could not be open");
 }
 
+//======	           Method             ======
+
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-	std::fstream File;
 	this->beExecute(executor);
+	std::ofstream File;
 	File.open(this->GetTarget().append("_shrubbery").c_str() , std::ios::out);
 	if (File.is_open() == false)
 		throw (ShrubberyCreationForm::FileNotOpenException());
-	File << "  X "
-			" XXXXX "
-			"XXXXXXX"
-			"  || "
-			"    0 "
-			"  00000 "
-			" 0000000 "
-			" 00000000 "
-			 "   | | " << std::endl;
+	File << "   X " << std::endl;
+	File <<	" XXXXX " << std::endl;
+	File << "XXXXXXX" << std::endl;
+	File << "  || " << std::endl;
+	File << "    0 " << std::endl;
+	File << "  00000 " << std::endl;
+	File << " 0000000 " << std::endl;
+	File << " 00000000 " << std::endl;
+	File << "   | | " << std::endl;
 	File.close();
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:26 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 22:40:05 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/04 19:19:18 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 #include "AForm.hpp"
 #include <fstream>
 #include <string>
-class ShrubberyCreationForm: public AForm {
+
+class ShrubberyCreationForm: public AForm 
+{
 
 	public	:
 				//======    Constructors / Destructors    ======
@@ -34,7 +36,7 @@ class ShrubberyCreationForm: public AForm {
 					public : virtual const char *what() const throw();
 
 				};
-                //======            Methods                ======
+                //======            Method               ======
 				void execute(const Bureaucrat& executor) const;
 	private : 
 				std::string _Target;

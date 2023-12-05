@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:17:48 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 22:28:49 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/05 13:48:43 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+//======    Constructors / Destructors    ======
 
 Bureaucrat::Bureaucrat(void): _Name("Name")
 {
@@ -49,6 +51,8 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << GREEN << "Bureaucrat : destructor called"  << RESET << std::endl;
 	return ;
 }
+
+//======            Getters                ======
 std::string	Bureaucrat::GetName(void) const
 {
 	return (this->_Name);
@@ -62,6 +66,26 @@ int Bureaucrat::GetGrade(void) const
 		throw (Bureaucrat::GradeTooLowException());
 	return  (this->_Grade);
 }
+
+//======	            Exceptions         ======
+
+char const *Bureaucrat::GradeTooHighException::what(void) const throw()
+{
+	return ("Error, grade is too high");
+}
+
+char const *Bureaucrat::GradeTooLowException::what(void) const throw()
+{
+	return ("Error, grade is too low");
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &Object)
+{
+	out << GREEN << Object.GetName() << ", bureaucrat grade " << Object.GetGrade() << RESET << std::endl;
+	return (out);
+}
+
+//======	           Methods             ======
 
 void Bureaucrat::IncreaseGrade(void)
 {
@@ -79,22 +103,6 @@ void Bureaucrat::DecreaseGrade(void)
 	else
 		throw GradeTooLowException();
 	return ;
-}
-
-char const *Bureaucrat::GradeTooHighException::what(void) const throw()
-{
-	return ("Error, grade is too high");
-}
-
-char const *Bureaucrat::GradeTooLowException::what(void) const throw()
-{
-	return ("Error, grade is too low");
-}
-
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &Object)
-{
-	out << GREEN << Object.GetName() << ", bureaucrat grade " << Object.GetGrade() << RESET << std::endl;
-	return (out);
 }
 
 void	Bureaucrat::executeForm(AForm const &form)

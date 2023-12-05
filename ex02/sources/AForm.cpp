@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:32 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/05 10:17:35 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/05 14:34:39 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ const char *AForm::NotSignedException::what() const throw()
 {
 	return ("Form isn't signed");
 }
+
 //=====	            Methods               ====== 
 
 void AForm::beSigned(Bureaucrat &bureaucrat)

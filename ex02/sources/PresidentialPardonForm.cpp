@@ -6,11 +6,13 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:37 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/03 23:25:52 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/04 19:32:22 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+//======    Constructors / Destructors    ======
 
 PresidentialPardonForm::PresidentialPardonForm(void): AForm("Name", 25, 5) 
 {
@@ -45,10 +47,14 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 	return ;
 }
 
+//======            Getters                ======
+
 std::string	PresidentialPardonForm::GetTarget(void) const
 {
 	return (this->_Target);
 }
+
+//======	           Method             ======
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
