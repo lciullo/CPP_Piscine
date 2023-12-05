@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:35:32 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/04 21:06:32 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/05 14:34:53 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,6 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 		this->_Signed = true;
 }
 
-//voir si je le vire
 void	AForm::beExecute(Bureaucrat const & executor) const
 {
 	if (!this->GetSigned())
