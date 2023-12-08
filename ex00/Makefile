@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:18:08 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/08 14:46:13 by lciullo          ###   ########.fr        #
+#    Updated: 2023/12/08 15:19:26 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 # --- Executable ---
 
-NAME			=	Scalar
+NAME			=	scalar
 
 # --- Command ---
 
@@ -35,7 +35,8 @@ DIR_INC			=	includes/
 SRCS			=	${DIR_SRCS}main.cpp \
 					${DIR_SRCS}ScalarConverter.cpp \
 					${DIR_SRCS}checkScalarTypes.cpp \
-					${DIR_SRCS}checkScalarOverflow.cpp
+					${DIR_SRCS}checkScalarOverflow.cpp \
+					${DIR_SRCS}convertTypes.cpp
 				
 
 INC				=	${DIR_INC}ScalarConverter.hpp 

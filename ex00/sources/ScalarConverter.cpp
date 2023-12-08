@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:45:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 15:04:57 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/08 15:13:49 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,24 @@ ScalarConverter::~ ScalarConverter(void)
 	std::cout << "Is double return : " << isDouble(input) << std::endl;
 	std::cout << "Is int return : " << isInt(input) << std::endl;
 	std::cout << "Is char return : " << isChar(input) << std::endl;*/
+	
 void ScalarConverter::convert(std::string input)
 {
 	if (isDouble(input))
 	{
-		if (!(doubleOverflow(strtol(input.c_str(), NULL, 10))))
+		if (!(doubleOverflow(strtod(input.c_str(), NULL))))
 			return ;
 	}
-	if (isChar(input))
-		std::cout << "print char with simple quote" << std::endl;
 	if (isFloat(input))
 	{
-		if (!(floatOverflow(strtol(input.c_str(), NULL, 10))))
+		if (!(floatOverflow(strtof(input.c_str(), NULL))))
 			return ;	
 	}
-	
 	if (isInt(input))
 	{
 		if (!(intOverflow(strtol(input.c_str(), NULL, 10))))
 			return ;
 	}
+	if (isChar(input))
+		std::cout << "print char with simple quote" << std::endl;
 }

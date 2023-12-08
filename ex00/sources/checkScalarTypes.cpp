@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 10:56:40 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 11:41:21 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/08 15:54:29 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ bool countFloatFormat(std::string input)
 
 bool isDouble(std::string input)
 {
-	int sign  = 0;
-	
+	unsigned long	sign  	= 0;
+	unsigned long	dot = 0;
 	if (input.size() == 0)
 		return (false);
 	for (unsigned long i = 0; i < input.size(); i++)
@@ -81,10 +81,15 @@ bool isDouble(std::string input)
 			sign++;
 			continue;
 		}
+		if (input[i] == '.')
+		{
+			dot++;
+			continue;
+		}
 		if (!isdigit(input[i]))
 				return (false);
 	}
-	if (sign > 1)
+	if ((sign > 1) || (dot > 1))
 		return (false);
 	return (true);
 }
