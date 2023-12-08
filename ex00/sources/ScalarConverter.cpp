@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:45:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/07 15:42:45 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/08 15:04:57 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,41 +41,28 @@ ScalarConverter::~ ScalarConverter(void)
 }
 
 //======	          Method             ======
-
+	/*std::cout << "Is float return : " << isFloat(input) << std::endl;
+	std::cout << "Is double return : " << isDouble(input) << std::endl;
+	std::cout << "Is int return : " << isInt(input) << std::endl;
+	std::cout << "Is char return : " << isChar(input) << std::endl;*/
 void ScalarConverter::convert(std::string input)
 {
-	std::cout << "Is float return : " << isFloat(input) << std::endl;
-	return ;
-}
-
-bool isInt(std::string input)
-{
-	for (unsigned long i = 0; i < input.size(); i++)
+	if (isDouble(input))
 	{
-		if (i == 0 && (input[i] == '-' || input[i] == '+'))
-			continue;
-		if (isdigit(input[i]) == false)
-			return (false);
+		if (!(doubleOverflow(strtol(input.c_str(), NULL, 10))))
+			return ;
 	}
-	return (true);
-}
-
-bool isFloat(std::string input)
-{
-	if (input[input.size() - 1] != 'f')
-		return (false);
-	for (unsigned long i = 0; i < input.size(); i++)
+	if (isChar(input))
+		std::cout << "print char with simple quote" << std::endl;
+	if (isFloat(input))
 	{
-		if (i == 0 && (input[i] == '-' || input[i] == '+'))
-			continue;
-		if (!isdigit(input[i]))
-		{
-			if ((input[i] == 'e') || (input[i] == 'E') || (input[i] == '.') || (input[i] == 'f'))
-				continue;
-			else 
-				return (false);
-		}
-		std::cout << "input[i] = " << input[i] << std::endl;
+		if (!(floatOverflow(strtol(input.c_str(), NULL, 10))))
+			return ;	
 	}
-	return (true);
+	
+	if (isInt(input))
+	{
+		if (!(intOverflow(strtol(input.c_str(), NULL, 10))))
+			return ;
+	}
 }

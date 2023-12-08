@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:18:08 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/07 11:44:07 by lciullo          ###   ########.fr        #
+#    Updated: 2023/12/08 14:46:13 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,9 @@ DIR_INC			=	includes/
 # --- List ---
 
 SRCS			=	${DIR_SRCS}main.cpp \
-					${DIR_SRCS}ScalarConverter.cpp
+					${DIR_SRCS}ScalarConverter.cpp \
+					${DIR_SRCS}checkScalarTypes.cpp \
+					${DIR_SRCS}checkScalarOverflow.cpp
 				
 
 INC				=	${DIR_INC}ScalarConverter.hpp 

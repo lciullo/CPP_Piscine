@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:44:28 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/07 15:09:37 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/08 15:07:09 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <limits>
+#include <cfloat>
+#include <cmath>
 
 # define RESET		"\033[0m"
 # define BLACK		"\033[30m"
@@ -40,9 +43,20 @@ class ScalarConverter
 				~ScalarConverter(void);
 };
 
-//======	          Booleans            ======
+//======	          Type check           ======
 
 bool isInt(std::string input);
 bool isFloat(std::string input);
+bool countFloatFormat(std::string input);
+bool isDouble(std::string input);
+bool isChar(std::string input);
+
+
+//======	          Overflow            ======
+
+bool intOverflow(long input);
+bool floatOverflow(float input);
+bool doubleOverflow(double input);
+
 
 #endif
