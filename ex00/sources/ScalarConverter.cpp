@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:45:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 23:11:13 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/08 23:38:08 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,30 @@ void ScalarConverter::convert(std::string input)
 {
 	if (isExeceptionPrint(input))
 		return ;
+	else if (isChar(input))
+		printChar(input);
 	else if (isDouble(input))
 	{
 		if (!(doubleOverflow(strtod(input.c_str(), NULL))))
 			return ;
 		printDouble(input);	
+		return ;
 	}
 	else if (isFloat(input))
 	{
 		if (!(floatOverflow(strtof(input.c_str(), NULL))))
 			return ;
-		printFloat(input);	
+		printFloat(input);
+		return ;	
 	}
 	else if (isInt(input))
 	{
 		if (!(intOverflow(strtol(input.c_str(), NULL, 10))))
 			return ;
 		printInt(input);
+		return ;
 	}
-	else if (isChar(input))
-		printChar(input);	
+	else 
+		std::cout << RED << "Error, wrong input" << RESET << std::endl;
+	return ;	
 }

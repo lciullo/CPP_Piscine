@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:19:29 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 23:11:33 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/08 23:37:55 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void printDouble(std::string input)
 		std::cout << "int: " << static_cast<int>(doubleRes) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if (doubleRes <= FLT_MAX && doubleRes >= FLT_MIN)
-		std::cout << "float: " << static_cast<float>(doubleRes) << std::endl;
+	if (doubleRes <= FLT_MAX && doubleRes >= -FLT_MAX)
+		std::cout << "float: " << static_cast<float>(doubleRes) << "f" << std::endl;
 	else
 		std::cout << "float: impossible" << std::endl; 
-	if (doubleRes <= DBL_MAX && doubleRes >= DBL_MIN)
+	if (doubleRes <= DBL_MAX && doubleRes >= -DBL_MAX)
 		std::cout << "double: " << static_cast<double>(doubleRes) << std::endl;
 	else
 		std::cout << "double: impossible" << std::endl;
@@ -50,11 +50,11 @@ void printInt(std::string input)
 		std::cout << "int: " << static_cast<int>(intRes) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if (intRes <= FLT_MAX && intRes >= FLT_MIN)
+	if (intRes <= FLT_MAX && intRes >= -FLT_MAX)
 		std::cout << "float: " << static_cast<float>(intRes) << ".0f" << std::endl;
 	else
 		std::cout << "float: impossible" << std::endl;
-	if (intRes <= DBL_MAX && intRes >= DBL_MIN)
+	if (intRes <= DBL_MAX && intRes >= -DBL_MAX)
 		std::cout << "double: " << static_cast<double>(intRes) << std::endl;
 	else
 		std::cout << "double: impossible" << std::endl;
@@ -77,7 +77,7 @@ void printFloat(std::string input)
 	float fractionalPart = 0;
 	float integralPart = std::modf(floatRes, &fractionalPart);
 	int intRes = static_cast<int>(floatRes);
-	if (integralPart == 0.0 && floatRes > 31.0 && floatRes < 127.0)
+	if (integralPart == 0.0f && floatRes > 31.0f && floatRes < 127.0f)
 		std::cout << "char: '" << static_cast<char>(intRes) << "'" << std::endl; 
 	else
 		std::cout << "char: Non displayable" << std::endl;
@@ -85,11 +85,11 @@ void printFloat(std::string input)
 		std::cout << "int: " << static_cast<int>(floatRes) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if (floatRes <= FLT_MAX && floatRes >= FLT_MIN)
-		std::cout << "float: " << static_cast<float>(floatRes) << std::endl;
+	if (floatRes <= FLT_MAX && floatRes >= -FLT_MAX)
+		std::cout << "float: " << static_cast<float>(floatRes) << "f" << std::endl;
 	else
 		std::cout << "float: impossible" << std::endl; 
-	if (floatRes <= DBL_MAX && floatRes >= DBL_MIN)
+	if (floatRes <= DBL_MAX && floatRes >= -DBL_MAX)
 		std::cout << "double: " << static_cast<double>(floatRes) << std::endl;
 	else
 		std::cout << "double: impossible" << std::endl;
