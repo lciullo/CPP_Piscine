@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
+#    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 13:18:08 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/08 15:19:26 by lciullo          ###   ########.fr        #
+#    Updated: 2023/12/08 23:12:54 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRCS			=	${DIR_SRCS}main.cpp \
 					${DIR_SRCS}ScalarConverter.cpp \
 					${DIR_SRCS}checkScalarTypes.cpp \
 					${DIR_SRCS}checkScalarOverflow.cpp \
-					${DIR_SRCS}convertTypes.cpp
+					${DIR_SRCS}printScalarTypes.cpp
 				
 
 INC				=	${DIR_INC}ScalarConverter.hpp 

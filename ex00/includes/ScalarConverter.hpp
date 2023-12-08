@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:44:28 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 15:55:09 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/08 23:09:48 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <string>
-#include <cctype>
-#include <limits>
 #include <cfloat>
 #include <cmath>
 
 # define RED		"\033[31m"
 # define RESET		"\033[0m"
+
+#define INT_MIN		-2147483648
+#define INT_MAX		2147483647
+#define FLT_MAX     __FLT_MAX__
+#define FLT_MIN     __FLT_MIN__
+#define DBL_MAX     __DBL_MAX__
+#define DBL_MIN     __DBL_MIN__
+
 
 class ScalarConverter
 {
@@ -51,6 +56,11 @@ bool intOverflow(long input);
 bool floatOverflow(float input);
 bool doubleOverflow(double input);
 
-//======	           Conversion           ======
+//======	           Print           ======
 
+bool isExeceptionPrint(std::string input);
+void printDouble(std::string input);
+void printInt(std::string input);
+void printChar(std::string input);
+void printFloat(std::string input);
 #endif
