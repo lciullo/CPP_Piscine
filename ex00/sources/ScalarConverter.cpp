@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:45:20 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 23:38:08 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/08 23:40:38 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ void ScalarConverter::convert(std::string input)
 		return ;
 	}
 	else 
-		std::cout << RED << "Error, wrong input" << RESET << std::endl;
+		std::cout << RED << "ERROR, wrong input" << RESET << std::endl;
 	return ;	
 }
