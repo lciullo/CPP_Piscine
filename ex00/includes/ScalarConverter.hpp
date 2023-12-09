@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:44:28 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 23:36:20 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/09 15:19:31 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ class ScalarConverter
 				//======    Constructors / Destructors   ======
 				ScalarConverter(void);
 				ScalarConverter(const ScalarConverter &other);
-				ScalarConverter &operator=(const ScalarConverter &other);
 				~ScalarConverter(void);
+				//======    Overload operator            ======
+				ScalarConverter &operator=(const ScalarConverter &other);
+				
 };
 
 //======	          Type check          ======
@@ -61,4 +63,5 @@ void printDouble(std::string input);
 void printInt(std::string input);
 void printChar(std::string input);
 void printFloat(std::string input);
+
 #endif
