@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:49:11 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/09 17:02:20 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/11 09:55:35 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
-
-Base*	generate(void);
-void	identify(Base* p);
-void	identify(Base& p);
 
 Base*	generate(void)
 {
@@ -41,7 +37,7 @@ void	identify(Base* p)
 	else if (dynamic_cast<C*>(p))
 		std::cout << "C pointer" << std::endl;
 	else
-		std::cout << "Unknow pointer" << std::endl;
+		std::cout << RED << "Error, unknow pointer" << RESET << std::endl;
 }
 
 void	identify(Base& p)
@@ -67,18 +63,17 @@ void	identify(Base& p)
 		return;
 	}
 	catch (const std::exception& e) {}
-	std::cout << "Unknow pointer" << std::endl;
+	std::cout << RED << "Error, unknow pointer" << RESET << std::endl;
 }
 
 
 int main(void)
 {
-	Base*	test = generate();
+	Base*	value = generate();
 
 	identify(NULL);
-	identify(test);
-	identify(*test);
-	delete test;
-	return (0);
+	identify(value);
+	identify(*value);
+	delete value;
 	return (0);
 }

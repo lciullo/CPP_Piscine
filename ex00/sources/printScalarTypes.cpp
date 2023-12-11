@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printScalarTypes.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:19:29 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 23:37:55 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/11 09:15:18 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void printInt(std::string input)
 		std::cout << "int: " << static_cast<int>(intRes) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if (intRes <= FLT_MAX && intRes >= -FLT_MAX)
+	if (intRes <= FLT_MAX && intRes >= -FLT_MIN)
 		std::cout << "float: " << static_cast<float>(intRes) << ".0f" << std::endl;
 	else
 		std::cout << "float: impossible" << std::endl;
-	if (intRes <= DBL_MAX && intRes >= -DBL_MAX)
+	if (intRes <= DBL_MAX && intRes >= -DBL_MIN)
 		std::cout << "double: " << static_cast<double>(intRes) << std::endl;
 	else
 		std::cout << "double: impossible" << std::endl;
@@ -81,15 +81,15 @@ void printFloat(std::string input)
 		std::cout << "char: '" << static_cast<char>(intRes) << "'" << std::endl; 
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	if (floatRes <= INT_MAX && floatRes >= INT_MIN)
+	if (floatRes <= 2147483647.0f && floatRes >= -2147483648.0f)
 		std::cout << "int: " << static_cast<int>(floatRes) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if (floatRes <= FLT_MAX && floatRes >= -FLT_MAX)
+	if (floatRes <= FLT_MAX && floatRes >= -FLT_MIN)
 		std::cout << "float: " << static_cast<float>(floatRes) << "f" << std::endl;
 	else
 		std::cout << "float: impossible" << std::endl; 
-	if (floatRes <= DBL_MAX && floatRes >= -DBL_MAX)
+	if (floatRes <= DBL_MAX && floatRes >= -DBL_MIN)
 		std::cout << "double: " << static_cast<double>(floatRes) << std::endl;
 	else
 		std::cout << "double: impossible" << std::endl;

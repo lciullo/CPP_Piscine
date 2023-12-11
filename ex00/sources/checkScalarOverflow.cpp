@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkScalarOverflow.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 12:06:04 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/08 22:18:07 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/11 09:34:39 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool intOverflow(long input)
 
 bool floatOverflow(float input)
 {
-	if (input >= FLT_MAX && input <= FLT_MIN)
+	if (input >= FLT_MAX && input <= -FLT_MIN)
 	{
 		std::cout  << RED << "Error : float overflow " << RESET << std::endl;
 		return (false);
@@ -34,7 +34,7 @@ bool floatOverflow(float input)
 
 bool doubleOverflow(double input)
 {
-	if (input >= DBL_MAX && input <= DBL_MIN)
+	if (input >= DBL_MAX && input <= -DBL_MIN)
 	{
 		std::cout << RED << "Error : double overflow " << RESET << std::endl;
 		return (false);
