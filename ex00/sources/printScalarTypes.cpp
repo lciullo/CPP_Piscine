@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:19:29 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/11 10:46:53 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/11 11:04:08 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,26 +110,26 @@ bool isExeceptionPrint(std::string input)
 	std::cout << std::fixed;
 	if (input == "-inff" || input == "-inf")
 	{
-		std::cout << "char   : impossible" << std::endl;
-		std::cout << "int    : " << std::numeric_limits<int>::min() << std::endl;
-		std::cout << "float  : " << std::numeric_limits<float>::min() << "f" << std::endl;
-		std::cout << "double : " << std::numeric_limits<double>::min() << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: " << std::numeric_limits<int>::min() << std::endl;
+		std::cout << "float: " << std::numeric_limits<float>::min() << "f" << std::endl;
+		std::cout << "double: " << std::numeric_limits<double>::min() << std::endl;
 		return (true);
 	}
 	else if (input == "+inff" || input == "+inf")
 	{
-		std::cout << "char   : impossible" << std::endl;
-		std::cout << "int    : " << std::numeric_limits<int>::max() << std::endl;
-		std::cout << "float  : " << std::numeric_limits<float>::max() << "f" << std::endl;
-		std::cout << "double : " << std::numeric_limits<double>::max() << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: " << std::numeric_limits<int>::max() << std::endl;
+		std::cout << "float: " << std::numeric_limits<float>::max() << "f" << std::endl;
+		std::cout << "double: " << std::numeric_limits<double>::max() << std::endl;
 		return (true);
 	}
 	else if (input == "nanf" || input == "nan")
 	{
-		std::cout << "char   : impossible" << std::endl;
-		std::cout << "int    : impossible" << std::endl;
-		std::cout << "float  : nanf" << std::endl;
-		std::cout << "double : nan" << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
 		return (true);
 	}
 	return (false);
