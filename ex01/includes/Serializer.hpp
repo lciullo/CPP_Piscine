@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:44:28 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/09 16:44:54 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/11 10:31:46 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,15 @@ struct Data
 class Serializer
 {
 	public	:	
-				//======	          Method             ======
-				static uintptr_t	serialize(Data* ptr);
-				static Data*		deserialize(uintptr_t raw);
-	private : 	
 				//======    Constructors / Destructors   ======
 				Serializer(void);
 				Serializer(const Serializer &other);
 				~Serializer(void);
 				//======    Overload operator            ======
 				Serializer &operator=(const Serializer &other);
-				
+				//======	          Method             ======
+				static uintptr_t	serialize(Data* ptr);
+				static Data*		deserialize(uintptr_t raw);			
 };
 
 #endif

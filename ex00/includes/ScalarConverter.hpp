@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 11:44:28 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/11 09:34:49 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/11 10:45:24 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cfloat>
 #include <cmath>
+#include <limits>
 
 # define RED		"\033[31m"
 # define RESET		"\033[0m"
