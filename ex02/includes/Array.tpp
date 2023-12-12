@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 10:01:31 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/12 12:40:47 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/12 13:18:43 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::Array(const  Array &obj)
 {
-	std::cout << CYAN << " Array : copy constructor called" << RESET << std::endl;
+	std::cout << CYAN << "Array : copy constructor called" << RESET << std::endl;
 	*this = obj;
 }
 
