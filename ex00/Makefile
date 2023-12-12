@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 11:39:31 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/11 13:49:36 by lciullo          ###   ########.fr        #
+#    Updated: 2023/12/12 12:55:39 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ ${NAME}:		${OBJ}
 
 ${DIR_DEP}%.o: %.cpp
 				mkdir -p $(shell dirname $@)
-				${CPP} ${FLAGS} ${DEP_FLAGS} -I ${DIR_INC} -c $< -o $@
+				${CPP} ${FLAGS} ${DEP_FLAGS} -c $< -o $@
 
 clean:
 				${RM} ${DIR_DEP}

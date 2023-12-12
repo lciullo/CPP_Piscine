@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 11:39:31 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/11 16:41:45 by lciullo          ###   ########.fr        #
+#    Updated: 2023/12/12 12:50:46 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 # --- Executable ---
 
-NAME			=	iter
+NAME			=	array
 
 # --- Command ---
 
@@ -32,10 +32,11 @@ DIR_INC			=	includes/
 
 # --- List ---
 
-SRCS			=	${DIR_SRCS}main.cpp  
+SRCS			=	${DIR_SRCS}main.cpp 
 				
 
-INC				=	${DIR_INC}iter.hpp 
+INC				=	${DIR_INC}Array.hpp \
+					${DIR_INC}Array.tpp
 				
 # --- Paths ---
 
@@ -62,7 +63,7 @@ ${NAME}:		${OBJ}
 
 ${DIR_DEP}%.o: %.cpp
 				mkdir -p $(shell dirname $@)
-				${CPP} ${FLAGS} ${DEP_FLAGS} -I ${DIR_INC} -c $< -o $@
+				${CPP} ${FLAGS} ${DEP_FLAGS} -c $< -o $@
 
 clean:
 				${RM} ${DIR_DEP}
