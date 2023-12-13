@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:46:24 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/13 23:12:28 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/13 23:25:29 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int main(void)
 	{
 		easyfind(firstContainer, 3);
 	} 
-	catch (const std::exception& e) 
+	catch (std::exception &e) 
 	{
 		std::cerr << e.what() << std::endl;
+		std::cerr << "Not occurence was found" << std::endl;
 	}
 	std::cout << "======================================" << std::endl;
 	std::cout << "Search 100, in this container : {10,20,30,40,50}" << std::endl;
@@ -34,9 +35,11 @@ int main(void)
 	try 
 	{
 		easyfind(secondContainer, 100);
-	} catch (const std::exception& e) 
+	} 
+	catch (std::exception &e) 
 	{
 		std::cerr << e.what() << std::endl;
+		std::cerr << "Not occurence was found" << std::endl;
 	}
 	return (0);
 }
