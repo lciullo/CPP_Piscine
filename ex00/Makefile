@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
+#    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 13:42:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/12 13:47:11 by lciullo          ###   ########.fr        #
+#    Updated: 2023/12/13 23:08:37 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,12 @@ DIR_INC			=	includes/
 
 # --- List ---
 
-SRCS			=	${DIR_SRCS}main.cpp \
-					${DIR_SRCS}easyfind.cpp 
+SRCS			=	${DIR_SRCS}main.cpp 
+					
 				
 
-INC				=	${DIR_INC}easyfind.hpp 
+INC				=	${DIR_INC}easyfind.hpp \
+					${DIR_INC}easyfind.tpp 
 				
 # --- Paths ---
 
@@ -49,6 +50,7 @@ DEP				=	${patsubst %.cpp, ${DIR_DEP}%.d, ${SRCS}}
 FLAGS			=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
 
 CPP				=	c++ -std=c++98
+
 
 DEP_FLAGS		=	-MMD -MP
 
