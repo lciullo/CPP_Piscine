@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:46:24 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/13 23:54:46 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/14 14:18:12 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,66 +15,67 @@
 int main(void)
 {
 	{
-		try
-		{
-			std::cout << "\n------- STACK FULL -------\n\n" << std::endl;
-			Span stack(100);
-			for(int i = 0; i < 100; i++)
-				stack.addNumber(i);
-			stack.addNumber(100);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		std::cout << "Subject test" << std::endl;
+		Span sp = Span(5);
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "=========================" << std::endl;
+		
 	}
+	std::cout << "My test" << std::endl;
+	std::cout << "=========================" << std::endl;
+	std::cout << "Add numbers : " << std::endl;
 	{
-		std::cout << "\n------- 1 ELEMENT -------\n\n" << std::endl;
-		Span stack(4);
-		try
-		{
-			stack.addNumber(1);
-			std::cout << "Max span: " << stack.longestSpan() << std::endl;
-			std::cout << "Min span: " << stack.shortestSpan() << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}
-	{
-		std::cout << "\n------- MAX & MIN SPAN -------\n\n" << std::endl;
-		Span stack(5);
-		try
-		{
-			stack.addNumber(6);
-			stack.addNumber(3);
-			stack.addNumber(17);
-			stack.addNumber(9);
-			stack.addNumber(11);
-			std::cout << "Max span: " << stack.longestSpan() << std::endl;
-			std::cout << "Min span: " << stack.shortestSpan() << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}
-	{
-		std::cout << "\n------- BIG STACK-------\n\n" << std::endl;
 		Span stack(10042);
-		std::list<int> s1;
-		try
-		{
-			for(int i(0); i < 10042; i++)
+		std::vector<int> s1;
+		for(int i(0); i < 10042; i++)
 				s1.push_back(i);
-			stack.addNumber(s1.begin(), s1.end());
-			std::cout << "Max span: " << stack.longestSpan() << std::endl;
-			std::cout << "Min span: " << stack.shortestSpan() << std::endl;
-		}
-		catch(const std::exception& e)
+		stack.addNumbers(s1.begin(), s1.end());
+		std::cout << stack.longestSpan() << std::endl;
+		std::cout << stack.shortestSpan() << std::endl;
+
+	}
+	std::cout << "=========================" << std::endl;
+	std::cout << "Too few arguments : " << std::endl;
+	{
+		try 
 		{
-			std::cerr << e.what() << '\n';
+			Span sp = Span(5);
+			sp.addNumber(1);
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			
+			std::cerr << e.what() << std::endl;
+		}
+		
+	}
+	std::cout << "=========================" << std::endl;
+	std::cout << "Too many arguments : " << std::endl;
+	{
+		try 
+		{
+			
+			Span sp = Span(2);
+			sp.addNumber(6);
+			sp.addNumber(3);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			sp.addNumber(11);
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			
+			std::cerr << e.what() << std::endl;
 		}
 	}
 	return (0);

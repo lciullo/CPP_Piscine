@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:46:08 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/13 23:50:01 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/14 14:18:37 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,32 @@
 
 Span::Span()
 {
-	std::cout << "Default constructor called" << std::endl;
 	this->_N = 0;
 }
 
 Span::Span(unsigned int N)
 {
-	std::cout <<  "Assignement constructor called" << std::endl;
 	this->_N = N;
 }
 
 Span::Span(const Span &obj)
 {
-	std::cout <<  "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Span::~Span(void)
 {
-	std::cout << "Destructor called" << std::endl;
+
 }
 
 //======	          Overload Operator             ======
 
 Span &Span::operator=(const Span &obj)
 {
-	(void)obj;
+	if (this != &obj)
+	{
+		
+	}
 	return (*this);
 }
 
@@ -49,64 +49,47 @@ Span &Span::operator=(const Span &obj)
 
 void	Span::addNumber(int number)
 {
-	if (this->_lst.size() + 1 > this->_N)
-		throw (std::exception());
-	this->_lst.push_back(number);
+	if (this->_array.size() >= this->_N)
+		throw tooManyInput();
+	this->_array.push_back(number);
+	return ;
 }
 
-void    Span::addNumber(std::list<int>::const_iterator begin, std::list<int>::const_iterator end)
+void    Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    if (this->_lst.size() + std::distance(begin, end) > this->_N)
-        throw (std::exception());
-    this->_lst.insert(this->_lst.end(), begin, end);
+	while (begin != end)
+	{
+		this->_array.push_back(*begin);
+		if (this->_array.size() > this->_N)
+			throw tooManyInput();
+		++begin;
+	}
 }
-
 
 int	Span::shortestSpan()
 {
-	if (this->_lst.size() < 2)
-		throw (std::exception());
-	this->_lst.sort();
-	std::list<int>::const_iterator	it1 = this->_lst.begin();
-	std::list<int>::const_iterator	it2 = this->_lst.begin();
-	std::list<int>::const_iterator	ite = this->_lst.end();
-	int	min;
-
-	++it2;
-	if (*it1 >= *it2)
-		min = *it1 - *it2;
-	else
-		min = *it2 - *it1;
-	while (it2 != ite)
+	if (this->_array.size() <= 1) 
+		throw tooFewInput();
+	std::vector<int> copy;
+	copy = this->_array;
+	std::sort(copy.begin(), copy.end());
+	int min = copy[1] - copy[0];
+	for (size_t i = 1; i < copy.size(); ++i) 
 	{
-		if (*it1 >= *it2 && *it1 - *it2 < min)
-			min = *it1 - *it2;
-		else if (*it1 < *it2 && *it2 - *it1 < min)
-			min = *it2 - *it1;
-		++it1;
-		++it2;
+		int compare = copy[i] - copy[i - 1];
+		if (compare < min) 
+		{
+			min = compare;
+		}
 	}
 	return (min);
 }
 
 int Span::longestSpan()
 {
-	if (this->_lst.size() < 2)
-		throw (std::exception());
-		
-	std::list<int>::const_iterator	it;
-	std::list<int>::const_iterator	ite = this->_lst.end();
-	int								max = *(this->_lst.begin());
-	int								min = *(this->_lst.begin());
-
-	for (it = this->_lst.begin(); it != ite; ++it)
-	{
-		if (*it > max)
-			max = *it;
-		if (*it < min)
-			min = *it;
-	}
+	if (this->_array.size() <= 1)
+		throw tooFewInput();
+	int	max = *std::max_element(this->_array.begin(), this->_array.end());
+	int	min = *std::min_element(this->_array.begin(), this->_array.end());
 	return (max - min);
 }
-
-

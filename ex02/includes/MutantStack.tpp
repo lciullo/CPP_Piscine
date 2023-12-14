@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:46:08 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/14 00:06:44 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/14 12:47:29 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ MutantStack<T>::~MutantStack(void)
 template <typename T>
 MutantStack<T> &MutantStack<T>::operator=(const MutantStack<T> &obj)
 {
-	(void)obj;
+	if (this != &obj)
+	{
+		
+	}
 	return (*this);
 }

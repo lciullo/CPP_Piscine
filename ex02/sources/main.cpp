@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:46:24 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/14 00:00:41 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/14 14:55:47 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int main(void)
 {
 	{
-		std::cout << BLUE << "\n------- MUTANT STACK INT -------\n\n" << RESET << std::endl;
+		std::cout << BLUE << "=======================" << RESET << std::endl;
+		std::cout << BLUE << "int test" << RESET << std::endl;
 		MutantStack<int> mstack;
 		mstack.push(5);
 		mstack.push(17);
@@ -39,7 +40,8 @@ int main(void)
 		}
 	}
 	{
-		std::cout << BLUE << "\n------- MUTANT STACK STRING -------\n\n" << RESET << std::endl;
+		std::cout << BLUE << "=======================" << RESET << std::endl;
+		std::cout << BLUE << "String test" << RESET << std::endl;
 		MutantStack<std::string> mstack;
 		mstack.push("Hello");
 		mstack.push("Hola");
@@ -50,7 +52,7 @@ int main(void)
 		std::cout << "Size: " << mstack.size() << std::endl;
 		mstack.push("je");
 		mstack.push("suis");
-		mstack.push("leon");
+		mstack.push("Lisa");
 		mstack.push("!");
 		MutantStack<std::string>::iterator it = mstack.begin();
 		MutantStack<std::string>::iterator ite = mstack.end();
@@ -63,7 +65,8 @@ int main(void)
 		}
 	}
 	{
-		std::cout << BLUE << "\n------- LIST & MUTANTSTACK -------\n\n" << RESET << std::endl;
+		std::cout << BLUE << "=======================" << RESET << std::endl;
+		std::cout << BLUE << "List test" << RESET << std::endl;
 		std::list<int> mlist;
 		MutantStack<int> mstack;
 		mlist.push_back(5);
@@ -104,4 +107,3 @@ int main(void)
 	}
 	return (0);
 }
-

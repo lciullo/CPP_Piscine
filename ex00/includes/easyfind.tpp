@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:46:08 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/13 23:23:22 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/14 14:20:48 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void easyfind(T &container, int nb)
 	} 
 	else
 	{
-		throw (std::exception());
+		throw noOccurence();
 	}
 }
