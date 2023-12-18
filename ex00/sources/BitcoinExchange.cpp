@@ -56,14 +56,14 @@ void BitcoinExchange::parseInfile(const char *infile)
 		pos = line.find("|");		
 		if (pos == std::string::npos)
 		{
-			std::cerr << RED << "Not value was found " << RESET << std::endl;
+			std::cerr << RED << "Error: no value was found." << RESET << std::endl;
 		}
 		date = line.substr(0, pos);
 		date = stringTrim(date);
 		if (date == "date")
 			continue ;
 		if (!parseDate(date))
-			std::cout << RED << "Invalid date, format : Year-Month-Day " << RESET << std::endl;
+			std::cout << RED << "Error: bad input => year-month-day." << RESET << std::endl;
 		else
 		{
 			value = line.substr(pos + 2, line.size() - 1);
@@ -127,12 +127,12 @@ void	BitcoinExchange::parseValue(std::string date, std::string stringValue)
 	value = strtof(stringValue.c_str(),NULL);
 	if (value < 0)
 	{
-		std::cout << RED << "Error, there is a negative value" << RESET << std::endl;
+		std::cout << RED << "Error: negative number." << RESET << std::endl;
 		return ;
 	}
 	if (value > 1000)
 	{
-		std::cout << RED << "Error, value is too large" << RESET << std::endl;
+		std::cout << RED << "Error: too large number." << RESET << std::endl;
 		return ;
 	}
 	if (this->_dataBase.find(date) != this->_dataBase.end())

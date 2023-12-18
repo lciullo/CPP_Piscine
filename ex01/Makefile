@@ -6,7 +6,7 @@
 #    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 13:42:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/16 18:36:13 by lisa             ###   ########.fr        #
+#    Updated: 2023/12/18 22:33:23 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 # --- Executable ---
 
-NAME			=	btc
+NAME			=	RPN
 
 # --- Command ---
 
@@ -33,11 +33,11 @@ DIR_INC			=	includes/
 # --- List ---
 
 SRCS			=	${DIR_SRCS}main.cpp \
-					${DIR_SRCS}BictoinExchange.cpp
+					${DIR_SRCS}RPN.cpp
 					
 				
 
-INC				=	${DIR_INC}BictoinExchange.hpp
+INC				=	${DIR_INC}RPN.hpp
 				
 # --- Paths ---
 
@@ -47,7 +47,7 @@ DEP				=	${patsubst %.cpp, ${DIR_DEP}%.d, ${SRCS}}
 				 
 # ====================== FLAGS ====================== #
 
-FLAGS			=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
+FLAGS			=	-Wall -Wextra -Werror -g3 -fsanitize=address -I ${DIR_INC}
 
 CPP				=	c++ -std=c++98
 
