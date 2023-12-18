@@ -61,11 +61,10 @@ class BitcoinExchange
 								}
 				};
 
-				//======    Method                ======
+				//======    Methods                ======
 				
 				void fillMap(void);
 				void parseInfile(const char *infile);
-				void printDataBase(void);
 				std::string stringTrim(std::string const &str);
 				bool parseDate(std::string date);
 				void parseValue(std::string date, std::string stringValue);

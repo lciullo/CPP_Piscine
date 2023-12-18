@@ -20,7 +20,7 @@ BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &obj)
 	return (*this);
 }
 
-//======    Method                ======
+//======    Methods                ======
 
 void BitcoinExchange::fillMap(void)
 {
@@ -39,59 +39,6 @@ void BitcoinExchange::fillMap(void)
 	}
 	file.close();
 	return ;
-}
-
-void	BitcoinExchange::printDataBase(void)
-{
-	std::map<std::string, float>::iterator it = this->_dataBase.begin();
-	while (it != this->_dataBase.end())
-	{
-		std::cout << it->first << ", " << it->second << std::endl;
-		it++;
-	}
-}
-
-std::string BitcoinExchange::stringTrim(std::string const &str)
-{
-	std::string newString; 
-	size_t start = 0;
-    while (start < str.length() && std::isspace(str[start])) 
-	{
-        start++;
-    }
-	size_t end = str.length();
-    while (end > 0 && std::isspace(str[end - 1])) 
-	{
-        end--;
-    }
-	newString = str.substr(start, end - start);
-	return (newString);
-}
-
-bool BitcoinExchange::parseDate(std::string date)
-{	
-	int year = 0;
-	int month = 0;
-	int day = 0;
-	char dash;
-
-	std::istringstream iss(date);
-	iss >> year >> dash >> month >> dash >> day;
-	if (year < 2009 || year > 2023) 
-		return (false);
-	if (month < JAN || month > DEC) 
-		return (false);
-	if ((month == JAN || month == MARCH || month == MAY || month == JULY \
-			|| month == AUG || month == OCT || month == DEC) && (day <= 0 || day > 31)) 
-		return (false);
-	else if ((month == APRIL || month == JUNE || month == SEPT || month == NOV) \
-				&& (day <= 0 || day > 30)) 
-		return (false);
-	if ((year == 2012 || year == 2016 || year == 2020) && month == FEB && (day <= 0 || day > 29)) 
-		return (false);
-	else if (month == FEB && (day <= 0 || day > 28)) 
-		return (false);
-	return (true);
 }
 
 void BitcoinExchange::parseInfile(const char *infile)
@@ -126,6 +73,52 @@ void BitcoinExchange::parseInfile(const char *infile)
 	file.close();
 	return ;
 }
+
+std::string BitcoinExchange::stringTrim(std::string const &str)
+{
+	std::string newString; 
+	size_t start = 0;
+    while (start < str.length() && std::isspace(str[start])) 
+	{
+        start++;
+    }
+	size_t end = str.length();
+    while (end > 0 && std::isspace(str[end - 1])) 
+	{
+        end--;
+    }
+	newString = str.substr(start, end - start);
+	return (newString);
+}
+
+
+
+bool BitcoinExchange::parseDate(std::string date)
+{	
+	int year = 0;
+	int month = 0;
+	int day = 0;
+	char dash;
+
+	std::istringstream iss(date);
+	iss >> year >> dash >> month >> dash >> day;
+	if (year < 2009 || year > 2023) 
+		return (false);
+	if (month < JAN || month > DEC) 
+		return (false);
+	if ((month == JAN || month == MARCH || month == MAY || month == JULY \
+			|| month == AUG || month == OCT || month == DEC) && (day <= 0 || day > 31)) 
+		return (false);
+	else if ((month == APRIL || month == JUNE || month == SEPT || month == NOV) \
+				&& (day <= 0 || day > 30)) 
+		return (false);
+	if ((year == 2012 || year == 2016 || year == 2020) && month == FEB && (day <= 0 || day > 29)) 
+		return (false);
+	else if (month == FEB && (day <= 0 || day > 28)) 
+		return (false);
+	return (true);
+}
+
 
 void	BitcoinExchange::parseValue(std::string date, std::string stringValue)
 {
