@@ -6,7 +6,7 @@
 #    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 13:42:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/16 18:36:13 by lisa             ###   ########.fr        #
+#    Updated: 2023/12/17 17:12:19 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,11 @@ DIR_INC			=	includes/
 # --- List ---
 
 SRCS			=	${DIR_SRCS}main.cpp \
-					${DIR_SRCS}BictoinExchange.cpp
+					${DIR_SRCS}BitcoinExchange.cpp
 					
 				
 
-INC				=	${DIR_INC}BictoinExchange.hpp
+INC				=	${DIR_INC}BitcoinExchange.hpp
 				
 # --- Paths ---
 
