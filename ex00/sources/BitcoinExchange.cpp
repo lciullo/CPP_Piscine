@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/19 11:10:04 by lciullo           #+#    #+#             */
+/*   Updated: 2023/12/19 14:32:20 by lciullo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "BitcoinExchange.hpp"
 
 //======  Constructor / Destructor ======
@@ -32,13 +44,25 @@ void BitcoinExchange::fillMap(void)
 	std::string value;
 	while (!file.eof())
 	{
-
 		getline(file, date, ',');
 		getline(file, value, '\n');
 		this->_dataBase[date] = strtof(value.c_str(), NULL);
 	}
 	file.close();
 	return ;
+}
+
+bool BitcoinExchange::onlyWhitespace(std::string line)
+{
+	size_t count = 0;
+	for (size_t i = 0; i < line.size(); i++)
+    {
+        if (isspace(line[i]))
+            count++;
+    }
+	if (count == line.size())
+		return (true);
+	return (false);
 }
 
 void BitcoinExchange::parseInfile(const char *infile)
@@ -54,17 +78,21 @@ void BitcoinExchange::parseInfile(const char *infile)
 	{
 		getline(file, line);
 		pos = line.find("|");		
-		if (pos == std::string::npos)
+		if (pos == std::string::npos && onlyWhitespace(line) == false)
 		{
-			std::cerr << RED << "Error: no value was found." << RESET << std::endl;
+			std::cerr << RED << "Error: bad input => " << line << RESET << std::endl;
+			continue ;
 		}
 		date = line.substr(0, pos);
 		date = stringTrim(date);
 		if (date == "date")
 			continue ;
-		if (!parseDate(date))
-			std::cout << RED << "Error: bad input => year-month-day." << RESET << std::endl;
-		else
+		if (!parseDate(date) && !onlyWhitespace(date))
+		{
+			std::cout << RED << "Error: invalid date " << date << RESET << std::endl;
+			continue ;
+		}
+		if (!onlyWhitespace(date))
 		{
 			value = line.substr(pos + 2, line.size() - 1);
 			parseValue(date, value);

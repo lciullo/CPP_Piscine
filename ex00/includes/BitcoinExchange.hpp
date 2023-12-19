@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/19 11:09:55 by lciullo           #+#    #+#             */
+/*   Updated: 2023/12/19 14:11:54 by lciullo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
@@ -68,6 +80,7 @@ class BitcoinExchange
 				std::string stringTrim(std::string const &str);
 				bool parseDate(std::string date);
 				void parseValue(std::string date, std::string stringValue);
+				bool onlyWhitespace(std::string line);
 };
 
 #endif 

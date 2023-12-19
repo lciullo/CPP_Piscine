@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
+#    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 13:42:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/16 18:36:13 by lisa             ###   ########.fr        #
+#    Updated: 2023/12/19 11:25:11 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 # --- Executable ---
 
-NAME			=	btc
+NAME			=	PmergeMe
 
 # --- Command ---
 
@@ -33,11 +33,11 @@ DIR_INC			=	includes/
 # --- List ---
 
 SRCS			=	${DIR_SRCS}main.cpp \
-					${DIR_SRCS}BictoinExchange.cpp
+					${DIR_SRCS}PmergeMe.cpp
 					
 				
 
-INC				=	${DIR_INC}BictoinExchange.hpp
+INC				=	${DIR_INC}PmergeMe.hpp
 				
 # --- Paths ---
 

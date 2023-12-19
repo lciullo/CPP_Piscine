@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 11:09:37 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/19 15:40:49 by lciullo          ###   ########.fr       */
+/*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
+/*   Updated: 2023/12/19 11:24:33 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-#define RPN_HPP
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
 
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <stdlib.h>
-#include <stack>
 
 # define RESET		"\033[0m"
 # define BLACK		"\033[30m"
@@ -29,16 +24,6 @@
 # define CYAN		"\033[36m"
 # define WHITE		"\033[37m"
 
-# define INT_MIN	-2147483648
-# define INT_MAX	2147483647
-
-
-void calculateExpression(std::string expression);
-
-int	 getRes(std::stack<double> &expressionStack, char op);
-
-bool parseDigit(std::string token, char digit, std::stack<double> &expressionStack);
-
-void	calculate(double nb1, double nb2, double *res, char op);
+#include <iostream>
 
 #endif 

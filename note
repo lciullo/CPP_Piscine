@@ -5,20 +5,11 @@
 //======    Exception             ======
 //======    Attribute             ======
 
-
-ex00
-
-void	BitcoinExchange::printDataBase(void)
-{
-	std::map<std::string, float>::iterator it = this->_dataBase.begin();
-	while (it != this->_dataBase.end())
-	{
-		std::cout << it->first << ", " << it->second << std::endl;
-		it++;
-	}
-}
-
-ex 01 stack;
-
-
 ex02 vector deque;
+
+Ford-Johnson algorithm : 
+1/ trier de deux facon les listes paires ou impaires 
+
+Tri paire :
+Nous avons deux chaines, la chaines a et la chaines b 
+1/ former des paires de chaque nombre si on a une chaine impaire le dernier fera parti de la chaine 
