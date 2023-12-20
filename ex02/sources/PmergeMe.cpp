@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:24 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/20 13:19:44 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/20 15:41:08 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool isValidInput(int ac, char **av)
 	{
 		if (!checkEachArg(av[i]))
 			return (false);
-	}    
+	}  
 	return (true);
 }
 
@@ -65,3 +65,4 @@ bool checkEachArg(const char *input)
 	}
 	return (true);
 }
+

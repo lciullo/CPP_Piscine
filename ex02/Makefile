@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
+#    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 13:42:48 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/19 11:25:11 by lciullo          ###   ########.fr        #
+#    Updated: 2023/12/20 15:17:46 by lisa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,9 @@ DEP				=	${patsubst %.cpp, ${DIR_DEP}%.d, ${SRCS}}
 				 
 # ====================== FLAGS ====================== #
 
-FLAGS			=	-Wall -Wextra -Werror -g3 -I ${DIR_INC}
+FLAGS			=	-Wall -Wextra -Werror -fsanitize=address -g3 -I ${DIR_INC}
 
-CPP				=	c++ -std=c++98
+CPP				=	c++ -std=c++98 
 
 
 DEP_FLAGS		=	-MMD -MP

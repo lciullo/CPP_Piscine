@@ -6,13 +6,12 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/20 13:10:05 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/20 15:56:34 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
-
 
 # define RESET		"\033[0m"
 # define BLACK		"\033[30m"
@@ -30,8 +29,46 @@
 #include <iostream>
 #include <cstdlib>
 #include <cctype>
+#include <cstdlib> 
+#include <list>
+#include <vector>
+#include <algorithm>
+
+//======    Parse input           ======
 
 bool isValidInput(int ac, char **av);
+
 bool checkEachArg(const char *input);
+
+template <typename T>
+bool isSorted(const T& container) 
+{
+	typename T::const_iterator it = container.begin();
+	typename T::const_iterator next = it;
+	next++;
+	while (next != container.end()) 
+	{
+		if (*it > *next) 
+			return (false);
+		it++;
+		next++;
+	}
+	std::cout << RED << "All of arguments are already sorted" << RESET << std::endl;
+	return (true);
+}
+
+//======    Fill container         ======
+
+template <typename T>
+void fillContainer(int ac, char **av, T& container) 
+{
+    for (int i = 1; i < ac; ++i) 
+	{
+        int nb = std::atoi(av[i]);
+        container.push_back(nb);
+    }
+}
+
+//======    Print         ======
 
 #endif 
