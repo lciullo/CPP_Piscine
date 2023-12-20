@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/20 15:56:34 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/20 18:24:13 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ bool isSorted(const T& container)
 		it++;
 		next++;
 	}
-	std::cout << RED << "All of arguments are already sorted" << RESET << std::endl;
+	std::cout << RED << "List of digit is already sorted" << RESET << std::endl;
 	return (true);
 }
 
@@ -62,13 +62,57 @@ bool isSorted(const T& container)
 template <typename T>
 void fillContainer(int ac, char **av, T& container) 
 {
-    for (int i = 1; i < ac; ++i) 
+	for (int i = 1; i < ac; i++) 
 	{
-        int nb = std::atoi(av[i]);
-        container.push_back(nb);
-    }
+		int nb = std::atoi(av[i]);
+		container.push_back(nb);
+	}
 }
 
 //======    Print         ======
+
+template <typename T>
+void printContainer(const T& container) 
+{
+	typename T::const_iterator it;
+	for (it = container.begin(); it != container.end(); it++) 
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
+//======    Vector sorting  ======
+
+std::vector<int> SortingVector(std::vector<int>	first);
+
+
+//======    Vector sorting  ======
+
+//==========================================================================================
+//                                 FORD-JOHNSON ALGORITHM                                 
+//==========================================================================================
+
+// 1/ Split in pairs of two the list of digit 
+
+template <typename T>
+std::vector<std::pair<int, int> > splitAndPair(const T& container) 
+{
+	std::vector<std::pair<int, int> > pairsVector;
+	size_t nbPairs = container.size();
+
+	if (nbPairs % 2 == 0)
+		nbPairs /=  2;
+	else
+		nbPairs = ((nbPairs - 1 ) / 2);
+	for (size_t i = 0; i < nbPairs; i++) 
+	{
+		pairsVector.push_back(std::make_pair(container[i * 2], container[i * 2 + 1]));
+	}
+	if (container.size() % 2 != 0)
+		pairsVector.push_back(std::make_pair(container.back(), -1));
+	return (pairsVector);
+}
+
 
 #endif 
