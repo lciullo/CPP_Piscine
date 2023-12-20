@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:36 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/19 11:24:23 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:11:44 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int main(int ac, char **av)
 {
-	if (ac != 2)
-	{
-		std::cout << RED << "Error, wrong number of aguments" << RESET << std::endl;
-		std::cout << GREEN << "Valid input : ./btc file" << RESET << std::endl;
-	}
-	(void)av;
+	if (!isValidInput(ac, av))
+		return (1);
 	return (0);
 }

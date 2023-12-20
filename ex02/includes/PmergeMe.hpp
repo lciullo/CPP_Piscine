@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/19 11:24:33 by lciullo          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:27:30 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 # define CYAN		"\033[36m"
 # define WHITE		"\033[37m"
 
+#define INT_MIN -2147483648
+#define INT_MAX 2147483647
+
 #include <iostream>
+#include <cstdlib>
+
+bool isValidInput(int ac, char **av);
 
 #endif 
