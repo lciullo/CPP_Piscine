@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/20 12:27:30 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/20 13:10:05 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <cctype>
 
 bool isValidInput(int ac, char **av);
+bool checkEachArg(const char *input);
 
 #endif 
