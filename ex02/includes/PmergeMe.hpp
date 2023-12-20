@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/20 18:24:13 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/20 23:29:10 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,17 @@ std::vector<std::pair<int, int> > splitAndPair(const T& container)
 		pairsVector.push_back(std::make_pair(container.back(), -1));
 	return (pairsVector);
 }
+
+
+// 2/ Find the smalest and the largest 
+
+void findSmalestLargest(std::vector<std::pair<int, int> > pairsVector, std::vector<int>& smalest, std::vector<int>& largest);
+
+
+// 3/ Recursive sorting
+
+std::vector<int> merge(const std::vector<int>& left, const std::vector<int>& right); 
+std::vector<int> mergeSort(const std::vector<int>& vec); 
 
 
 #endif 
