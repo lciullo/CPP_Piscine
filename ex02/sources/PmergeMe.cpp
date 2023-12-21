@@ -6,19 +6,12 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:24 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/20 15:41:08 by lisa             ###   ########.fr       */
+/*   Updated: 2023/12/21 01:21:42 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "PmergeMe.hpp"
-
-//======    Attribute             ======	
-//======    Constructor           ======
-//======    Destructor            ======
-//======    Overload operator     ======
-//======    Method                ======
-//======    Exception             ======
 
 //======    Parse input           ======
 
@@ -66,3 +59,25 @@ bool checkEachArg(const char *input)
 	return (true);
 }
 
+// ==== Sort ====
+
+void findsmallestLargest(std::vector<std::pair<int, int> > pairsVector, std::vector<int>& smallest, std::vector<int>& largest)
+{
+	for (std::size_t i = 0; i < pairsVector.size(); ++i) 
+	{
+		int firstNb = pairsVector[i].first;
+		int secondNb = pairsVector[i].second;
+		if (pairsVector[i].first > pairsVector[i].second)
+		{
+			largest.push_back(firstNb);
+			smallest.push_back(secondNb);
+		}
+		else
+		{
+			largest.push_back(secondNb);
+			smallest.push_back(firstNb);
+		}	
+	}
+	
+	return ;
+}
