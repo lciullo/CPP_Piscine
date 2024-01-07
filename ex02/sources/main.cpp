@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:36 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/21 01:26:54 by lisa             ###   ########.fr       */
+/*   Updated: 2024/01/06 15:12:48 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,47 @@ int main(int ac, char **av)
 	fillContainer(ac, av, first);
 	if (isSorted(first))
 		return (1);
-	std::cout << "Before : ";
-	printContainer(first);
+	
 	SortingVector(first);
 	return (0);
 }
 
+int	createJacob(int n)
+{
+	int	prev = 1;
+	int	next = 1;
+	int	i;
+	std::vector< int >	v;
+
+	v.push_back(1);
+	while (next < n) {
+		i = next;
+		while (i > prev) {
+			v.push_back(i);
+			i--;
+		}
+		prev = next;
+		next += 2 * i;
+	}
+	i = n;
+	while (i > prev) {
+		v.push_back(i);
+		i--;
+	}
+	return (v.size());
+}
+
+
 std::vector<int> SortingVector(std::vector<int>	first)
 {
-	
+	std::cout << "Before : ";
+	printContainer(first);
 	std::vector<std::pair<int, int> > pairsVector = splitAndPair(first);
+	//int size = createJacob(pairsVector.size());
 	std::vector<int> smallest;
 	std::vector<int> largest;
 	std::vector<int> sortedDigit;
-	findsmallestLargest(pairsVector, smallest, largest);
+	findSmallestLargest(pairsVector, smallest, largest);
 	smallest = mergeSort(smallest);
 	largest = mergeSort(largest);
 	sortedDigit = binarySearchInsertion(largest, smallest);

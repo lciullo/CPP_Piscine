@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:24 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/21 01:21:42 by lisa             ###   ########.fr       */
+/*   Updated: 2024/01/06 14:33:15 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ bool checkEachArg(const char *input)
 
 // ==== Sort ====
 
-void findsmallestLargest(std::vector<std::pair<int, int> > pairsVector, std::vector<int>& smallest, std::vector<int>& largest)
+void findSmallestLargest(std::vector<std::pair<int, int> > pairsVector, std::vector<int>& smallest, std::vector<int>& largest)
 {
 	for (std::size_t i = 0; i < pairsVector.size(); ++i) 
 	{
@@ -78,6 +78,5 @@ void findsmallestLargest(std::vector<std::pair<int, int> > pairsVector, std::vec
 			smallest.push_back(firstNb);
 		}	
 	}
-	
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/21 01:25:58 by lisa             ###   ########.fr       */
+/*   Updated: 2024/01/07 22:06:04 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,51 +114,52 @@ std::vector<std::pair<int, int> > splitAndPair(const T& container)
 
 // 2/ Find the smallest and the largest 
 
-void findsmallestLargest(std::vector<std::pair<int, int> > pairsVector, std::vector<int>& smallest, std::vector<int>& largest);
+void findSmallestLargest(std::vector<std::pair<int, int> > pairsVector, std::vector<int>& smallest, std::vector<int>& largest);
 
 // 3/ Recursive sorting
 
 template< typename T >
-T	merge( T left, T right) 
+T	merge( T smallest, T largest) 
 {
 	T result;
 	size_t i = 0, j = 0;
-	while (i < left.size() && j < right.size()) 
+	while (i < smallest.size() && j < largest.size()) 
 	{
-		if (left[i] < right[j]) {
-			result.push_back(left[i]);
+		if (smallest[i] < largest[j]) 
+		{
+			result.push_back(smallest[i]);
 			++i;
-		} else {
-			result.push_back(right[j]);
+		} else 
+		{
+			result.push_back(largest[j]);
 			++j;
 		}
 	}
-	while (i < left.size())
+	while (i < smallest.size())
 	{
-		result.push_back(left[i]);
+		result.push_back(smallest[i]);
 		++i;
 	}
-	while (j < right.size()) 
+	while (j < largest.size()) 
 	{
-		result.push_back(right[j]);
+		result.push_back(largest[j]);
 		++j;
 	}
+	
 	return (result);
 }
 
 template< typename T >
 T	mergeSort(T vec) 
 {
-	if (vec.size() <= 1) 
-	{
+	if (vec.size() <= 1)                             
 		return (vec);
-	}
 	size_t mid = vec.size() / 2;
-	std::vector<int> left(vec.begin(), vec.begin() + mid);
-	std::vector<int> right(vec.begin() + mid, vec.end());
-	left = mergeSort(left);
-	right = mergeSort(right);
-	return (merge(left, right));
+	std::vector<int> smallest(vec.begin(), vec.begin() + mid);
+	std::vector<int> largest(vec.begin() + mid, vec.end());
+	smallest = mergeSort(smallest);
+	largest = mergeSort(largest);
+	return (merge(smallest, largest));
 }
 
 // 4/ Use binary-search-insertion 
@@ -167,7 +168,6 @@ template <typename T>
 T binarySearchInsertion(const T &smallest, const T &largest)
 {
 	T result = smallest;
-
 	for (typename T::const_iterator it = largest.begin(); it != largest.end(); ++it)
 	{
 		typename T::iterator pos = std::lower_bound(result.begin(), result.end(), *it);
