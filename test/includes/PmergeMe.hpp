@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/08 17:59:53 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/08 14:07:08 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 #include <list>
 #include <vector>
 #include <algorithm>
-#include <cmath>
 
 //======    Parse input           ======
 
@@ -86,12 +85,12 @@ void printContainer(const T& container)
 
 template<typename T1, typename T2>
 void printPairs(const std::vector<std::pair<T1, T2> >& pairsVector) {
-	typename std::vector<std::pair<T1, T2> >::const_iterator it;
-	
-	for (it = pairsVector.begin(); it != pairsVector.end(); ++it) {
-		std::cout << "(" << it->first << ", " << it->second << ") ";
-	}
-	std::cout << std::endl;
+    typename std::vector<std::pair<T1, T2> >::const_iterator it;
+    
+    for (it = pairsVector.begin(); it != pairsVector.end(); ++it) {
+        std::cout << "(" << it->first << ", " << it->second << ") ";
+    }
+    std::cout << std::endl;
 }
 
 //======    Vector sorting  ======
@@ -102,128 +101,92 @@ std::vector<int> SortingVector(std::vector<int>	first);
 //                                 FORD-JOHNSON ALGORITHM                                 
 //==========================================================================================
 
-// Split in pairs
+// 1/ Split in pairs of two the list of digit 
 
-template <typename T, typename P>
-P splitAndPair(T& container) 
+template <typename T>
+std::vector<std::pair<int, int> > splitAndPair(const T& container) 
 {
-	P pairsVector;
-	int len = container.size();
-	int i = 0;
-	if (len % 2 == 0)
-		;
+	std::vector<std::pair<int, int> > pairsVector;
+	size_t nbPairs = container.size();
+
+	if (nbPairs % 2 == 0)
+		nbPairs /=  2;
 	else
-		len = len - 1;
-	while (i < len) 
+		nbPairs = ((nbPairs - 1 ) / 2);
+	for (size_t i = 0; i < nbPairs; i++) 
 	{
-		if (container[i] > container[i + 1])
-			pairsVector.push_back(std::make_pair(container[i], container[i + 1]));
-		else
-			pairsVector.push_back(std::make_pair(container[i + 1], container[i]));
-		i += 2;
+		pairsVector.push_back(std::make_pair(container[i * 2], container[i * 2 + 1]));
 	}
-	if (container.size() % 2 == 1)
+	if (container.size() % 2 != 0)
 		pairsVector.push_back(std::make_pair(container.back(), -1));
 	return (pairsVector);
 }
 
-// Recursively sort largest list in ascending order 
 
-template <typename P>
-void    splitContainer(P& container1, P& container2, P& container3)
+// 2/ Find the smallest and the largest 
+
+void findSmallestLargest(std::vector<std::pair<int, int> > pairsVector, std::vector<int>& smallest, std::vector<int>& largest);
+
+// 3/ Recursive sorting
+
+template< typename T >
+T	merge( T smallest, T largest) 
 {
-	typename    P::iterator it;
-	int                     i = 0;
-	int                     len = container1.size();
-
-	for (it = container1.begin(); it != container1.end(); ++it)
+	T result;
+	size_t i = 0, j = 0;
+	while (i < smallest.size() && j < largest.size()) 
 	{
-		if (i < len / 2)
-			container2.push_back(*it);
-		else
-			container3.push_back(*it);
-		i++;
+		if (smallest[i] < largest[j]) 
+		{
+			result.push_back(smallest[i]);
+			++i;
+		} else 
+		{
+			result.push_back(largest[j]);
+			++j;
+		}
 	}
+	while (i < smallest.size())
+	{
+		result.push_back(smallest[i]);
+		++i;
+	}
+	while (j < largest.size()) 
+	{
+		result.push_back(largest[j]);
+		++j;
+	}
+	
+	return (result);
 }
 
-
-template <typename P>
-P   Merge(P& container)
+template< typename T >
+T	mergeSort(T vec) 
 {
-	P   ret;
-	P   container1;
-	P   container2;
-
-	splitContainer(container, container1, container2);
-	if (!(container1.size() < 2 && container2.size() < 2)) 
-	{
-		container1 = Merge(container1);
-		container2 = Merge(container2);
-	}
-   	std::merge(container1.begin(), container1.end(), container2.begin(), container2.end(), std::back_inserter(ret));
-	return (ret);
+	if (vec.size() <= 1)
+		return (vec);
+	size_t mid = vec.size() / 2;
+	std::vector<int> smallest(vec.begin(), vec.begin() + mid);
+	std::vector<int> largest(vec.begin() + mid, vec.end());
+	smallest = mergeSort(smallest);
+	largest = mergeSort(largest);
+	return (merge(smallest, largest));
 }
 
-// Make a container with the largest and smallest 
-
-template <typename T, typename P>
-void    findSmallestLargest(P& pair, T& largest, T& smallest)
-{
-	typename P::iterator    it;
-
-	for (it = pair.begin(); it != pair.end(); ++it) 
-	{
-		largest.push_back(it->first);
-		smallest.push_back(it->second);
-	}
-	return ;
-}
-// get suite 
-
-int generateSequenceTerm(int n, int prev);
-
+// 4/ Use binary-search-insertion 
 
 template <typename T>
-T sizeOfGroups(T& smallest)
+T binarySearchInsertion(const T &smallest, const T &largest)
 {
-	T res;
-	
-	size_t n = 0;
-	int nb = 2;
-	int prev = 0;
-	size_t check = 0;
-	while (n < smallest.size())
+	T result = smallest;
+	for (typename T::const_iterator it = largest.begin(); it != largest.end(); ++it)
 	{
-		prev = nb;
-		nb = 0;
-		nb = generateSequenceTerm(n, prev);
-		res.push_back(nb);
-		check += nb;
-		n++;
-		if (check >= smallest.size())
-			break ;
+		typename T::iterator pos = std::lower_bound(result.begin(), result.end(), *it);
+		result.insert(pos, *it);
 	}
-	return (res);
-}
-
-template <typename T, typename P>
-T   sortVector(T& first)
-{
-	P contPair;
-	T largest;
-	T smallest;
-	T suite;
-	
-	contPair = splitAndPair< T, P >(first);
-	contPair = Merge< P >(contPair);
-	findSmallestLargest<T, P>(contPair, largest, smallest);
-	largest.insert(largest.begin(), smallest[0]);
-	if (!smallest.empty()) 
-	{
-		smallest.erase(smallest.begin());
-	}
-	suite = sizeOfGroups< T>(smallest);
-	return (first);
+	if (result.front() == -1)
+		result.erase(result.begin());
+	return (result);
 }
 
 #endif 

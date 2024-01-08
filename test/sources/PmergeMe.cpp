@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:24 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/08 17:42:30 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/06 14:33:15 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,24 @@ bool checkEachArg(const char *input)
 	return (true);
 }
 
+// ==== Sort ====
 
-int calculatePowerOfTwo(int n) 
+void findSmallestLargest(std::vector<std::pair<int, int> > pairsVector, std::vector<int>& smallest, std::vector<int>& largest)
 {
-    return (static_cast<int>(std::pow(2, n + 1)));
-}
-
-int generateSequenceTerm(int n, int prev)  
-{
-	int nb = 0;
-	int power = calculatePowerOfTwo(n);
-	if (n == 0) 
-		return (2);
-	nb = power - prev;
-	return (nb);
+	for (std::size_t i = 0; i < pairsVector.size(); ++i) 
+	{
+		int firstNb = pairsVector[i].first;
+		int secondNb = pairsVector[i].second;
+		if (pairsVector[i].first > pairsVector[i].second)
+		{
+			largest.push_back(firstNb);
+			smallest.push_back(secondNb);
+		}
+		else
+		{
+			largest.push_back(secondNb);
+			smallest.push_back(firstNb);
+		}	
+	}
+	return ;
 }
