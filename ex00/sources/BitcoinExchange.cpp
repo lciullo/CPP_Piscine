@@ -5,12 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 11:10:04 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 14:47:44 by lciullo          ###   ########.fr       */
+/*   Created: 2024/01/09 17:35:33 by lciullo           #+#    #+#             */
+/*   Updated: 2024/01/09 17:35:34 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+static bool isBetweenDigit(std::string line);
 
 //======  Constructor / Destructor ======
 
@@ -65,6 +67,21 @@ bool BitcoinExchange::onlyWhitespace(std::string line)
 	return (false);
 }
 
+static bool isBetweenDigit(std::string line)
+{
+	size_t	len = line.size();
+	size_t i = 0;
+	while (i < len)
+	{
+		if (line[i] == '|')
+			break ;
+		i++;
+	}
+	if (isdigit(line[i - 1]) || isdigit(line[i + 1]))
+		return (true);
+	return (false);
+}
+
 void BitcoinExchange::parseInfile(const char *infile)
 {
 	std::string 	line;
@@ -94,8 +111,16 @@ void BitcoinExchange::parseInfile(const char *infile)
 		}
 		if (!onlyWhitespace(date))
 		{
-			value = line.substr(pos + 2, line.size() - 1);
-			parseValue(date, value);
+			if ((line[line.size() - 1] == '|') || isBetweenDigit(line))
+			{
+				value = line.substr(pos + 1, line.size() - 1);
+				parseValue(date, value);
+			}
+			else
+			{
+				value = line.substr(pos + 2, line.size() - 1);
+				parseValue(date, value);
+			}
 		}
 	}
 	file.close();
@@ -132,6 +157,8 @@ bool BitcoinExchange::parseDate(std::string date)
 	iss >> year >> dash >> month >> dash >> day;
 	if (year < 2009 || year > 2024) 
 		return (false);
+	if (year == 2024 && month > JAN)
+		return (false);
 	if (month < JAN || month > DEC) 
 		return (false);
 	if ((month == JAN || month == MARCH || month == MAY || month == JULY \
@@ -151,13 +178,21 @@ bool BitcoinExchange::parseDate(std::string date)
 void	BitcoinExchange::parseValue(std::string date, std::string stringValue)
 {
 	float	value;
+	if (stringValue.size() == 0)
+	{
+		std::cout << RED << "Error: not value found" << RESET << std::endl;
+		return ;
+	}
 	for (size_t i = 0; i < stringValue.size(); i++)
 	{
 		if ((stringValue[i] >= '0' && stringValue[i] <= '9') || (stringValue[i] == '.'))
 			continue ;
 		else
 		{
-			std::cout << RED << "Error: put only digit." << RESET << std::endl;
+			if (stringValue[i] == '-')
+				std::cout << RED << "Error: negative number." << RESET << std::endl;
+			else
+				std::cout << RED << "Error: put only digit." << RESET << std::endl;
 			return ;
 		}
 	}

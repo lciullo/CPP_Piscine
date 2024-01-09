@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 15:25:52 by lciullo          ###   ########.fr       */
+/*   Created: 2024/01/09 17:36:28 by lciullo           #+#    #+#             */
+/*   Updated: 2024/01/09 17:36:31 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void printContainer(const T& container)
 	std::cout << std::endl;
 }
 
-
 template<typename T1, typename T2>
 void printPairs(const std::vector<std::pair<T1, T2> >& pairsVector) {
 	typename std::vector<std::pair<T1, T2> >::const_iterator it;
@@ -116,8 +115,6 @@ void printPairs(const std::vector<std::pair<T1, T2> >& pairsVector) {
 //==========================================================================================
 //                                 FORD-JOHNSON ALGORITHM                                 //
 //==========================================================================================
-
-// Split in pairs
 
 template <typename T, typename P>
 P splitAndPair(T& container) 
@@ -142,7 +139,6 @@ P splitAndPair(T& container)
 	return (pairsVector);
 }
 
-// Recursively sort largest list in ascending order 
 
 template <typename P>
 void    splitContainer(P& container1, P& container2, P& container3)
@@ -179,8 +175,6 @@ P   Merge(P& container)
 	return (ret);
 }
 
-// Make a container with the largest and smallest 
-
 template <typename T, typename P>
 void    getSmallestLargest(P& pair, T& largest, T& smallest)
 {
@@ -193,7 +187,6 @@ void    getSmallestLargest(P& pair, T& largest, T& smallest)
 	}
 	return ;
 }
-// get suite 
 
 int generateSequenceTerm(int n, int prev);
 
@@ -224,6 +217,7 @@ T sizeOfGroups(T& smallest)
 	return (res);
 }
 
+
 template <typename T>
 T getIndexContainer(T& smallest, T& suite)
 {
@@ -246,6 +240,7 @@ T getIndexContainer(T& smallest, T& suite)
 	}
 	return (res);
 }
+
 
 template <typename T>
 void insertSmallestInLargest(const T& smallest, T& largest, T& index) 

@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 11:23:24 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 10:42:31 by lciullo          ###   ########.fr       */
+/*   Created: 2024/01/09 17:36:44 by lciullo           #+#    #+#             */
+/*   Updated: 2024/01/09 17:36:44 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "PmergeMe.hpp"
 
@@ -60,7 +59,7 @@ bool checkEachArg(const char *input)
 }
 
 
-//======    Get suite          ======
+//======    Calculate        ======
 
 
 int calculatePowerOfTwo(int n) 
