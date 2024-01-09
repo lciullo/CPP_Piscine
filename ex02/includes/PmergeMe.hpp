@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 12:37:52 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/09 13:06:25 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,8 @@ T sizeOfGroups(T& smallest)
 template <typename T>
 T getIndexContainer(T& smallest, T& suite)
 {
+	T res;
+	res = smallest;
 	int size = 0;
 	int index = 0;
 	int check = 0;
@@ -223,14 +225,26 @@ T getIndexContainer(T& smallest, T& suite)
 		check = *it;
 		for (size = 0; size < check; size++)
 		{
-			smallest[index + size] = index + suite[i] - size - 1;
+			res[index + size] = index + suite[i] - size - 1;
 		}
 		i++;
 		index += size; 
 	}
-	printContainer(smallest);
-	return (smallest);
+	return (res);
 }
+
+template <typename T>
+void insertSmallestInLargest(const T& smallest, T& largest, T& index) 
+{
+	for (int i = 0; i < static_cast<int>(index.size()); ++i) {
+		if (index[i] < static_cast<int>(largest.size())) 
+		{
+			typename T::iterator it = std::lower_bound(largest.begin(), largest.end(), smallest[i]);
+			largest.insert(it, smallest[i]);
+		}
+	}
+}
+
 
 template <typename T, typename P>
 T   sortVector(T& first)
@@ -239,6 +253,7 @@ T   sortVector(T& first)
 	T largest;
 	T smallest;
 	T suite;
+	T index;
 	
 	contPair = splitAndPair< T, P >(first);
 	contPair = Merge< P >(contPair);
@@ -247,7 +262,9 @@ T   sortVector(T& first)
 	if (!smallest.empty()) 
 		smallest.erase(smallest.begin());
 	suite = sizeOfGroups< T>(smallest);
-	getIndexContainer(smallest, suite);
+	index = getIndexContainer(smallest, suite);
+	insertSmallestInLargest(smallest, largest, index);
+	printContainer(largest);
 	return (first);
 }
 
