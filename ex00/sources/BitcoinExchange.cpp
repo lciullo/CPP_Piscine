@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:10:04 by lciullo           #+#    #+#             */
-/*   Updated: 2023/12/19 14:32:20 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/09 14:47:44 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ bool BitcoinExchange::parseDate(std::string date)
 
 	std::istringstream iss(date);
 	iss >> year >> dash >> month >> dash >> day;
-	if (year < 2009 || year > 2023) 
+	if (year < 2009 || year > 2024) 
 		return (false);
 	if (month < JAN || month > DEC) 
 		return (false);
@@ -151,7 +151,16 @@ bool BitcoinExchange::parseDate(std::string date)
 void	BitcoinExchange::parseValue(std::string date, std::string stringValue)
 {
 	float	value;
-	
+	for (size_t i = 0; i < stringValue.size(); i++)
+	{
+		if ((stringValue[i] >= '0' && stringValue[i] <= '9') || (stringValue[i] == '.'))
+			continue ;
+		else
+		{
+			std::cout << RED << "Error: put only digit." << RESET << std::endl;
+			return ;
+		}
+	}
 	value = strtof(stringValue.c_str(),NULL);
 	if (value < 0)
 	{

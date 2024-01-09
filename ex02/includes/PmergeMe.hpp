@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 13:11:13 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/09 15:25:52 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@
 # define RESET		"\033[0m"
 # define BLACK		"\033[30m"
 # define RED		"\033[31m"
-# define GREEN		"\033[32m"
-# define YELLOW		"\033[33m"
 # define BLUE		"\033[34m"
 # define MAGENTA	"\033[35m"
-# define CYAN		"\033[36m"
-# define WHITE		"\033[37m"
+# define GREEN		"\033[32m"
 
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
@@ -29,11 +26,12 @@
 #include <iostream>
 #include <cstdlib>
 #include <cctype>
-#include <cstdlib> 
-#include <list>
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <deque>
+# include <ctime>
+# include <sys/time.h>
 
 //======    Parse input           ======
 
@@ -42,7 +40,7 @@ bool isValidInput(int ac, char **av);
 bool checkEachArg(const char *input);
 
 template <typename T>
-bool isSorted(const T& container) 
+void isSorted (const T& container) 
 {
 	typename T::const_iterator it = container.begin();
 	typename T::const_iterator next = it;
@@ -50,12 +48,33 @@ bool isSorted(const T& container)
 	while (next != container.end()) 
 	{
 		if (*it > *next) 
-			return (false);
+			return ;
 		it++;
 		next++;
 	}
-	std::cout << RED << "List of digit is already sorted" << RESET << std::endl;
-	return (true);
+	std::cout << RED << "Error: container of digit is already sorted" << RESET << std::endl;
+	throw std::exception();
+	return ;
+}
+
+
+template <typename T>
+void afterSortingCheck(const T& container) 
+{
+	typename T::const_iterator it = container.begin();
+	typename T::const_iterator next = it;
+	next++;
+	while (next != container.end()) 
+	{
+		if (*it > *next) 
+		{
+			std::cout << RED << "Error: container of digit is not sorted" << RESET << std::endl;
+			throw std::exception();
+		}
+		it++;
+		next++;
+	}
+	return ;
 }
 
 //======    Fill container         ======
@@ -94,12 +113,8 @@ void printPairs(const std::vector<std::pair<T1, T2> >& pairsVector) {
 	std::cout << std::endl;
 }
 
-//======    Vector sorting  ======
-
-std::vector<int> SortingVector(std::vector<int>	first);
-
 //==========================================================================================
-//                                 FORD-JOHNSON ALGORITHM                                 
+//                                 FORD-JOHNSON ALGORITHM                                 //
 //==========================================================================================
 
 // Split in pairs
@@ -208,7 +223,6 @@ T sizeOfGroups(T& smallest)
 	}
 	return (res);
 }
-//456 7897 31 34 87 8 678 3 167 1 03 468 86 41 68778 3648 5 68 7 52 778 5559 45 78 348 0 6484
 
 template <typename T>
 T getIndexContainer(T& smallest, T& suite)
@@ -247,7 +261,7 @@ void insertSmallestInLargest(const T& smallest, T& largest, T& index)
 
 
 template <typename T, typename P>
-T   sortVector(T& first)
+T   sort(T& first)
 {
 	P contPair;
 	T largest;
@@ -264,6 +278,8 @@ T   sortVector(T& first)
 	suite = sizeOfGroups< T>(smallest);
 	index = getIndexContainer(smallest, suite);
 	insertSmallestInLargest(smallest, largest, index);
+	if (largest[0] == -1)
+		largest.erase(largest.begin());
 	return (largest);
 }
 
