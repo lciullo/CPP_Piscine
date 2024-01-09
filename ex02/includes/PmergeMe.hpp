@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 13:06:25 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/09 13:11:13 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -264,8 +264,7 @@ T   sortVector(T& first)
 	suite = sizeOfGroups< T>(smallest);
 	index = getIndexContainer(smallest, suite);
 	insertSmallestInLargest(smallest, largest, index);
-	printContainer(largest);
-	return (first);
+	return (largest);
 }
 
 #endif 
