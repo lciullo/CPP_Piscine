@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/08 17:59:53 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/09 11:38:03 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ P   Merge(P& container)
 // Make a container with the largest and smallest 
 
 template <typename T, typename P>
-void    findSmallestLargest(P& pair, T& largest, T& smallest)
+void    getSmallestLargest(P& pair, T& largest, T& smallest)
 {
 	typename P::iterator    it;
 
@@ -186,24 +186,68 @@ int generateSequenceTerm(int n, int prev);
 template <typename T>
 T sizeOfGroups(T& smallest)
 {
-	T res;
+	T		res;
 	
-	size_t n = 0;
-	int nb = 2;
-	int prev = 0;
-	size_t check = 0;
-	while (n < smallest.size())
+	size_t	n = 0;
+	int		nb = 2;
+	int		prev = 0;
+	size_t	check = 0;
+	size_t	len = smallest.size();
+	while (n < len)
 	{
 		prev = nb;
 		nb = 0;
 		nb = generateSequenceTerm(n, prev);
+		while (check + nb > len)
+			nb--;
 		res.push_back(nb);
 		check += nb;
 		n++;
-		if (check >= smallest.size())
+		if (check >= len)
 			break ;
 	}
 	return (res);
+}
+
+/*int *orderIndex = new int[containerSmall.size() + 1];
+	int index = 0;
+	i = 0;
+	while(sizeOfGroups[i] != -1)
+	{
+		// std::cout << sizeOfGroups[i] << std::endl;
+		int j = 0;
+		while(j < sizeOfGroups[i])
+		{
+			orderIndex[index + j] = index + sizeOfGroups[i] - j - 1;
+			j++;
+		}
+		index += sizeOfGroups[i];
+		i++;
+	}
+	orderIndex[index] = -1;
+	std::cout << "ORDER ";
+	printTabInteger(orderIndex);*/
+
+template <typename T>
+T getIndexContainer(T& smallest, T& suite)
+{
+	int size = 0;
+	int index = 0;
+	int check = 0;
+	int i = 0;
+	typename T::iterator it;
+	for (it = suite.begin(); it != suite.end(); it++)
+	{
+		check = *it;
+		for (size = 0; size < check; size++)
+		{
+			smallest[index + size] = index + suite[i] - size - 1;
+		}
+		i++;
+		index += size; 
+	}
+	printContainer(smallest);
+	return (smallest);
 }
 
 template <typename T, typename P>
@@ -216,13 +260,12 @@ T   sortVector(T& first)
 	
 	contPair = splitAndPair< T, P >(first);
 	contPair = Merge< P >(contPair);
-	findSmallestLargest<T, P>(contPair, largest, smallest);
+	getSmallestLargest<T, P>(contPair, largest, smallest);
 	largest.insert(largest.begin(), smallest[0]);
 	if (!smallest.empty()) 
-	{
 		smallest.erase(smallest.begin());
-	}
 	suite = sizeOfGroups< T>(smallest);
+	getIndexContainer(smallest, suite);
 	return (first);
 }
 
