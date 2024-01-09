@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 11:23:15 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 11:38:03 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/09 12:37:52 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,25 +208,7 @@ T sizeOfGroups(T& smallest)
 	}
 	return (res);
 }
-
-/*int *orderIndex = new int[containerSmall.size() + 1];
-	int index = 0;
-	i = 0;
-	while(sizeOfGroups[i] != -1)
-	{
-		// std::cout << sizeOfGroups[i] << std::endl;
-		int j = 0;
-		while(j < sizeOfGroups[i])
-		{
-			orderIndex[index + j] = index + sizeOfGroups[i] - j - 1;
-			j++;
-		}
-		index += sizeOfGroups[i];
-		i++;
-	}
-	orderIndex[index] = -1;
-	std::cout << "ORDER ";
-	printTabInteger(orderIndex);*/
+//456 7897 31 34 87 8 678 3 167 1 03 468 86 41 68778 3648 5 68 7 52 778 5559 45 78 348 0 6484
 
 template <typename T>
 T getIndexContainer(T& smallest, T& suite)

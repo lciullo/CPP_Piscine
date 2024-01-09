@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 13:42:48 by lciullo           #+#    #+#              #
-#    Updated: 2024/01/08 15:28:02 by lciullo          ###   ########.fr        #
+#    Updated: 2024/01/09 12:29:56 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ DEP				=	${patsubst %.cpp, ${DIR_DEP}%.d, ${SRCS}}
 
 FLAGS			=	-Wall -Wextra -Werror -fsanitize=address -g3 -I ${DIR_INC}
 
-CPP				=	c++ -std=c++98 
+CPP				=	c++ -std=c++98
 
 
 
