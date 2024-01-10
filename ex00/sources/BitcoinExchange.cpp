@@ -6,13 +6,11 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:33 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 17:35:34 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 12:56:33 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-static bool isBetweenDigit(std::string line);
 
 //======  Constructor / Destructor ======
 
@@ -36,8 +34,11 @@ BitcoinExchange & BitcoinExchange::operator=(const BitcoinExchange &obj)
 
 //======    Methods                ======
 
+//======    Fill Map               ======
+
 void BitcoinExchange::fillMap(void)
 {
+	float convertValue;
 	std::string line;
 	std::ifstream file("data.csv");
 	if (!file.is_open())
@@ -48,39 +49,17 @@ void BitcoinExchange::fillMap(void)
 	{
 		getline(file, date, ',');
 		getline(file, value, '\n');
-		this->_dataBase[date] = strtof(value.c_str(), NULL);
+		std::istringstream convert(value);
+		if (!convert)
+			throw (invalidConversion());
+		convert >> convertValue;
+		this->_dataBase[date] = convertValue;
 	}
 	file.close();
 	return ;
 }
 
-bool BitcoinExchange::onlyWhitespace(std::string line)
-{
-	size_t count = 0;
-	for (size_t i = 0; i < line.size(); i++)
-    {
-        if (isspace(line[i]))
-            count++;
-    }
-	if (count == line.size())
-		return (true);
-	return (false);
-}
-
-static bool isBetweenDigit(std::string line)
-{
-	size_t	len = line.size();
-	size_t i = 0;
-	while (i < len)
-	{
-		if (line[i] == '|')
-			break ;
-		i++;
-	}
-	if (isdigit(line[i - 1]) || isdigit(line[i + 1]))
-		return (true);
-	return (false);
-}
+//======    Parse infile        ======
 
 void BitcoinExchange::parseInfile(const char *infile)
 {
@@ -127,24 +106,53 @@ void BitcoinExchange::parseInfile(const char *infile)
 	return ;
 }
 
+bool BitcoinExchange::onlyWhitespace(std::string line)
+{
+	size_t count = 0;
+	for (size_t i = 0; i < line.size(); i++)
+	{
+		if (isspace(line[i]))
+			count++;
+	}
+	if (count == line.size())
+		return (true);
+	return (false);
+}
+
+bool BitcoinExchange::isBetweenDigit(std::string line)
+{
+	size_t	len = line.size();
+	size_t i = 0;
+	while (i < len)
+	{
+		if (line[i] == '|')
+			break ;
+		i++;
+	}
+	if (isdigit(line[i - 1]) || isdigit(line[i + 1]))
+		return (true);
+	return (false);
+}
+
 std::string BitcoinExchange::stringTrim(std::string const &str)
 {
 	std::string newString; 
 	size_t start = 0;
-    while (start < str.length() && std::isspace(str[start])) 
+	while (start < str.length() && std::isspace(str[start])) 
 	{
-        start++;
-    }
+		start++;
+	}
 	size_t end = str.length();
-    while (end > 0 && std::isspace(str[end - 1])) 
+	while (end > 0 && std::isspace(str[end - 1])) 
 	{
-        end--;
-    }
+		end--;
+	}
 	newString = str.substr(start, end - start);
 	return (newString);
 }
 
 
+//======    Parse date          ======
 
 bool BitcoinExchange::parseDate(std::string date)
 {	
@@ -152,9 +160,13 @@ bool BitcoinExchange::parseDate(std::string date)
 	int month = 0;
 	int day = 0;
 	char dash;
-
-	std::istringstream iss(date);
-	iss >> year >> dash >> month >> dash >> day;
+	
+	if (!checkDateFornat(date))
+		return (false);
+	std::istringstream string(date);
+	if (!string)
+		throw (invalidConversion());
+	string >> year >> dash >> month >> dash >> day;
 	if (year < 2009 || year > 2024) 
 		return (false);
 	if (year == 2024 && month > JAN)
@@ -174,29 +186,45 @@ bool BitcoinExchange::parseDate(std::string date)
 	return (true);
 }
 
+bool BitcoinExchange::checkDateFornat(std::string date)
+{
+	int i = 0;
+	std::string stringYear;
+	std::string stringMonth;
+	std::string stringDay;
+	std::string token;
+	std::istringstream format(date);
+	if (!format)
+		throw (invalidConversion());
+	while (std::getline(format, token, '-')) 
+	{
+		if (i == 0)
+			stringYear = token;
+		if (i == 1)
+			stringMonth = token;
+		if (i == 2)
+			stringDay = token;	
+		i++;
+	}
+	if ((stringYear.size() != 4) || (stringMonth.size() != 2) || (stringDay.size() != 2))
+		return (false);
+	if (stringYear[0] == '0')
+		return (false);
+	return (true);
+}
+
+//======    Parse value        ======
 
 void	BitcoinExchange::parseValue(std::string date, std::string stringValue)
 {
 	float	value;
-	if (stringValue.size() == 0)
-	{
-		std::cout << RED << "Error: not value found" << RESET << std::endl;
+	
+	if (!checkValueFormat(stringValue))
 		return ;
-	}
-	for (size_t i = 0; i < stringValue.size(); i++)
-	{
-		if ((stringValue[i] >= '0' && stringValue[i] <= '9') || (stringValue[i] == '.'))
-			continue ;
-		else
-		{
-			if (stringValue[i] == '-')
-				std::cout << RED << "Error: negative number." << RESET << std::endl;
-			else
-				std::cout << RED << "Error: put only digit." << RESET << std::endl;
-			return ;
-		}
-	}
-	value = strtof(stringValue.c_str(),NULL);
+	std::istringstream convert(stringValue);
+	if (!convert)
+		throw (invalidConversion());
+	convert >> value;
 	if (value < 0)
 	{
 		std::cout << RED << "Error: negative number." << RESET << std::endl;
@@ -216,4 +244,39 @@ void	BitcoinExchange::parseValue(std::string date, std::string stringValue)
 		std::map<std::string, float>::iterator	it = this->_dataBase.lower_bound(date);
 		std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
 	}
+}
+
+bool BitcoinExchange::checkValueFormat(std::string stringValue)
+{
+	int		point = 0;
+	
+	if (stringValue.size() == 0)
+	{
+		std::cout << RED << "Error: not value found" << RESET << std::endl;
+		return (false);
+	}
+	for (size_t i = 0; i < stringValue.size(); i++)
+	{
+		if ((stringValue[i] >= '0' && stringValue[i] <= '9') || (stringValue[i] == ' '))
+			continue ;
+		if (stringValue[i] == '.')
+		{
+			point++;
+			continue ;
+		}
+		else
+		{
+			if (stringValue[i] == '-')
+				std::cout << RED << "Error: negative number." << RESET << std::endl;
+			else
+				std::cout << RED << "Error: put only digit." << RESET << std::endl;
+			return (false);
+		}
+	}
+	if (point > 1)
+	{
+		std::cout << RED << "Error: " << stringValue <<  " wrong format" << RESET << std::endl;
+		return (false);
+	}
+	return (true);
 }

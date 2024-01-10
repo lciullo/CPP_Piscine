@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:36:28 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 17:36:31 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 09:37:49 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ void    splitContainer(P& container1, P& container2, P& container3)
 
 
 template <typename P>
-P   Merge(P& container)
+P   sortLargest(P& container)
 {
 	P   ret;
 	P   container1;
@@ -168,8 +168,8 @@ P   Merge(P& container)
 	splitContainer(container, container1, container2);
 	if (!(container1.size() < 2 && container2.size() < 2)) 
 	{
-		container1 = Merge(container1);
-		container2 = Merge(container2);
+		container1 = sortLargest(container1);
+		container2 = sortLargest(container2);
 	}
    	std::merge(container1.begin(), container1.end(), container2.begin(), container2.end(), std::back_inserter(ret));
 	return (ret);
@@ -265,7 +265,7 @@ T   sort(T& first)
 	T index;
 	
 	contPair = splitAndPair< T, P >(first);
-	contPair = Merge< P >(contPair);
+	contPair = sortLargest< P >(contPair);
 	getSmallestLargest<T, P>(contPair, largest, smallest);
 	largest.insert(largest.begin(), smallest[0]);
 	if (!smallest.empty()) 

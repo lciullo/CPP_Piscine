@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:25 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 17:35:27 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 12:35:18 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,26 @@ class BitcoinExchange
 								}
 				};
 
+				class invalidConversion : public std::exception
+				{
+					public :
+								const char *	what() const throw() 
+								{
+									return ("Error, conversion failed");
+								}
+				};
+				
 				//======    Methods                ======
 				
 				void fillMap(void);
 				void parseInfile(const char *infile);
+				bool onlyWhitespace(std::string line);
+				bool isBetweenDigit(std::string line);
 				std::string stringTrim(std::string const &str);
 				bool parseDate(std::string date);
+				bool checkDateFornat(std::string date);
 				void parseValue(std::string date, std::string stringValue);
-				bool onlyWhitespace(std::string line);
+				bool checkValueFormat(std::string stringValue);			
 };
 
 #endif 
