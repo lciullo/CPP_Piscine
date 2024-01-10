@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:36:44 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 17:36:44 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 17:37:24 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool isValidInput(int ac, char **av)
 		std::cout << RED << "Error : number of arguments is too less, add at least 2 arguments." << RESET << std::endl;
 		return (false);
 	}  
-	if (ac > 3001)
+	if (ac > 10000)
 	{
 		std::cout << RED << "Error : number of arguments too high, put at up 3000 arguments." << RESET << std::endl;
 		return (false);

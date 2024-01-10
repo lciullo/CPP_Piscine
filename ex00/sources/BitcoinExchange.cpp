@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:33 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/10 17:29:57 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 18:23:33 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ void BitcoinExchange::parseInfile(const char *infile)
 		date = line.substr(0, pos);
 		date = stringTrim(date);
 		if (date == "date")
+		{
 			continue ;
+		}
 		if (!parseDate(date) && !onlyWhitespace(date))
 		{
 			std::cout << RED << "Error: invalid date " << date << RESET << std::endl;
@@ -105,6 +107,9 @@ void BitcoinExchange::parseInfile(const char *infile)
 	file.close();
 	return ;
 }
+
+
+
 
 bool BitcoinExchange::onlyWhitespace(std::string line)
 {
@@ -242,6 +247,7 @@ void	BitcoinExchange::parseValue(std::string date, std::string stringValue)
 	else 
 	{
 		std::map<std::string, float>::iterator	it = this->_dataBase.lower_bound(date);
+		it--;
 		std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
 	}
 }

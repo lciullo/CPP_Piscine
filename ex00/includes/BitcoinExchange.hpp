@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:25 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/10 12:35:18 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 18:16:36 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ class BitcoinExchange
 				bool parseDate(std::string date);
 				bool checkDateFornat(std::string date);
 				void parseValue(std::string date, std::string stringValue);
-				bool checkValueFormat(std::string stringValue);			
+				bool checkValueFormat(std::string stringValue);		
 };
 
 #endif 
