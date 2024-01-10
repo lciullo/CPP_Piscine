@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:33 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/10 12:56:33 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 17:29:57 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,6 +250,16 @@ bool BitcoinExchange::checkValueFormat(std::string stringValue)
 {
 	int		point = 0;
 	
+	if (stringValue.empty())
+	{
+		std::cout << RED << "Error: not value found" << RESET << std::endl;
+		return (false);
+	}
+	if ((stringValue[0] == '.') || (stringValue[stringValue.size() - 1] == '.'))
+	{
+		std::cout << RED << "Error: " << stringValue <<  " wrong format value" << RESET << std::endl;
+		return (false);
+	}
 	if (stringValue.size() == 0)
 	{
 		std::cout << RED << "Error: not value found" << RESET << std::endl;

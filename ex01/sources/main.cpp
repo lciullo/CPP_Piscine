@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:56 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 17:35:58 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 17:32:38 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int main(int ac, char **av)
 	{
 		std::cout << RED << "Error, wrong number of aguments" << RESET << std::endl;
 		std::cout << GREEN << "Please add only one argument" << RESET << std::endl;
+		return (1);
+	}
+	if (av[1][0] == '\0')
+	{
+		std::cout << RED << "Error, don't put empty argument" << RESET << std::endl;
 		return (1);
 	}
 	try 

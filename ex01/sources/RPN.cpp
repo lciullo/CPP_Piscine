@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:36:03 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 17:36:04 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 17:34:55 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void calculateExpression(std::string expression)
 		}
 	}
 	if (expressionStack.size() > 1)
-		throw(std::runtime_error("Error size > 1"));
+		throw(std::runtime_error("Error: too low operator"));
 	std::cout << expressionStack.top() << std::endl;
 	return ;
 }
@@ -43,7 +43,7 @@ int		getRes(std::stack<double> &expressionStack, char op)
 	double res = 0;
 
 	if (expressionStack.size() < 2)
-		throw(std::runtime_error("Error: size < 2"));
+		throw(std::runtime_error("Error: too much operator"));
 	nb1 = expressionStack.top();
 	expressionStack.pop();
 	nb2 = expressionStack.top();
@@ -81,9 +81,9 @@ void	calculate(double nb1, double nb2, double *res, char op)
 		}
 		case '/':
 		 {
-			if (nb2 == 0)
-				throw(std::runtime_error("Error: no division by 0"));
 			if (nb1 == 0)
+				throw(std::runtime_error("Error: no division by 0"));
+			if (nb2 == 0)
 				return ;
 			*res = nb2 / nb1;
 			if (*res < INT_MIN || *res > INT_MAX)
