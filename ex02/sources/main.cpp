@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:36:36 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 17:36:37 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 23:02:06 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,12 @@ int main(int ac, char **av)
 	if (ac < 2) 
 	{
 		std::cout << RED << "Not enought parameters" << RESET << std::endl;
-		return (-1);
+		return (1);
+	}
+	if (av[1][0] == '\0')
+	{
+		std::cout << RED << "Error, don't put empty argument" << RESET << std::endl;
+		return (1);
 	}
 	sortVector(ac, av);
 	std::cout << GREEN << "===========================================" << RESET << std::endl;

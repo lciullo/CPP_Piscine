@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:36:03 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/10 17:34:55 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/10 22:59:57 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void calculateExpression(std::string expression)
 		}
 	}
 	if (expressionStack.size() > 1)
-		throw(std::runtime_error("Error: too low operator"));
+		throw(std::runtime_error("Error: too less operator"));
 	std::cout << expressionStack.top() << std::endl;
 	return ;
 }
@@ -43,7 +43,7 @@ int		getRes(std::stack<double> &expressionStack, char op)
 	double res = 0;
 
 	if (expressionStack.size() < 2)
-		throw(std::runtime_error("Error: too much operator"));
+		throw(std::runtime_error("Error: too many operator"));
 	nb1 = expressionStack.top();
 	expressionStack.pop();
 	nb2 = expressionStack.top();
