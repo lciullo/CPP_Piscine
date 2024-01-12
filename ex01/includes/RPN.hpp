@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:51 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/09 17:35:52 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/12 13:19:08 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int	 getRes(std::stack<double> &expressionStack, char op);
 bool parseDigit(std::string token, char digit, std::stack<double> &expressionStack);
 
 void	calculate(double nb1, double nb2, double *res, char op);
+
+bool onlyWhitespace(std::string expression);
 
 #endif 

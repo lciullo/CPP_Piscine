@@ -6,7 +6,7 @@
 /*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:33 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/10 18:23:33 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/12 13:17:50 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,6 @@ void BitcoinExchange::parseInfile(const char *infile)
 	file.close();
 	return ;
 }
-
-
-
 
 bool BitcoinExchange::onlyWhitespace(std::string line)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:36:03 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/10 22:59:57 by lisa             ###   ########.fr       */
+/*   Updated: 2024/01/12 13:19:52 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void calculateExpression(std::string expression)
 {
+	if (onlyWhitespace(expression))
+		throw(std::runtime_error("Error: this is empty argument"));
 	std::stack<double> expressionStack;
 	std::istringstream iss(expression);
+	if (iss.fail())
+		throw(std::runtime_error("Error: conversion issue"));
 	std::string token;
 	while (getline(iss, token, ' '))
 	{
@@ -34,6 +38,19 @@ void calculateExpression(std::string expression)
 		throw(std::runtime_error("Error: too less operator"));
 	std::cout << expressionStack.top() << std::endl;
 	return ;
+}
+
+bool onlyWhitespace(std::string expression)
+{
+	size_t count = 0;
+	for (size_t i = 0; i < expression.size(); i++)
+	{
+		if (isspace(expression[i]))
+			count++;
+	}
+	if (count == expression.size())
+		return (true);
+	return (false);
 }
 
 int		getRes(std::stack<double> &expressionStack, char op) 
