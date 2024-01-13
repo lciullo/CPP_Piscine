@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:35:33 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/12 13:17:50 by lciullo          ###   ########.fr       */
+/*   Updated: 2024/01/13 17:48:36 by lisa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ bool BitcoinExchange::parseDate(std::string date)
 		return (false);
 	if ((year == 2012 || year == 2016 || year == 2020) && month == FEB && (day <= 0 || day > 29)) 
 		return (false);
-	else if (month == FEB && (day <= 0 || day > 28)) 
+	else if ((year != 2012 && year != 2016 && year != 2020) && month == FEB && (day <= 0 || day > 28)) 
 		return (false);
 	return (true);
 }
