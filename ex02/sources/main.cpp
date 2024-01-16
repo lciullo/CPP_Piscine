@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:36:36 by lciullo           #+#    #+#             */
-/*   Updated: 2024/01/10 23:02:06 by lisa             ###   ########.fr       */
+/*   Updated: 2024/01/16 10:02:47 by lciullo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void sortVector (int ac, char **av)
 		return ;
 	}
 	finish = clock();
-	timeDiff = ((double) (finish - start)) / CLOCKS_PER_SEC;
+	timeDiff = (static_cast<double>(finish - start)) / CLOCKS_PER_SEC;
 	try 
 	{
 		afterSortingCheck(sorted);
@@ -92,7 +92,7 @@ static void sortDeque(int ac, char **av)
 		return ;
 	}
 	finish = clock();
-	timeDiff = ((double) (finish - start)) / CLOCKS_PER_SEC;
+	timeDiff = (static_cast<double>(finish - start)) / CLOCKS_PER_SEC;
 	try 
 	{
 		afterSortingCheck(sorted);

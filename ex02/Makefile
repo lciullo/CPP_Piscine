@@ -6,7 +6,7 @@
 #    By: lciullo <lciullo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 17:36:49 by lciullo           #+#    #+#              #
-#    Updated: 2024/01/12 13:31:35 by lciullo          ###   ########.fr        #
+#    Updated: 2024/01/16 10:21:42 by lciullo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,9 @@ SRCS			=	${DIR_SRCS}main.cpp \
 					
 				
 
-INC				=	${DIR_INC}PmergeMe.hpp
+INC				=	${DIR_INC}PmergeMe.hpp \
+					${DIR_INC}Algorithm.tpp \
+					${DIR_INC}Utils.tpp 
 				
 # --- Paths ---
 
