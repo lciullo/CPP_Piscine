@@ -1,0 +1,56 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lisa <lisa@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/02 11:57:43 by lciullo           #+#    #+#              #
+#    Updated: 2023/11/04 21:28:28 by lisa             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# ====================== VARIABLES ====================== #
+
+NAME		=	brain
+
+RM			=	rm -rf
+
+# --- Directories ---
+
+DIR_SRCS	=	sources/
+
+DIR_OBJS	=	.objs/
+
+# ====================== PATHS ====================== #
+
+SRCS		=	${DIR_SRCS}main.cpp 
+
+OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
+
+# ====================== FLAGS ====================== #
+
+CPP			=	c++ -std=c++98
+
+CFLAGS		=	-Wall -Wextra -Werror -g3
+
+# ====================== RULES ====================== #
+
+all :	 		${NAME}
+
+${DIR_OBJS}%.o: %.cpp
+				@mkdir -p ${shell dirname $@}
+				${CPP} ${CFLAGS} -c $< -o $@
+
+${NAME}:		${OBJS}
+				${CPP} ${CFLAGS} ${OBJS} -o ${NAME}
+
+clean:
+				${RM} ${OBJS} ${DIR_OBJS}
+
+fclean:			clean
+				${RM} ${NAME}
+
+re:				fclean all
+
+.PHONY :		all clean fclean re
