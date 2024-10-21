@@ -113,24 +113,6 @@ make
 * Practice code organization and documentation
 * Understand STL and its applications
 
-### Fundamentals (Modules 00-02)
-* Transition from C to C++
-* Object-oriented basics
-* Memory management
-* Operator overloading
-
-### Advanced Concepts (Modules 03-05)
-* Class inheritance hierarchies
-* Polymorphism implementation
-* Exception handling patterns
-* Virtual functions
-
-### Modern C++ Features (Modules 06-09)
-* Type casting mechanisms
-* Template programming
-* STL mastery
-* Custom implementations
-
 ## 🧠 Learning Outcomes
 
 This project provides experience in:
@@ -152,3 +134,6 @@ This project is part of the 42 school curriculum.
 * 42 School
 * C++ Reference Documentation
 * STL Documentation
+
+  ## 🤝 Contributor
+- **Lisa Ciullo** - [@lciullo](https://github.com/lciullo)
